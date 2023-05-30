@@ -1,0 +1,14 @@
+.login{
+  box-shadow: 0 0 10px 0 rgba(0,0,0,0.2);
+  background: url('https://static.globalnoticias.pt/oj/image.jpg?brand=OJOGO&type=generate&guid=bfdc0c40-10af-4d95-aa98-b1526b66cf81') no-repeat center center fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.mensagem__erro {
+  font-size: 12px;
+  margin-left: 5px;
+  color: red;
+  /* margin-top: -25px;
+  margin-bottom: 20px; */
+}

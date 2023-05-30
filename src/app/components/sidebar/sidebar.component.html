@@ -1,0 +1,54 @@
+<div id="default-sidebar" class="flex h-screen" aria-label="Sidebar">
+  <div class="h-full px-3 py-4 overflow-y-auto bg-black">
+     <ul class="space-y-2 font-medium">
+        <li>
+          <a routerLink="/home" routerLinkActive="active" class="flex items-center p-2 text-white rounded-lg hover:bg-green-400">
+              <mat-icon mat-icon>home</mat-icon>
+            <span class="ml-3">Home</span>
+          </a>
+        </li>
+        <li>
+          <a routerLink="/profile" routerLinkActive="active" class="flex items-center p-2 text-white rounded-lg hover:bg-green-400">
+            <mat-icon>account_circle</mat-icon>
+            <span class="ml-3">Meu perfil</span>
+          </a>
+        </li>
+        <li>
+           <a routerLink="/user" *ngIf="role == 'ADM'" routerLinkActive="active" class="flex items-center p-2 text-white rounded-lg hover:bg-green-400">
+              <mat-icon class="white-icon">person</mat-icon>
+              <span class="ml-3">Usuários</span>
+           </a>
+        </li>
+        <li>
+           <a routerLink="/time" routerLinkActive="active" class="flex items-center p-2 text-white rounded-lg hover:bg-green-400">
+              <mat-icon class='white-icon'>people</mat-icon>
+              <span class="flex-1 ml-3 whitespace-nowrap">Times</span>
+           </a>
+        </li>
+        <li>
+           <a  routerLink="/campeonato" routerLinkActive="active" class="flex items-center p-2 text-white rounded-lg hover:bg-green-400">
+              <mat-icon class='white-icon' >sports_soccer</mat-icon>
+              <span class="flex-1 ml-3 whitespace-nowrap">Campeonatos</span>
+           </a>
+        </li>
+        <li>
+           <a routerLink="/jogador" routerLinkActive="active" class="flex items-center p-2 text-white rounded-lg hover:bg-green-400">
+            <mat-icon class='white-icon' >sports_handball</mat-icon>
+              <span class="flex-1 ml-3 whitespace-nowrap">Jogadores</span>
+           </a>
+        </li>
+        <li>
+           <a routerLink="/timecampeonato" routerLinkActive="active" class="flex items-center p-2 text-white rounded-lg hover:bg-green-400">
+            <mat-icon class='white-icon' >sports_score</mat-icon>
+              <span class="flex-1 ml-3 whitespace-nowrap">Partidas</span>
+           </a>
+        </li>
+        <li>
+          <a routerLink="/jogos" routerLinkActive="active" class="flex items-center p-2 text-white rounded-lg hover:bg-green-400">
+            <mat-icon>calendar_today</mat-icon>
+            <span class="flex-1 ml-3 whitespace-nowrap">Jogos</span>
+          </a>
+       </li>
+     </ul>
+  </div>
+</div>
