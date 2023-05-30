@@ -36,8 +36,6 @@ import { LoginServiceService } from './service/login-service.service';
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent,
-    RegisterComponent,
     HomeComponent,
     NavbarComponent,
     SidebarComponent,
@@ -53,6 +51,7 @@ import { LoginServiceService } from './service/login-service.service';
     BrowserModule,
     BrowserAnimationsModule,
     MatSlideToggleModule,
+    MatFormFieldModule,
     FormsModule,
     ReactiveFormsModule,
     CommonModule,

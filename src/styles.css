@@ -4,3 +4,25 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.bg-default{
+  background-color: #22282C;
+}
+
+.bg-button-green{
+  background-color: #45FF79;
+  color: black;
+}
+
+.text-color-primary{
+  color: #45FF79
+}
+
+.title-login{
+  color: #FFFFFF;
+  font-family: 'Gafata', sans-serif;
+}
+
+.input-form-login{
+  width: 70%;
+}

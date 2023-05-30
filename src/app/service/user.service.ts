@@ -10,29 +10,29 @@ export class UserService {
   constructor(private http: HttpClient) {}
 
   getById(id: number) {
-    return this.http.get(`${environment.api}/users/` + id);
+    return this.http.get(`${environment.api}/user/` + id);
   }
 
   create(user: User) {
-    return this.http.post(`${environment.api}/users`, user);
+    return this.http.post(`${environment.api}/user`, user);
   }
 
   getAll() {
-    return this.http.get(`${environment.api}/users`);
+    return this.http.get(`${environment.api}/user`);
   }
 
   edit(user: User, id: number) {
 
-    return this.http.put(`${environment.api}/users/${id}`, user);
+    return this.http.put(`${environment.api}/user/${id}`, user);
   }
 
   ativar(user: User, id: number) {
-    return this.http.put(`${environment.api}/users/ativar/${id}`, user);
+    return this.http.put(`${environment.api}/user/ativar/${id}`, user);
   }
 
   delete(id: number) {
 
-    return this.http.delete(`${environment.api}/users/${id}`);
+    return this.http.delete(`${environment.api}/user/${id}`);
   }
 
 }

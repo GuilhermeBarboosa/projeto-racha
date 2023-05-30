@@ -33,6 +33,7 @@ export class EditUserComponent implements OnInit {
           nome: [userResponse.nome, Validators.required],
           email: [userResponse.email, Validators.required],
           senha: [userResponse.senha, Validators.required],
+          telefone: [userResponse.telefone, Validators.required],
           idade: [userResponse.idade, Validators.required],
           role: [userResponse.role, Validators.required]
         })
@@ -50,6 +51,7 @@ export class EditUserComponent implements OnInit {
       userDTO = {
         nome: this.formulario.get('nome')?.value,
         email: this.formulario.get('email')?.value,
+        telefone: this.formulario.get('telefone')?.value,
         senha: this.formulario.get('senha')?.value,
         idade: this.formulario.get('idade')?.value,
         role: this.formulario.get('role')?.value

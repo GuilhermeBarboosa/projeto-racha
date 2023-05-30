@@ -13,12 +13,11 @@ import { NgModule } from '@angular/core';
 
 export const routes: Routes = [
   {
-    path: 'login',
-    component: LoginComponent,
-  },
-  {
-    path: 'register',
-    component: RegisterComponent,
+    path: 'authentication',
+    loadChildren: () =>
+      import('./modules/authentication/authentication.module').then(
+        (m) => m.AuthenticationModule
+      ),
   },
   {
     path: 'home',
@@ -51,7 +50,7 @@ export const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'login',
+    redirectTo: 'authentication/login',
     pathMatch: 'full',
   },
 ];
