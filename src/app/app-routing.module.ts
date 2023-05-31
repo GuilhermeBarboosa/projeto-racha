@@ -22,12 +22,12 @@ export const routes: Routes = [
   {
     path: 'home',
     component: HomeComponent,
-    canActivate: [LoginGuardService]
+    // canActivate: [LoginGuardService]
   },
   {
     path: 'user',
     component: UserTableComponent,
-    canActivate: [AuthGuardService, LoginGuardService],
+    // canActivate: [AuthGuardService, LoginGuardService],
     data: {
       role: 'ADM',
     },
@@ -35,7 +35,7 @@ export const routes: Routes = [
   {
     path: 'user/register',
     component: CreateUserComponent,
-    canActivate: [AuthGuardService, LoginGuardService],
+    // canActivate: [AuthGuardService, LoginGuardService],
     data: {
       role: 'ADM',
     },
@@ -43,16 +43,21 @@ export const routes: Routes = [
   {
     path: 'user/edit/:id',
     component: EditUserComponent,
-    canActivate: [AuthGuardService, LoginGuardService],
+    // canActivate: [AuthGuardService, LoginGuardService],
     data: {
       role: 'ADM',
     },
   },
+  // {
+  //   path: '',
+  //   redirectTo: 'authentication/login',
+  //   pathMatch: 'full',
+  // },
   {
-    path: '',
-    redirectTo: 'authentication/login',
-    pathMatch: 'full',
-  },
+      path: '',
+      redirectTo: 'home',
+      pathMatch: 'full',
+  }
 ];
 
 @NgModule({

@@ -26,3 +26,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .input-form-login{
   width: 70%;
 }
+
+.sidebar, .navbar{
+  background-color: #22282C;
+}
