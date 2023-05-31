@@ -66,9 +66,13 @@ export class RegisterComponent implements OnInit {
         this.userService.create(this.user).subscribe(
           (data) => {
             this.notifier.ShowSuccess('Usuário cadastrado com sucesso!');
+
+            localStorage.setItem('email', userDTO.email);
+
             this.router.navigateByUrl('/authentication/login');
           },
           (error) => {
+            console.log(error);
             this.notifier.ShowError(error.error);
           }
         );

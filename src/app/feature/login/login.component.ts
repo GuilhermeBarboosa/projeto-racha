@@ -24,13 +24,17 @@ export class LoginComponent implements OnInit {
   loginForm!: FormGroup;
 
   ngOnInit() {
+    this.loginForm = this.formBuilder.group({
+      email: ['', Validators.required],
+      senha: ['', Validators.required]
+    })
+
+    if(localStorage.getItem('email') != null){
+      this.loginForm.get('email')?.setValue(localStorage.getItem('email'));
+      localStorage.removeItem('email');
+    }
 
     this.verifytokenService.verifyJWT();
-
-    this.loginForm = this.formBuilder.group({
-      email: ['gui@gmail.com', Validators.required],
-      senha: ['gui', Validators.required]
-    })
   }
 
   login() {

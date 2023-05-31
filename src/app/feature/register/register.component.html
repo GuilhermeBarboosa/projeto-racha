@@ -85,13 +85,11 @@
             <div class="">
               <label for="idade" class="block text-md font-medium text-white">Idade</label>
               <input formControlName="idade" type="number" name="idade" id="idade" class="bg-white text-black sm:text-sm rounded-lg focus:ring-green-300 focus:border-green-300 block w-full p-2.5"  required="">
-              <p *ngIf="formulario.get('idade')?.errors && formulario.get('idade')?.touched" class="text-red-500 my-0">Idade obrigatório</p>
             </div>
 
             <div class="">
               <label for="telefone" class="block text-md font-medium text-white">Telefone</label>
               <input formControlName="telefone" type="text" name="telefone" id="telefone" class="bg-white text-black sm:text-sm rounded-lg focus:ring-green-300 focus:border-green-300 block w-full p-2.5"  required="">
-              <p *ngIf="formulario.get('telefone')?.errors && formulario.get('telefone')?.touched" class="text-red-500 my-0">Telefone obrigatório</p>
             </div>
 
             <div class="">
@@ -109,7 +107,6 @@
             <div class="">
               <label for="senhaSecundaria" class="block text-md font-medium text-white">Repita a senha</label>
               <input formControlName="senhaSecundaria" type="password" name="senhaSecundaria" id="senhaSecundaria" class="bg-white text-black sm:text-sm rounded-lg focus:ring-green-300 focus:border-green-300 block w-full p-2.5" required="">
-              <p *ngIf="formulario.get('senhaSecundaria')?.errors && formulario.get('senhaSecundaria')?.touched" class="text-red-500 my-0">Senha obrigatório</p>
             </div>
 
             <div class="block ">
