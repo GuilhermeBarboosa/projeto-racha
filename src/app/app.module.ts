@@ -32,6 +32,7 @@ import { ButtonEditarComponent } from './components/button-editar/button-editar.
 import { ButtonRegistrarComponent } from './components/button-registrar/button-registrar.component';
 import { NgModule } from '@angular/core';
 import { LoginServiceService } from './service/login-service.service';
+import { ButtonInfoComponent } from './components/button-info/button-info.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +44,7 @@ import { LoginServiceService } from './service/login-service.service';
     CreateUserComponent,
     EditUserComponent,
     ButtonAdicionarComponent,
+    ButtonInfoComponent,
     ButtonExcluirComponent,
     ButtonEditarComponent,
     ButtonRegistrarComponent,

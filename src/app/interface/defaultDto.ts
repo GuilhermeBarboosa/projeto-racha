@@ -1,5 +1,5 @@
 export class DefaultDto{
-  actived?: boolean | undefined;
+  actived?: string | undefined;
   updated? : string | undefined;
   created? : string | undefined;
 }

@@ -19,29 +19,55 @@ export class UserTableComponent implements OnInit  {
     'id',
     'nome',
     'email',
-    'idade',
     'role',
     'status',
-    'editar',
-    'ativar',
+    'info',
+    'excluir',
   ];
 
   constructor(
     private userService: UserService,
     public dialog: MatDialog,
     private router: Router,
-    private notifier: NotifierService
+    private notifier: NotifierService,
   ) {}
 
   ngOnInit() {
     this.userService.getAll().subscribe((data) => {
       var usersResponse = JSON.parse(JSON.stringify(data));
       this.users = usersResponse;
+      console.log(this.users)
+
+      this.users.map((user) => {
+        console.log(user.actived)
+        if (user.actived) {
+          user.actived = 'Ativo';
+        } else {
+          user.actived = 'Inativo';
+        }
+        }
+      );
+
     });
   }
 
-  update(user: any) {
-    this.router.navigateByUrl(`user/edit/${user.id}`);
+  info(user: User) {
+    // this.router.navigateByUrl(`user/edit/${user.id}`);
+    console.log(user);
+  }
+
+  excluir(user: any) {
+    // this.router.navigateByUrl(`user/edit/${user.id}`);
+    this.userService.delete(user.id).subscribe(
+      (data) => {
+        this.notifier.ShowSuccess('Usuário excluído com sucesso!');
+        window.location.reload();
+      },
+      (error) => {
+        this.notifier.ShowError('Erro ao excluir usuário!');
+      }
+    );
+
   }
 
   ativar(user: any) {
