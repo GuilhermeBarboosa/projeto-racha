@@ -1,9 +1,13 @@
+import { FormatterDateService } from './../../../shared/formatter-date.service';
+import { Jogador } from './../../../interface/jogador';
+import { JogadorService } from './../../../service/jogador.service';
 import { NotifierService } from 'src/app/shared/notifier.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { UserService } from './../../../service/user.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { User } from 'src/app/interface/user';
+import { disableDebugTools } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-edit-user',
@@ -13,31 +17,52 @@ import { User } from 'src/app/interface/user';
 export class EditUserComponent implements OnInit {
 
   formulario!: FormGroup;
+  jogador?: Jogador;
+  isDisabled = true;
   id = this.activedRouter.snapshot.params['id'];
 
   constructor(private activedRouter: ActivatedRoute,
               private userService: UserService,
+              private jogadorService: JogadorService,
               private router: Router,
+              private formatterDateService: FormatterDateService,
               private formBuilder: FormBuilder,
               private notifier: NotifierService) { }
 
 
-  ngOnInit() {
-
-    this.userService.getById(this.id).subscribe(
+  async ngOnInit() {
+    (await this.jogadorService.getByUser(this.id)).subscribe(
       (data) => {
+        var jogadorResponse = JSON.parse(JSON.stringify(data));
+        this.jogador = jogadorResponse;
+        console.log(this.jogador)
+      }
+    );
 
+
+    (await this.userService.getById(this.id)).subscribe(
+      (data) => {
         var userResponse = JSON.parse(JSON.stringify(data));
 
+        if( this.jogador?.posicao != null){
+          userResponse.posicao = this.jogador?.posicao;
+        }
+
+        userResponse.created = this.formatterDateService.formatarData(userResponse.created);
+        userResponse.updated = this.formatterDateService.formatarData(userResponse.updated);
+
         this.formulario = this.formBuilder.group({
-          nome: [userResponse.nome, Validators.required],
-          email: [userResponse.email, Validators.required],
-          senha: [userResponse.senha, Validators.required],
-          telefone: [userResponse.telefone, Validators.required],
-          idade: [userResponse.idade, Validators.required],
-          role: [userResponse.role, Validators.required]
+          id: [{ value: userResponse.id, disabled: this.isDisabled}],
+          nome: [{value: userResponse.nome, disabled: this.isDisabled} , Validators.required],
+          email: [{ value: userResponse.email, disabled: this.isDisabled}, Validators.required],
+          jogador: [{ value: 'userResponse.posicao.posicao', disabled: this.isDisabled}, Validators.required],
+          telefone: [{ value: userResponse.telefone, disabled: this.isDisabled}, Validators.required],
+          created: [{ value: userResponse.created, disabled: this.isDisabled}, Validators.required],
+          updated: [{ value: userResponse.updated, disabled: this.isDisabled}, Validators.required]
         })
       }
+
+
     );
 
 

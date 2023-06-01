@@ -54,12 +54,11 @@ export class UserTableComponent implements OnInit  {
   }
 
   info(user: User) {
-    // this.router.navigateByUrl(`user/edit/${user.id}`);
-    console.log(user);
+    this.router.navigateByUrl(`user/edit/${user.id}`);
   }
 
-  ativar(user: any) {
-    this.userService.getById(user.id).subscribe(
+  async ativar(user: any) {
+    (await this.userService.getById(user.id)).subscribe(
       (data) => {
         var userResponse = JSON.parse(JSON.stringify(data));
         user = userResponse;

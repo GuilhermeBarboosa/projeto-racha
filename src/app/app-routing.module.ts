@@ -28,25 +28,16 @@ export const routes: Routes = [
     path: 'user',
     component: UserTableComponent,
     // canActivate: [AuthGuardService, LoginGuardService],
-    data: {
-      role: 'ADM',
-    },
   },
   {
     path: 'user/register',
     component: CreateUserComponent,
     // canActivate: [AuthGuardService, LoginGuardService],
-    data: {
-      role: 'ADM',
-    },
   },
   {
     path: 'user/edit/:id',
     component: EditUserComponent,
     // canActivate: [AuthGuardService, LoginGuardService],
-    data: {
-      role: 'ADM',
-    },
   },
   // {
   //   path: '',

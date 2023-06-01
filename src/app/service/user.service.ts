@@ -9,7 +9,7 @@ import { User } from '../interface/user';
 export class UserService {
   constructor(private http: HttpClient) {}
 
-  getById(id: number) {
+  async getById(id: number) {
     return this.http.get(`${environment.api}/user/` + id);
   }
 
