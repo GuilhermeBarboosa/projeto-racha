@@ -52,7 +52,8 @@
         <ng-container matColumnDef="excluir">
           <th mat-header-cell *matHeaderCellDef> </th>
           <td mat-cell *matCellDef="let user">
-            <app-button-excluir (click)="excluir(user)" value="{{user.id}}"></app-button-excluir>
+            <!-- <app-button-excluir (click)="excluir(user)" value="{{user.id}}"></app-button-excluir> -->
+            <app-button-excluir mat-raised-button (click)="openDialog(user)">Pick one</app-button-excluir>
           </td>
         </ng-container>
 

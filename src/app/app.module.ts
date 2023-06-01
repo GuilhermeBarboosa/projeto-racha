@@ -33,6 +33,9 @@ import { ButtonRegistrarComponent } from './components/button-registrar/button-r
 import { NgModule } from '@angular/core';
 import { LoginServiceService } from './service/login-service.service';
 import { ButtonInfoComponent } from './components/button-info/button-info.component';
+import { DialogComponent } from './components/dialog/dialog.component';
+import { ButtonNaoComponent } from './components/button-nao/button-nao.component';
+import { ButtonSimComponent } from './components/button-sim/button-sim.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +45,10 @@ import { ButtonInfoComponent } from './components/button-info/button-info.compon
     SidebarComponent,
     UserTableComponent,
     CreateUserComponent,
+    DialogComponent,
     EditUserComponent,
+    ButtonNaoComponent,
+    ButtonSimComponent,
     ButtonAdicionarComponent,
     ButtonInfoComponent,
     ButtonExcluirComponent,

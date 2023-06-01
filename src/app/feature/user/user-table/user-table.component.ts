@@ -7,6 +7,7 @@ import { User } from 'src/app/interface/user';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { NotifierService } from 'src/app/shared/notifier.service';
+import { DialogComponent } from 'src/app/components/dialog/dialog.component';
 
 @Component({
   selector: 'app-user-table',
@@ -15,6 +16,7 @@ import { NotifierService } from 'src/app/shared/notifier.service';
 })
 export class UserTableComponent implements OnInit  {
   users: User[] = [];
+  value?: String;
   displayedColumns: string[] = [
     'id',
     'nome',
@@ -56,26 +58,11 @@ export class UserTableComponent implements OnInit  {
     console.log(user);
   }
 
-  excluir(user: any) {
-    // this.router.navigateByUrl(`user/edit/${user.id}`);
-    this.userService.delete(user.id).subscribe(
-      (data) => {
-        this.notifier.ShowSuccess('Usuário excluído com sucesso!');
-        window.location.reload();
-      },
-      (error) => {
-        this.notifier.ShowError('Erro ao excluir usuário!');
-      }
-    );
-
-  }
-
   ativar(user: any) {
     this.userService.getById(user.id).subscribe(
       (data) => {
         var userResponse = JSON.parse(JSON.stringify(data));
         user = userResponse;
-
       }
     );
 
@@ -88,4 +75,24 @@ export class UserTableComponent implements OnInit  {
     window.location.reload();
   }
 
+  openDialog(user: any): void {
+    let dialogRef = this.dialog.open(DialogComponent, {
+      width: '250px',
+      data: { value: this.value }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if(result) {
+        this.userService.delete(user.id).subscribe(
+          (data) => {
+            this.notifier.ShowSuccess('Usuário excluído com sucesso!');
+            window.location.reload();
+          },
+          (error) => {
+            this.notifier.ShowError('Erro ao excluir usuário!');
+          }
+        );
+      }
+    });
+  }
 }
