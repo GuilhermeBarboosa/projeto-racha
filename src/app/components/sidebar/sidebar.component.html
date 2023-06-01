@@ -14,26 +14,32 @@
           </a>
         </li>
         <li>
-           <a routerLink="/user" *ngIf="role == 'ADM'" routerLinkActive="active" class="flex items-center p-2 text-white rounded-lg hover:bg-green-400">
+           <a routerLink="/user" routerLinkActive="active" class="flex items-center p-2 text-white rounded-lg hover:bg-green-400">
               <mat-icon class="white-icon">person</mat-icon>
               <span class="ml-3">Usuários</span>
            </a>
         </li>
         <li>
            <a routerLink="/time" routerLinkActive="active" class="flex items-center p-2 text-white rounded-lg hover:bg-green-400">
-              <mat-icon class='white-icon'>people</mat-icon>
+            <span class="material-symbols-outlined">
+              distance
+              </span>
               <span class="flex-1 ml-3 whitespace-nowrap">Posição</span>
            </a>
         </li>
         <li>
            <a  routerLink="/campeonato" routerLinkActive="active" class="flex items-center p-2 text-white rounded-lg hover:bg-green-400">
-              <mat-icon class='white-icon' >sports_soccer</mat-icon>
+              <span class="material-symbols-outlined">
+                sprint
+                </span>
               <span class="flex-1 ml-3 whitespace-nowrap">Jogadores</span>
            </a>
         </li>
         <li>
            <a routerLink="/jogador" routerLinkActive="active" class="flex items-center p-2 text-white rounded-lg hover:bg-green-400">
-            <mat-icon class='white-icon' >sports_handball</mat-icon>
+              <span class="material-symbols-outlined">
+              sports_soccer
+              </span>
               <span class="flex-1 ml-3 whitespace-nowrap">Quadra</span>
            </a>
         </li>
@@ -45,7 +51,9 @@
         </li>
         <li>
           <a routerLink="/jogos" routerLinkActive="active" class="flex items-center p-2 text-white rounded-lg hover:bg-green-400">
-            <mat-icon>calendar_today</mat-icon>
+            <span class="material-symbols-outlined">
+              dashboard
+              </span>
             <span class="flex-1 ml-3 whitespace-nowrap">Dashboard</span>
           </a>
        </li>
