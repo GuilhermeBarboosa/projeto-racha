@@ -1,7 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'environment';
-import { Jogador } from '../interface/jogador';
+import { Jogador } from '../interface/dto/jogador';
+import { JogadorInput } from '../interface/input/jogadorInput';
 
 @Injectable({
   providedIn: 'root'
@@ -20,7 +21,7 @@ async getByUser(id: number) {
   return this.http.get(`${this.urlJogador}/usuario/` + id);
 }
 
-create(jogador: Jogador) {
+create(jogador: JogadorInput) {
   return this.http.post(`${this.urlJogador}`, jogador);
 }
 
@@ -28,7 +29,7 @@ getAll() {
   return this.http.get(`${this.urlJogador}`);
 }
 
-edit(jogador: Jogador, id: number) {
+edit(jogador: JogadorInput, id: number) {
   return this.http.put(`${this.urlJogador}/${id}`, jogador);
 }
 

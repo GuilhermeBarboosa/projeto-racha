@@ -3,7 +3,7 @@ import { UserService } from './../../../service/user.service';
 import { AfterViewInit, Component, Input, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { CreateUserComponent } from '../create-user/create-user.component';
-import { User } from 'src/app/interface/user';
+import { User } from 'src/app/interface/dto/user';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { NotifierService } from 'src/app/shared/notifier.service';
@@ -51,7 +51,7 @@ export class UserTableComponent implements OnInit  {
   }
 
   info(user: User) {
-    this.router.navigateByUrl(`user/edit/${user.id}`);
+    this.router.navigateByUrl(`user/info/${user.id}`);
   }
 
   async ativar(user: any) {

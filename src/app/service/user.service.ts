@@ -2,7 +2,8 @@
 import { environment } from './../../../environment';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { User } from '../interface/user';
+import { User } from '../interface/dto/user';
+import { UserInput } from '../interface/input/userInput';
 @Injectable({
   providedIn: 'root',
 })
@@ -13,7 +14,7 @@ export class UserService {
     return this.http.get(`${environment.api}/user/` + id);
   }
 
-  create(user: User) {
+  create(user: UserInput) {
     return this.http.post(`${environment.api}/user`, user);
   }
 

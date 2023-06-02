@@ -16,13 +16,9 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { HttpClientModule } from '@angular/common/http';
 import { MatTableModule } from '@angular/material/table';
 import { MatSelectModule } from '@angular/material/select';
-
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-
-import { RegisterComponent } from './feature/register/register.component';
 import { HomeComponent } from './feature/home/home.component';
-import { LoginComponent } from './feature/login/login.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { CreateUserComponent } from './feature/user/create-user/create-user.component';
@@ -36,6 +32,7 @@ import { ButtonInfoComponent } from './components/button-info/button-info.compon
 import { DialogComponent } from './components/dialog/dialog.component';
 import { ButtonNaoComponent } from './components/button-nao/button-nao.component';
 import { ButtonSimComponent } from './components/button-sim/button-sim.component';
+import { InfoUserComponent } from './feature/user/info-user/info-user.component';
 
 @NgModule({
   declarations: [
@@ -44,6 +41,7 @@ import { ButtonSimComponent } from './components/button-sim/button-sim.component
     NavbarComponent,
     SidebarComponent,
     UserTableComponent,
+    InfoUserComponent,
     CreateUserComponent,
     DialogComponent,
     EditUserComponent,

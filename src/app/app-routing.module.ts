@@ -10,6 +10,7 @@ import { EditUserComponent } from './feature/user/edit-user/edit-user.component'
 import { LoginGuardService } from './guards/login-guard.service';
 import { RouterModule, Routes } from '@angular/router';
 import { NgModule } from '@angular/core';
+import { InfoUserComponent } from './feature/user/info-user/info-user.component';
 
 export const routes: Routes = [
   {
@@ -37,6 +38,11 @@ export const routes: Routes = [
   {
     path: 'user/edit/:id',
     component: EditUserComponent,
+    // canActivate: [AuthGuardService, LoginGuardService],
+  },
+  {
+    path: 'user/info/:id',
+    component: InfoUserComponent,
     // canActivate: [AuthGuardService, LoginGuardService],
   },
   // {

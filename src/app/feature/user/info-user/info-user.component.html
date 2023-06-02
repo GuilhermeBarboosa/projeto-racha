@@ -11,6 +11,7 @@
       <div class="flex justify-between">
         <p class="text-white font-medium justify-start text-lg font-bold">INFO
           DO USUÁRIO</p>
+        <app-button-editar (click)="edit()"></app-button-editar>
       </div>
 
       <div class="">
@@ -31,12 +32,8 @@
         </div>
 
         <div class="mr-4">
-          <label for="role" class="text-left text-white">Selecione a posição</label>
-          <select id="role" formControlName="role" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-            <option *ngFor="let role of roles" [value]="role.id">
-              {{role.role}}
-            </option>
-          </select>
+          <label class="block text-sm text-white" for="role">Role</label>
+          <input formControlName="role" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 w-full focus:border-green-500 block p-2.5" type="text" id="role"  placeholder="role" aria-label="role" required>
         </div>
 
         <div class="col-span-2">
@@ -46,25 +43,14 @@
       </div>
 
 
-      <div class="grid grid-cols-3">
-        <div class="col-span-2 mr-4">
-          <label class="block text-sm text-white" for="email">E-mail</label>
-          <input formControlName="email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" type="email" id="email"  placeholder="Email" aria-label="email" required>
-        </div>
-
-        <div class="">
-          <label class="block text-sm text-white" for="senha">Senha</label>
-          <input formControlName="senha" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" type="password" id="senha"  placeholder="Senha" aria-label="senha" required>
-        </div>
+      <div class="">
+        <label class="block text-sm text-white" for="email">E-mail</label>
+        <input formControlName="email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" type="email" id="email"  placeholder="Email" aria-label="email" required>
       </div>
 
       <div class="">
-        <label for="posicao" class="text-left text-white">Selecione a posição</label>
-          <select id="posicao" formControlName="posicao" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-            <option *ngFor="let posicao of posicao" [value]="posicao.id">
-              {{posicao.posicao}}
-            </option>
-          </select>
+        <label class="block  text-sm text-white">Jogador</label>
+        <input formControlName="jogador" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" type="text" id="jogador" placeholder="jogador" arial-label="password" required>
       </div>
 
 
@@ -77,16 +63,6 @@
         <div class="align-end">
           <label class="block text-sm text-white" for="updated">Modificado:</label>
           <input formControlName="updated" class="bg-gray-50 border w-auto border-gray-300 text-center text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block p-2.5" type="text" id="updated" required>
-        </div>
-      </div>
-
-      <div class="items-center flex justify-between my-2">
-        <div class="align-end">
-          <app-button-nao (click)="return()"></app-button-nao>
-        </div>
-
-        <div>
-          <app-button-sim (click)="edit()"></app-button-sim>
         </div>
       </div>
 
