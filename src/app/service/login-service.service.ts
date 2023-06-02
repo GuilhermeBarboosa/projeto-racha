@@ -24,7 +24,6 @@ constructor(private http: HttpClient) { }
 
   isLogin(){
     if (localStorage.getItem('token') != null) {
-      console.log('teste')
       return true;
     }
     return false;

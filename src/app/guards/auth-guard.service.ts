@@ -30,7 +30,6 @@ export class AuthGuardService  {
     if (this.loginService.verifyToken()) {
 
       const userRole = localStorage.getItem('role');
-      console.log(userRole)
       const roleJson = JSON.parse(JSON.stringify(route.data));
 
       if (roleJson.role != userRole) {

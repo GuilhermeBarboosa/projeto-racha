@@ -17,7 +17,6 @@ getById(id: number) {
 }
 
 async getByUser(id: number) {
-  console.log(this.urlJogador);
   return this.http.get(`${this.urlJogador}/usuario/` + id);
 }
 

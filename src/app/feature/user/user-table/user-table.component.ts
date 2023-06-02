@@ -38,10 +38,7 @@ export class UserTableComponent implements OnInit  {
     this.userService.getAll().subscribe((data) => {
       var usersResponse = JSON.parse(JSON.stringify(data));
       this.users = usersResponse;
-      console.log(this.users)
-
       this.users.map((user) => {
-        console.log(user.actived)
         if (user.actived) {
           user.actived = 'Ativo';
         } else {

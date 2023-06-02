@@ -18,6 +18,7 @@ export class EditUserComponent implements OnInit {
 
   formulario!: FormGroup;
   jogador?: Jogador;
+  user?: User;
   isDisabled = true;
   id = this.activedRouter.snapshot.params['id'];
 
@@ -31,18 +32,15 @@ export class EditUserComponent implements OnInit {
 
 
   async ngOnInit() {
-    (await this.jogadorService.getByUser(this.id)).subscribe(
-      (data) => {
-        var jogadorResponse = JSON.parse(JSON.stringify(data));
-        this.jogador = jogadorResponse;
-        console.log(this.jogador)
-      }
-    );
 
-
-    (await this.userService.getById(this.id)).subscribe(
-      (data) => {
-        var userResponse = JSON.parse(JSON.stringify(data));
+    (await this.jogadorService.getByUser(this.id)).toPromise().then((data) => {
+      var jogadorResponse = JSON.parse(JSON.stringify(data));
+      this.jogador = jogadorResponse;
+    }).catch((error) => {
+      this.notifier.ShowError(error.error);
+    }).then(async () => {
+      (await (this.userService.getById(this.id))).toPromise().then((res: any) => {
+        var userResponse = JSON.parse(JSON.stringify(res));
 
         if( this.jogador?.posicao != null){
           userResponse.posicao = this.jogador?.posicao;
@@ -51,20 +49,14 @@ export class EditUserComponent implements OnInit {
         userResponse.created = this.formatterDateService.formatarData(userResponse.created);
         userResponse.updated = this.formatterDateService.formatarData(userResponse.updated);
 
-        this.formulario = this.formBuilder.group({
-          id: [{ value: userResponse.id, disabled: this.isDisabled}],
-          nome: [{value: userResponse.nome, disabled: this.isDisabled} , Validators.required],
-          email: [{ value: userResponse.email, disabled: this.isDisabled}, Validators.required],
-          jogador: [{ value: 'userResponse.posicao.posicao', disabled: this.isDisabled}, Validators.required],
-          telefone: [{ value: userResponse.telefone, disabled: this.isDisabled}, Validators.required],
-          created: [{ value: userResponse.created, disabled: this.isDisabled}, Validators.required],
-          updated: [{ value: userResponse.updated, disabled: this.isDisabled}, Validators.required]
-        })
-      }
+        this.user = userResponse;
 
-
-    );
-
+      }).catch((error: any) => {
+        this.notifier.ShowError(error.error);
+      }).then(() => {
+        this.createTable();
+      });
+    });
 
   }
 
@@ -81,7 +73,6 @@ export class EditUserComponent implements OnInit {
         idade: this.formulario.get('idade')?.value,
         role: this.formulario.get('role')?.value
       }
-
 
       this.userService.edit(userDTO, this.id).subscribe(
         (data) => {
@@ -110,4 +101,28 @@ export class EditUserComponent implements OnInit {
       );
   }
 
+  async createTable() {
+    let value : string | undefined;
+
+    if(this.jogador == null){
+      value = "Posição não cadastrada";
+    }else{
+      value = this.jogador?.posicao?.posicao;
+    }
+
+    this.formulario = this.formBuilder.group({
+      id: [{ value: this.user?.id, disabled: this.isDisabled}],
+      nome: [{value: this.user?.nome, disabled: this.isDisabled} , Validators.required],
+      email: [{ value: this.user?.email, disabled: this.isDisabled}, Validators.required],
+      idade: [{ value: this.user?.idade, disabled: this.isDisabled}, Validators.required],
+      role: [{ value: this.user?.role?.role, disabled: this.isDisabled}, Validators.required],
+      jogador: [{ value: value, disabled: this.isDisabled}, Validators.required],
+      telefone: [{ value: this.user?.telefone, disabled: this.isDisabled}, Validators.required],
+      created: [{ value: this.user?.created, disabled: this.isDisabled}, Validators.required],
+      updated: [{ value: this.user?.updated, disabled: this.isDisabled}, Validators.required]
+    })
+  }
+
 }
+
+

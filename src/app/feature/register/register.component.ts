@@ -44,8 +44,6 @@ export class RegisterComponent implements OnInit {
   }
 
   registrar(){
-    console.log(this.formulario)
-
     if(this.formulario.get('senha')?.value != this.formulario.get('senhaSecundaria')?.value){
       this.notifier.ShowError('As senhas não coincidem!');
     }else{
@@ -72,7 +70,6 @@ export class RegisterComponent implements OnInit {
             this.router.navigateByUrl('/authentication/login');
           },
           (error) => {
-            console.log(error);
             this.notifier.ShowError(error.error);
           }
         );
