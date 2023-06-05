@@ -3,21 +3,21 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
-import { ButtonEditarComponent } from './button-editar.component';
+import { ButtonGreenComponent } from './button-green.component';
 
-describe('ButtonEditarComponent', () => {
-  let component: ButtonEditarComponent;
-  let fixture: ComponentFixture<ButtonEditarComponent>;
+describe('ButtonGreenComponent', () => {
+  let component: ButtonGreenComponent;
+  let fixture: ComponentFixture<ButtonGreenComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ButtonEditarComponent ]
+      declarations: [ ButtonGreenComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ButtonEditarComponent);
+    fixture = TestBed.createComponent(ButtonGreenComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

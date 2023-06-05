@@ -22,17 +22,15 @@ import { HomeComponent } from './feature/home/home.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { CreateUserComponent } from './feature/user/create-user/create-user.component';
-import { ButtonAdicionarComponent } from './components/button-adicionar/button-adicionar.component';
-import { ButtonExcluirComponent } from './components/button-excluir/button-excluir.component';
-import { ButtonEditarComponent } from './components/button-editar/button-editar.component';
-import { ButtonRegistrarComponent } from './components/button-registrar/button-registrar.component';
 import { NgModule } from '@angular/core';
 import { LoginServiceService } from './service/login-service.service';
-import { ButtonInfoComponent } from './components/button-info/button-info.component';
 import { DialogComponent } from './components/dialog/dialog.component';
 import { ButtonNaoComponent } from './components/button-nao/button-nao.component';
 import { ButtonSimComponent } from './components/button-sim/button-sim.component';
 import { InfoUserComponent } from './feature/user/info-user/info-user.component';
+import { ButtonGreenComponent } from './components/button-green/button-green.component';
+import { ButtonRedComponent } from './components/button-red/button-red.component';
+import { ButtonYellowComponent } from './components/button-yellow/button-yellow.component';
 
 @NgModule({
   declarations: [
@@ -47,11 +45,9 @@ import { InfoUserComponent } from './feature/user/info-user/info-user.component'
     EditUserComponent,
     ButtonNaoComponent,
     ButtonSimComponent,
-    ButtonAdicionarComponent,
-    ButtonInfoComponent,
-    ButtonExcluirComponent,
-    ButtonEditarComponent,
-    ButtonRegistrarComponent,
+    ButtonGreenComponent,
+    ButtonRedComponent,
+    ButtonYellowComponent
   ],
   imports: [
     BrowserModule,

@@ -23,7 +23,7 @@
 
       <div class="justify-end">
         <a routerLink="register" routerLinkActive="active">
-          <app-button-adicionar></app-button-adicionar>
+          <app-button-green [value] = "Adicionar" ></app-button-green>
         </a>
       </div>
 
@@ -63,7 +63,7 @@
         <ng-container matColumnDef="info">
           <th mat-header-cell *matHeaderCellDef> </th>
           <td mat-cell *matCellDef="let user">
-            <app-button-info (click)="info(user)" value="{{user.id}}"></app-button-info>
+            <app-button-yellow [value] = "Info" (click)="info(user)" value="{{user.id}}"></app-button-yellow>
           </td>
         </ng-container>
 
@@ -71,10 +71,10 @@
           <th mat-header-cell *matHeaderCellDef> </th>
           <td mat-cell *matCellDef="let user">
             <div *ngIf="user.actived == 'Ativo'">
-              <app-button-excluir [value]="mandaFiltroFalse" (click)="openDialog(user)"></app-button-excluir>
+              <app-button-red [value]="mandaFiltroFalse" (click)="openDialog(user)"></app-button-red>
             </div>
             <div *ngIf="user.actived == 'Inativo'">
-              <app-button-registrar [value]="mandaFiltroTrue" (click)="ativarUser(user)"></app-button-registrar>
+              <app-button-green [value]="mandaFiltroTrue" (click)="ativarUser(user)"></app-button-green>
             </div>
           </td>
         </ng-container>

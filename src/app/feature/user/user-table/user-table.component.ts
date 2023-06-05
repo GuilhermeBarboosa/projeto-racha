@@ -29,6 +29,8 @@ export class UserTableComponent implements OnInit  {
     'info',
     'excluir',
   ];
+  Adicionar = "Adicionar";
+  Info = "Info";
 
   constructor(
     private userService: UserService,

@@ -19,7 +19,7 @@ export class InfoUserComponent implements OnInit {
   user?: User;
   isDisabled = true;
   id = this.activedRouter.snapshot.params['id'];
-
+  Editar = "Editar";
   constructor(private activedRouter: ActivatedRoute,
               private userService: UserService,
               private jogadorService: JogadorService,
