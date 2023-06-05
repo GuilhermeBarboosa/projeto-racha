@@ -29,6 +29,7 @@ import { InfoUserComponent } from './feature/user/info-user/info-user.component'
 import { ButtonGreenComponent } from './components/button-green/button-green.component';
 import { ButtonRedComponent } from './components/button-red/button-red.component';
 import { ButtonYellowComponent } from './components/button-yellow/button-yellow.component';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 @NgModule({
   declarations: [
@@ -61,6 +62,7 @@ import { ButtonYellowComponent } from './components/button-yellow/button-yellow.
     MatAutocompleteModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    MatPaginatorModule,
     AppRoutingModule,
     MatIconModule,
     MatSelectModule,

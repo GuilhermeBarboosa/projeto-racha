@@ -9,14 +9,14 @@ import { MatTableDataSource } from '@angular/material/table';
 import { NotifierService } from 'src/app/shared/notifier.service';
 import { DialogComponent } from 'src/app/components/dialog/dialog.component';
 import { UserInput } from 'src/app/interface/input/userInput';
+import { MatPaginator } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-user-table',
   templateUrl: './user-table.component.html',
   styleUrls: ['./user-table.component.css'],
 })
-export class UserTableComponent implements OnInit  {
-  users: User[] = [];
+export class UserTableComponent implements OnInit, AfterViewInit  {
   value?: String;
   mandaFiltroTrue = 'Ativar';
   mandaFiltroFalse = 'Excluir';
@@ -32,6 +32,9 @@ export class UserTableComponent implements OnInit  {
   Adicionar = "Adicionar";
   Info = "Info";
 
+  usersArray = new MatTableDataSource<User>;
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+
   constructor(
     private userService: UserService,
     public dialog: MatDialog,
@@ -41,6 +44,10 @@ export class UserTableComponent implements OnInit  {
 
   ngOnInit() {
     this.initTable("true");
+  }
+
+  ngAfterViewInit() {
+    this.usersArray.paginator = this.paginator;
   }
 
   info(user: User) {
@@ -103,8 +110,7 @@ export class UserTableComponent implements OnInit  {
         }
         }
       );
-
-      this.users = arrayUsers;
+      this.usersArray.data = arrayUsers;
     });
   }
 

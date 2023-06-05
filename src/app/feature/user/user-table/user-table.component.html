@@ -29,60 +29,66 @@
 
     </div>
 
-    <div class="flex h-full w-full" >
-      <table mat-table [dataSource]="users" class="mat-elevation-z8">
+    <div class="h-full w-full" >
+      <table mat-table [dataSource]="usersArray" class="mat-elevation-z8">
 
         <ng-container matColumnDef="id">
-          <th mat-header-cell *matHeaderCellDef> Id </th>
-          <td mat-cell *matCellDef="let user"> {{user.id}} </td>
+          <mat-header-cell mat-header-cell *matHeaderCellDef> Id </mat-header-cell>
+          <mat-cell mat-cell *matCellDef="let user"> {{user.id}} </mat-cell>
         </ng-container>
 
         <ng-container matColumnDef="nome">
-          <th mat-header-cell *matHeaderCellDef> Nome </th>
-          <td mat-cell *matCellDef="let user"> {{user.nome}} </td>
+          <mat-header-cell mat-header-cell *matHeaderCellDef> Nome </mat-header-cell>
+          <mat-cell mat-cell *matCellDef="let user"> {{user.nome}} </mat-cell>
         </ng-container>
 
         <ng-container matColumnDef="email">
-          <th mat-header-cell *matHeaderCellDef> Email </th>
-          <td mat-cell *matCellDef="let user"> {{user.email}} </td>
+          <mat-header-cell mat-header-cell *matHeaderCellDef> Email </mat-header-cell>
+          <mat-cell mat-cell *matCellDef="let user"> {{user.email}} </mat-cell>
         </ng-container>
 
         <ng-container matColumnDef="role">
-          <th mat-header-cell *matHeaderCellDef> Role </th>
-          <td mat-cell *matCellDef="let user"> {{user.role.role}} </td>
+          <mat-header-cell mat-header-cell *matHeaderCellDef> Role </mat-header-cell>
+          <mat-cell mat-cell *matCellDef="let user"> {{user.role.role}} </mat-cell>
         </ng-container>
 
         <ng-container matColumnDef="status">
           <div>
-            <th mat-header-cell *matHeaderCellDef> Status </th>
-            <td mat-cell *matCellDef="let user"> {{user.actived}} </td>
+            <mat-header-cell mat-header-cell *matHeaderCellDef> Status </mat-header-cell>
+            <mat-cell mat-cell *matCellDef="let user"> {{user.actived}} </mat-cell>
           </div>
 
         </ng-container>
 
         <ng-container matColumnDef="info">
-          <th mat-header-cell *matHeaderCellDef> </th>
-          <td mat-cell *matCellDef="let user">
+          <mat-header-cell mat-header-cell *matHeaderCellDef> </mat-header-cell>
+          <mat-cell mat-cell *matCellDef="let user">
             <app-button-yellow [value] = "Info" (click)="info(user)" value="{{user.id}}"></app-button-yellow>
-          </td>
+          </mat-cell>
         </ng-container>
 
         <ng-container matColumnDef="excluir">
-          <th mat-header-cell *matHeaderCellDef> </th>
-          <td mat-cell *matCellDef="let user">
+          <mat-header-cell mat-header-cell *matHeaderCellDef> </mat-header-cell>
+          <mat-cell mat-cell *matCellDef="let user">
             <div *ngIf="user.actived == 'Ativo'">
               <app-button-red [value]="mandaFiltroFalse" (click)="openDialog(user)"></app-button-red>
             </div>
             <div *ngIf="user.actived == 'Inativo'">
               <app-button-green [value]="mandaFiltroTrue" (click)="ativarUser(user)"></app-button-green>
             </div>
-          </td>
+          </mat-cell>
         </ng-container>
 
 
-        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
       </table>
+
+      <mat-paginator #paginator
+      [pageSize]="10"
+      [pageSizeOptions]="[5, 10, 20]"
+      [showFirstLastButtons]="true">
+</mat-paginator>
 
     </div>
 
