@@ -29,8 +29,16 @@
 
     </div>
 
+    <div class="justify-end flex m-4">
+
+        <mat-form-field>
+          <input matInput (keyup)="applyFilter($event)" placeholder="Filter">
+        </mat-form-field>
+
+    </div>
+
     <div class="h-full w-full" >
-      <table mat-table [dataSource]="usersArray" class="mat-elevation-z8">
+      <mat-table mat-table [dataSource]="usersArray" class="mat-elevation-z8">
 
         <ng-container matColumnDef="id">
           <mat-header-cell mat-header-cell *matHeaderCellDef> Id </mat-header-cell>
@@ -82,21 +90,18 @@
 
         <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
         <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-      </table>
+      </mat-table>
 
       <mat-paginator #paginator
       [pageSize]="10"
       [pageSizeOptions]="[5, 10, 20]"
       [showFirstLastButtons]="true">
-</mat-paginator>
+    </mat-paginator>
 
     </div>
 
 
   </div>
-
-
-
 
 </div>
 

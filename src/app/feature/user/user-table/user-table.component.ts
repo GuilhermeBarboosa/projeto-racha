@@ -50,6 +50,13 @@ export class UserTableComponent implements OnInit, AfterViewInit  {
     this.usersArray.paginator = this.paginator;
   }
 
+  applyFilter(event: Event) {
+    let filterValue = (event.target as HTMLInputElement).value;
+    filterValue = filterValue.trim(); // Remove whitespace
+    filterValue = filterValue.toLowerCase(); // MatTableDataSource defaults to lowercase matches
+    this.usersArray.filter = filterValue;
+  }
+
   info(user: User) {
     this.router.navigateByUrl(`user/info/${user.id}`);
   }
