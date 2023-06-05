@@ -41,7 +41,7 @@ export class EditUserComponent implements OnInit {
     private notifier: NotifierService
   ) {}
 
-  async ngOnInit() {
+  ngOnInit() {
     this.roleService.getAll().subscribe((data) => {
       var roleResponse = JSON.parse(JSON.stringify(data));
       this.roles = roleResponse;
@@ -61,8 +61,6 @@ export class EditUserComponent implements OnInit {
 
       this.createTable();
     });
-
-
   }
 
   async createTable() {

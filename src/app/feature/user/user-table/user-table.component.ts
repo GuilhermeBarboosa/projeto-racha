@@ -52,8 +52,8 @@ export class UserTableComponent implements OnInit, AfterViewInit  {
 
   applyFilter(event: Event) {
     let filterValue = (event.target as HTMLInputElement).value;
-    filterValue = filterValue.trim(); // Remove whitespace
-    filterValue = filterValue.toLowerCase(); // MatTableDataSource defaults to lowercase matches
+    filterValue = filterValue.trim();
+    filterValue = filterValue.toLowerCase();
     this.usersArray.filter = filterValue;
   }
 

@@ -8,10 +8,8 @@ import { User } from 'src/app/interface/dto/user';
 import { UserInput } from 'src/app/interface/input/userInput';
 import { RoleService } from 'src/app/service/role.service';
 import { PosicaoService } from 'src/app/service/posicao.service';
-import { Jogador } from 'src/app/interface/dto/jogador';
 import { Role } from 'src/app/interface/dto/role';
 import { Posicao } from 'src/app/interface/dto/posicao';
-import { JogadorInput } from 'src/app/interface/input/jogadorInput';
 
 @Component({
   selector: 'app-create-user',
@@ -29,40 +27,40 @@ export class CreateUserComponent implements OnInit {
   constructor(
     private router: Router,
     private userService: UserService,
-    private posicaoService: PosicaoService,
-    private jogadorService: JogadorService,
     private roleService: RoleService,
     private formBuilder: FormBuilder,
     private notifier: NotifierService
   ) {}
 
-  async ngOnInit() {
-    (await this.roleService.getAll())
-      .toPromise()
-      .then((data) => {
+  ngOnInit() {
+    this.roleService.getAll().subscribe(
+      (data) => {
         var roleResponse = JSON.parse(JSON.stringify(data));
         this.roles = roleResponse;
-      })
-      .then(async () => {
-        this.posicaoService.getAll().subscribe((data) => {
-          var posicaoResponse = JSON.parse(JSON.stringify(data));
-          this.posicao = posicaoResponse;
-        });
-      })
-      .then(async () => {
+
         this.createTable();
-      });
+      },
+      (error) => {
+        this.notifier.ShowError(error.error);
+      }
+    );
   }
 
   async createTable() {
     this.formulario = this.formBuilder.group({
-      nome: ['aaaa', [Validators.required, Validators.minLength(3)]],
-      email: ['aaaa@email.com', [Validators.required, Validators.email, Validators.minLength(3)]],
-      senha: ['31232131', [Validators.required, Validators.minLength(3)]],
-      idade: ['56', [Validators.required, Validators.min(14), Validators.max(70)]],
-      role: [1, Validators.required],
+      nome: ['', [Validators.required, Validators.minLength(3)]],
+      email: [
+        '',
+        [Validators.required, Validators.email, Validators.minLength(3)],
+      ],
+      senha: ['', [Validators.required, Validators.minLength(3)]],
+      idade: [
+        '',
+        [Validators.required, Validators.min(14), Validators.max(70)],
+      ],
+      role: [2, Validators.required],
       posicao: [''],
-      telefone: ['3312312312', Validators.required],
+      telefone: ['', Validators.required],
     });
   }
 
@@ -79,10 +77,8 @@ export class CreateUserComponent implements OnInit {
 
       let userInput = new UserInput(userDTO);
 
-
       this.userService.create(userInput).subscribe(
         (data) => {
-          var userResponse = JSON.parse(JSON.stringify(data));
           this.notifier.ShowSuccess('Usuário cadastrado com sucesso!');
           this.router.navigateByUrl('/user');
         },
@@ -95,8 +91,7 @@ export class CreateUserComponent implements OnInit {
     }
   }
 
-  return(){
+  return() {
     this.router.navigateByUrl('/user');
   }
-
 }

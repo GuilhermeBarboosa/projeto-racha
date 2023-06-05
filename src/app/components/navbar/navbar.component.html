@@ -1,8 +1,13 @@
 
 <nav class="border-gray-200 px-2 sm:px-4 py-2.5 navbar">
   <div class="flex flex-wrap items-center justify-end mx-auto">
-  <div class="flex md:order-2">
-    <app-button-green [value] = "Logout" (click)="logout()"> </app-button-green>
+  <div class="flex">
+    <button (click)="logout()" class="flex button-logout">
+      <span class="icon-button material-symbols-outlined">
+        logout
+      </span>
+      <!-- <p class="text-button">Sair</p> -->
+    </button>
   </div>
   </div>
 </nav>

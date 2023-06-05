@@ -1,10 +1,7 @@
 <app-navbar></app-navbar>
 
-
-
 <div class="flex">
   <app-sidebar></app-sidebar>
-
 
   <form class="h-full w-full m-5" [formGroup]="formulario" *ngIf="formulario">
 
@@ -17,7 +14,6 @@
         <label class="block text-sm text-white" for="nome">Nome</label>
         <input formControlName="nome" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" type="text" id="nome" aria-label="nome" required>
       </div>
-
 
       <div class="grid grid-cols-4">
         <div class="mr-4">
@@ -40,7 +36,6 @@
         </div>
       </div>
 
-
       <div class="grid grid-cols-3">
         <div class="col-span-2 mr-4">
           <label class="block text-sm text-white" for="email">E-mail</label>
@@ -53,24 +48,16 @@
         </div>
       </div>
 
-      <!-- <div class="">
-        <label for="posicao" class="text-left text-white">Selecione a posição</label>
-          <select id="posicao" formControlName="posicao" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-            <option value='' disabled selected>Selecione a posição</option>
-            <option *ngFor="let posicao of posicao" [value]="posicao.id">
-              {{posicao.posicao}}
-            </option>
-          </select>
-      </div> -->
-
       <div class="items-center flex justify-between my-2">
-        <div class="align-end">
-          <app-button-green [value] = "Sim" (click)="return()"></app-button-green>
-        </div>
 
         <div>
-          <app-button-red [value] = "Nao" (click)="save()"></app-button-red>
+          <app-button-red [value] = "Nao" (click)="return()"></app-button-red>
         </div>
+
+        <div class="align-end">
+          <app-button-green [value] = "Sim" (click)="save()"></app-button-green>
+        </div>
+
       </div>
 
 </form>
