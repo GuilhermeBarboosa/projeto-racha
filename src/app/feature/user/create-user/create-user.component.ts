@@ -88,8 +88,6 @@ export class CreateUserComponent implements OnInit {
             let JogadorDTO = {
               user: userResponse.id,
               posicao: Number(this.formulario.get('posicao')?.value),
-              gols : 0,
-              assistencias : 0,
             }
 
             console.log(JogadorDTO)
@@ -116,7 +114,7 @@ export class CreateUserComponent implements OnInit {
   }
 
   return(){
-
+    this.router.navigateByUrl('/user');
   }
 
 }

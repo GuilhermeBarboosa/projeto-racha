@@ -17,6 +17,8 @@ import { DialogComponent } from 'src/app/components/dialog/dialog.component';
 export class UserTableComponent implements OnInit  {
   users: User[] = [];
   value?: String;
+  mandaFiltroTrue = 'Ativar';
+  mandaFiltroFalse = 'Excluir';
   displayedColumns: string[] = [
     'id',
     'nome',
@@ -35,19 +37,7 @@ export class UserTableComponent implements OnInit  {
   ) {}
 
   ngOnInit() {
-    this.userService.getAll().subscribe((data) => {
-      var usersResponse = JSON.parse(JSON.stringify(data));
-      this.users = usersResponse;
-      this.users.map((user) => {
-        if (user.actived) {
-          user.actived = 'Ativo';
-        } else {
-          user.actived = 'Inativo';
-        }
-        }
-      );
-
-    });
+    this.initTable("true");
   }
 
   info(user: User) {
@@ -91,4 +81,38 @@ export class UserTableComponent implements OnInit  {
       }
     });
   }
+
+  initTable( ativo: string ){
+    this.userService.getAll().subscribe((data) => {
+      var usersResponse = JSON.parse(JSON.stringify(data));
+      let arrayUsers = [] as User[];
+      usersResponse.map((user: User) => {
+       if(String(user.actived) == ativo){
+         arrayUsers.push(user);
+        }
+      });
+
+      arrayUsers.map((user) => {
+        if (user.actived) {
+          user.actived = 'Ativo';
+        } else {
+          user.actived = 'Inativo';
+        }
+        }
+      );
+
+      this.users = arrayUsers;
+    });
+  }
+
+
+  getByInativo(){
+    this.initTable('false');
+  }
+
+  getByAtivo(){
+    this.initTable('true');
+  }
+
+
 }

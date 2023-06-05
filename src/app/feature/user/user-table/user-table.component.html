@@ -8,10 +8,25 @@
 
   <div class="h-full w-full ">
 
-    <div class="flex justify-end m-5">
-      <a routerLink="register" routerLinkActive="active">
-        <app-button-adicionar></app-button-adicionar>
-      </a>
+    <div class="flex m-5 justify-between">
+
+      <div class="flex">
+        <div class="flex items-center mr-3">
+          <input checked id="default-radio-1 " type="radio" value="" name="default-radio" (click)=getByAtivo() class="w-4 h-4 text-green-600 bg-gray-100 border-gray-300 focus:ring-green-500">
+          <label for="default-radio-1" class="ml-2 text-sm font-medium text-white" >Ativo</label>
+      </div>
+      <div class="flex items-center">
+          <input id="default-radio-2" type="radio" value="" name="default-radio" (click)=getByInativo() class="w-4 h-4 text-green-600 bg-gray-100 border-gray-300 focus:ring-green-500">
+          <label for="default-radio-2" class="ml-2 text-sm font-medium text-white" >Inativo</label>
+      </div>
+      </div>
+
+      <div class="justify-end">
+        <a routerLink="register" routerLinkActive="active">
+          <app-button-adicionar></app-button-adicionar>
+        </a>
+      </div>
+
     </div>
 
     <div class="flex h-full w-full" >
@@ -38,8 +53,11 @@
         </ng-container>
 
         <ng-container matColumnDef="status">
-          <th mat-header-cell *matHeaderCellDef> Status </th>
-          <td mat-cell *matCellDef="let user"> {{user.actived}} </td>
+          <div>
+            <th mat-header-cell *matHeaderCellDef> Status </th>
+            <td mat-cell *matCellDef="let user"> {{user.actived}} </td>
+          </div>
+
         </ng-container>
 
         <ng-container matColumnDef="info">
@@ -52,7 +70,12 @@
         <ng-container matColumnDef="excluir">
           <th mat-header-cell *matHeaderCellDef> </th>
           <td mat-cell *matCellDef="let user">
-            <app-button-excluir mat-raised-button (click)="openDialog(user)">Pick one</app-button-excluir>
+            <div *ngIf="user.actived == 'Ativo'">
+              <app-button-excluir [value]="mandaFiltroFalse" (click)="openDialog(user)"></app-button-excluir>
+            </div>
+            <div *ngIf="user.actived == 'Inativo'">
+              <app-button-registrar [value]="mandaFiltroTrue"></app-button-registrar>
+            </div>
           </td>
         </ng-container>
 

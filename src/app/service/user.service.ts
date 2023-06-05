@@ -22,6 +22,10 @@ export class UserService {
     return this.http.get(`${environment.api}/user`);
   }
 
+  getAllInativo() {
+    return this.http.get(`${environment.api}/user/desativado`);
+  }
+
   edit(user: User, id: number) {
 
     return this.http.put(`${environment.api}/user/${id}`, user);

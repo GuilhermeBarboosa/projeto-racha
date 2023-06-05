@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-button-registrar',
@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./button-registrar.component.css']
 })
 export class ButtonRegistrarComponent implements OnInit {
+
+  @Input() value?: String;
 
   constructor() { }
 
