@@ -16,7 +16,6 @@ import { User } from 'src/app/interface/dto/user';
 export class InfoUserComponent implements OnInit {
 
   formulario!: FormGroup;
-  jogador?: Jogador;
   user?: User;
   isDisabled = true;
   id = this.activedRouter.snapshot.params['id'];
@@ -32,29 +31,19 @@ export class InfoUserComponent implements OnInit {
 
   async ngOnInit() {
 
-    (await this.jogadorService.getByUser(this.id)).toPromise().then((data) => {
-      var jogadorResponse = JSON.parse(JSON.stringify(data));
-      this.jogador = jogadorResponse;
+    (await this.userService.getById(this.id)).toPromise().then((data) => {
+      var userResponse = JSON.parse(JSON.stringify(data));
+      this.user = userResponse;
+
+      this.user!.created = this.formatterDateService.formatarData(this.user!.created);
+      this.user!.updated = this.formatterDateService.formatarData(this.user!.updated);
+
+
+      this.createTable();
+
+
     }).catch((error) => {
       this.notifier.ShowError(error.error);
-    }).then(async () => {
-      (await (this.userService.getById(this.id))).toPromise().then((res: any) => {
-        var userResponse = JSON.parse(JSON.stringify(res));
-
-        if( this.jogador?.posicao != null){
-          userResponse.posicao = this.jogador?.posicao;
-        }
-
-        userResponse.created = this.formatterDateService.formatarData(userResponse.created);
-        userResponse.updated = this.formatterDateService.formatarData(userResponse.updated);
-
-        this.user = userResponse;
-
-      }).catch((error: any) => {
-        this.notifier.ShowError(error.error);
-      }).then(() => {
-        this.createTable();
-      });
     });
 
   }
@@ -76,21 +65,12 @@ export class InfoUserComponent implements OnInit {
   }
 
   async createTable() {
-    let value : string | undefined;
-
-    if(this.jogador == null){
-      value = "Posição não cadastrada";
-    }else{
-      value = this.jogador?.posicao?.posicao;
-    }
-
     this.formulario = this.formBuilder.group({
       id: [{ value: this.user?.id, disabled: this.isDisabled}],
       nome: [{value: this.user?.nome, disabled: this.isDisabled} , Validators.required],
       email: [{ value: this.user?.email, disabled: this.isDisabled}, Validators.required],
       idade: [{ value: this.user?.idade, disabled: this.isDisabled}, Validators.required],
       role: [{ value: this.user?.role?.role, disabled: this.isDisabled}, Validators.required],
-      jogador: [{ value: value, disabled: this.isDisabled}, Validators.required],
       telefone: [{ value: this.user?.telefone, disabled: this.isDisabled}, Validators.required],
       created: [{ value: this.user?.created, disabled: this.isDisabled}, Validators.required],
       updated: [{ value: this.user?.updated, disabled: this.isDisabled}, Validators.required]

@@ -8,6 +8,7 @@ import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { NotifierService } from 'src/app/shared/notifier.service';
 import { DialogComponent } from 'src/app/components/dialog/dialog.component';
+import { UserInput } from 'src/app/interface/input/userInput';
 
 @Component({
   selector: 'app-user-table',
@@ -114,5 +115,15 @@ export class UserTableComponent implements OnInit  {
     this.initTable('true');
   }
 
+  ativarUser(user: User) {
+    let userInput = new UserInput(user);
+
+    this.userService.ativar(userInput, user.id!).subscribe(
+      (data) => {
+        this.notifier.ShowSuccess('Usuário ativado com sucesso!');
+        window.location.reload();
+      }
+    );
+  }
 
 }

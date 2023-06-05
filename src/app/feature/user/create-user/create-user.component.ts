@@ -82,27 +82,7 @@ export class CreateUserComponent implements OnInit {
         (data) => {
           var userResponse = JSON.parse(JSON.stringify(data));
           this.notifier.ShowSuccess('Usuário cadastrado com sucesso!');
-
-          if(this.formulario.get('posicao')?.value != ''){
-
-            let JogadorDTO = {
-              user: userResponse.id,
-              posicao: Number(this.formulario.get('posicao')?.value),
-            }
-
-            console.log(JogadorDTO)
-
-            let jogadorInput = new JogadorInput(JogadorDTO);
-
-            this.jogadorService.create(jogadorInput).subscribe(
-              (data) => {
-                this.notifier.ShowSuccess('Jogador cadastrado com sucesso!');
-              }
-            )
-
-
-          }
-          // this.router.navigateByUrl('/user');
+          this.router.navigateByUrl('/user');
         },
         (error) => {
           this.notifier.ShowError(error.error);

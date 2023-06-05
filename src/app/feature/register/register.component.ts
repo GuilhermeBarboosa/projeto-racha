@@ -23,12 +23,21 @@ export class RegisterComponent implements OnInit {
 
   user!: User;
   formulario!: FormGroup;
-  posicaoArray!: Posicao[];
+  posicaoArray = [] as Posicao[];
 
   ngOnInit() {
     this.posicaoService.getAll().subscribe( (data) => {
         var posicaoResponse = JSON.parse(JSON.stringify(data));
-        this.posicaoArray = posicaoResponse;
+        let array = posicaoResponse;
+
+        array.forEach((posicao: Posicao) => {
+          if(posicao.id! != 1){
+            this.posicaoArray.push(posicao);
+          }
+        }
+      )
+
+      console.log(this.posicaoArray)
     });
 
 

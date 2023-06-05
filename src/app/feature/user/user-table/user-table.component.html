@@ -74,7 +74,7 @@
               <app-button-excluir [value]="mandaFiltroFalse" (click)="openDialog(user)"></app-button-excluir>
             </div>
             <div *ngIf="user.actived == 'Inativo'">
-              <app-button-registrar [value]="mandaFiltroTrue"></app-button-registrar>
+              <app-button-registrar [value]="mandaFiltroTrue" (click)="ativarUser(user)"></app-button-registrar>
             </div>
           </td>
         </ng-container>

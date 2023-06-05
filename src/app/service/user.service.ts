@@ -10,7 +10,7 @@ import { UserInput } from '../interface/input/userInput';
 export class UserService {
   constructor(private http: HttpClient) {}
 
-  async getById(id: number) {
+  getById(id: number) {
     return this.http.get(`${environment.api}/user/` + id);
   }
 
@@ -26,12 +26,12 @@ export class UserService {
     return this.http.get(`${environment.api}/user/desativado`);
   }
 
-  edit(user: User, id: number) {
+  edit(user: UserInput, id: number) {
 
     return this.http.put(`${environment.api}/user/${id}`, user);
   }
 
-  ativar(user: User, id: number) {
+  ativar(user: UserInput, id: number) {
     return this.http.put(`${environment.api}/user/ativar/${id}`, user);
   }
 

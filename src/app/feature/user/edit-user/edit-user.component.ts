@@ -33,8 +33,6 @@ export class EditUserComponent implements OnInit {
     private activedRouter: ActivatedRoute,
     private userService: UserService,
     private roleService: RoleService,
-    private jogadorService: JogadorService,
-    private posicaoService: PosicaoService,
     private router: Router,
     private formatterDateService: FormatterDateService,
     private formBuilder: FormBuilder,
@@ -42,53 +40,27 @@ export class EditUserComponent implements OnInit {
   ) {}
 
   async ngOnInit() {
-    (await this.jogadorService.getByUser(this.id))
-      .toPromise()
-      .then((data) => {
-        var jogadorResponse = JSON.parse(JSON.stringify(data));
-        this.jogador = jogadorResponse;
-      })
-      .catch((error) => {
-        this.notifier.ShowError(error.error);
-      })
-      .then(async () => {
-        this.roleService.getAll().subscribe((data) => {
-          var roleResponse = JSON.parse(JSON.stringify(data));
-          this.roles = roleResponse;
-        });
-      })
-      .then(async () => {
-        this.posicaoService.getAll().subscribe((data) => {
-          var posicaoResponse = JSON.parse(JSON.stringify(data));
-          this.posicao = posicaoResponse;
-        });
-      })
-      .then(async () => {
-        (await this.userService.getById(this.id))
-          .toPromise()
-          .then((res: any) => {
-            var userResponse = JSON.parse(JSON.stringify(res));
+    this.roleService.getAll().subscribe((data) => {
+      var roleResponse = JSON.parse(JSON.stringify(data));
+      this.roles = roleResponse;
+    });
 
-            if (this.jogador?.posicao != null) {
-              userResponse.posicao = this.jogador?.posicao;
-            }
+    this.userService.getById(this.id).subscribe((res) => {
+      var userResponse = JSON.parse(JSON.stringify(res));
 
-            userResponse.created = this.formatterDateService.formatarData(
-              userResponse.created
-            );
-            userResponse.updated = this.formatterDateService.formatarData(
-              userResponse.updated
-            );
+      userResponse.created = this.formatterDateService.formatarData(
+        userResponse.created
+      );
+      userResponse.updated = this.formatterDateService.formatarData(
+        userResponse.updated
+      );
 
-            this.user = userResponse;
-          })
-          .catch((error: any) => {
-            this.notifier.ShowError(error.error);
-          })
-          .then(() => {
-            this.createTable();
-          });
-      });
+      this.user = userResponse;
+
+      this.createTable();
+    });
+
+
   }
 
   async createTable() {
@@ -111,10 +83,6 @@ export class EditUserComponent implements OnInit {
         { value: this.user?.role?.id, disabled: this.isDisabled },
         Validators.required,
       ],
-      posicao: [
-        { value: this.jogador?.posicao?.id, disabled: this.isDisabled },
-        Validators.required,
-      ],
       telefone: [
         { value: this.user?.telefone, disabled: this.isDisabled },
         Validators.required,
@@ -131,9 +99,7 @@ export class EditUserComponent implements OnInit {
   }
 
   edit() {
-    let presentError = false;
-
-    if(this.formulario.valid){
+    if (this.formulario.valid) {
       this.jogador!.posicao!.id = this.formulario.get('posicao')?.value;
 
       let userDTO = {
@@ -146,47 +112,24 @@ export class EditUserComponent implements OnInit {
         role: this.formulario.get('role')?.value,
       };
 
-      let jogadorDTO = {
-        user: this.user!,
-        posicao: this.jogador!.posicao!,
-        assistencias : this.jogador!.assistencias,
-        gols : this.jogador!.gols,
-      };
-
       let userInput = new UserInput(userDTO);
-      let jogadorInput = new JogadorInput(jogadorDTO);
 
-      console.log(jogadorInput)
-
-      this.jogadorService.edit(jogadorInput, this.jogador!.id!).toPromise().then(
+      this.userService.edit(userInput, this.user!.id!).subscribe(
         (data) => {
-          this.notifier.ShowSuccess('Jogador atualizado com sucesso!');
+          this.notifier.ShowSuccess('Usuário atualizado com sucesso!');
+          this.router.navigateByUrl(`/user`);
         },
         (error) => {
           this.notifier.ShowError(error.error);
-          presentError = true;
+          return;
         }
-      ).then(() => {
-        this.userService.edit(userDTO, this.user!.id!).subscribe(
-          (data) => {
-            this.notifier.ShowSuccess('Usuário atualizado com sucesso!');
-          },
-          (error) => {
-            this.notifier.ShowError(error.error);
-            return;
-          }
-        );
-      });
-
-      console.log(presentError)
-    }else{
+      );
+    } else {
       this.notifier.ShowInfo('Preencha todos os campos!');
     }
-
   }
 
-
-  return(){
+  return() {
     this.router.navigateByUrl(`/user/info/${this.user?.id}`);
   }
 }
