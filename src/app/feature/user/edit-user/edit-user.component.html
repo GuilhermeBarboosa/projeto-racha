@@ -72,11 +72,11 @@
 
       <div class="items-center flex justify-between my-2">
         <div class="align-end">
-          <app-button-nao (click)="return()"></app-button-nao>
+          <app-button-red [value] = "Nao" (click)="return()"></app-button-red>
         </div>
 
         <div>
-          <app-button-sim (click)="edit()"></app-button-sim>
+          <app-button-green [value] = "Sim" (click)="edit()"></app-button-green>
         </div>
       </div>
 

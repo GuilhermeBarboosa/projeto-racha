@@ -25,8 +25,6 @@ import { CreateUserComponent } from './feature/user/create-user/create-user.comp
 import { NgModule } from '@angular/core';
 import { LoginServiceService } from './service/login-service.service';
 import { DialogComponent } from './components/dialog/dialog.component';
-import { ButtonNaoComponent } from './components/button-nao/button-nao.component';
-import { ButtonSimComponent } from './components/button-sim/button-sim.component';
 import { InfoUserComponent } from './feature/user/info-user/info-user.component';
 import { ButtonGreenComponent } from './components/button-green/button-green.component';
 import { ButtonRedComponent } from './components/button-red/button-red.component';
@@ -43,8 +41,6 @@ import { ButtonYellowComponent } from './components/button-yellow/button-yellow.
     CreateUserComponent,
     DialogComponent,
     EditUserComponent,
-    ButtonNaoComponent,
-    ButtonSimComponent,
     ButtonGreenComponent,
     ButtonRedComponent,
     ButtonYellowComponent

@@ -23,6 +23,8 @@ export class CreateUserComponent implements OnInit {
   roles?: Role[];
   posicao?: Posicao[];
   formulario!: FormGroup;
+  Sim = 'Sim';
+  Nao = 'Não';
 
   constructor(
     private router: Router,

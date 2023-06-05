@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
+  Logout = "Logout";
   constructor(private router: Router) { }
 
   ngOnInit() {

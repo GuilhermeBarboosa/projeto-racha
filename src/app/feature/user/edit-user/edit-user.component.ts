@@ -28,6 +28,8 @@ export class EditUserComponent implements OnInit {
   posicao?: Posicao[];
   isDisabled = false;
   id = this.activedRouter.snapshot.params['id'];
+  Sim = 'Sim';
+  Nao = 'Não';
 
   constructor(
     private activedRouter: ActivatedRoute,
