@@ -8,18 +8,7 @@
 
   <div class="h-full w-full ">
 
-    <div class="flex m-5 justify-between">
-
-      <div class="flex">
-        <div class="flex items-center mr-3">
-          <input checked id="default-radio-1 " type="radio" value="" name="default-radio" (click)=getByAtivo() class="w-4 h-4 text-green-600 bg-gray-100 border-gray-300 focus:ring-green-500">
-          <label for="default-radio-1" class="ml-2 text-sm font-medium text-white" >Ativo</label>
-      </div>
-      <div class="flex items-center">
-          <input id="default-radio-2" type="radio" value="" name="default-radio" (click)=getByInativo() class="w-4 h-4 text-green-600 bg-gray-100 border-gray-300 focus:ring-green-500">
-          <label for="default-radio-2" class="ml-2 text-sm font-medium text-white" >Inativo</label>
-      </div>
-      </div>
+    <div class="flex m-5 justify-end">
 
       <div class="justify-end">
         <a routerLink="register" routerLinkActive="active">
@@ -29,11 +18,25 @@
 
     </div>
 
-    <div class="justify-end flex m-4">
+    <div class="flex justify-between m-4">
 
+
+      <div class="flex">
+        <div class="flex items-center mr-3">
+          <input checked id="ativo" type="radio" value="" name="tipos" (click)=getByAtivo() class="w-4 h-4 text-green-600 bg-gray-100 border-gray-300 focus:ring-green-500">
+          <label for="ativo" class="ml-2 text-sm font-medium text-white" >Ativo</label>
+        </div>
+        <div class="flex items-center">
+          <input id="inativo" type="radio" value="" name="tipos" (click)=getByInativo() class="w-4 h-4 text-green-600 bg-gray-100 border-gray-300 focus:ring-green-500">
+          <label for="inativo" class="ml-2 text-sm font-medium text-white" >Inativo</label>
+        </div>
+      </div>
+
+      <div class="">
         <mat-form-field>
           <input matInput (keyup)="applyFilter($event)" placeholder="Filter">
         </mat-form-field>
+      </div>
 
     </div>
 
@@ -82,7 +85,7 @@
               <app-button-red [value]="mandaFiltroFalse" (click)="openDialog(user)"></app-button-red>
             </div>
             <div *ngIf="user.actived == 'Inativo'">
-              <app-button-green [value]="mandaFiltroTrue" (click)="ativarUser(user)"></app-button-green>
+              <app-button-green [value]="mandaFiltroTrue" (click)="ativar(user)"></app-button-green>
             </div>
           </mat-cell>
         </ng-container>

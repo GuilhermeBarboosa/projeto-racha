@@ -61,17 +61,14 @@ export class UserTableComponent implements OnInit, AfterViewInit  {
     this.router.navigateByUrl(`user/info/${user.id}`);
   }
 
-  async ativar(user: any) {
-    (await this.userService.getById(user.id)).subscribe(
-      (data) => {
-        var userResponse = JSON.parse(JSON.stringify(data));
-        user = userResponse;
-      }
-    );
+  ativar(user: User) {
 
-    this.userService.ativar(user, user.id).subscribe(
+    let userInput = new UserInput(user);
+
+    this.userService.ativar(userInput, user.id!).subscribe(
       (data) => {
         this.notifier.ShowSuccess('Usuário ativado com sucesso!');
+        window.location.reload();
       }
     );
 
@@ -128,17 +125,6 @@ export class UserTableComponent implements OnInit, AfterViewInit  {
 
   getByAtivo(){
     this.initTable('true');
-  }
-
-  ativarUser(user: User) {
-    let userInput = new UserInput(user);
-
-    this.userService.ativar(userInput, user.id!).subscribe(
-      (data) => {
-        this.notifier.ShowSuccess('Usuário ativado com sucesso!');
-        window.location.reload();
-      }
-    );
   }
 
 }
