@@ -2,7 +2,7 @@ import { Observable } from 'rxjs';
 import { ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree, Router } from '@angular/router';
 import { Injectable } from '@angular/core';
 import { NotifierService } from '../shared/notifier.service';
-import { LoginService } from '../service/login.service';
+import { LoginService } from '../routes/login.service';
 
 @Injectable({
   providedIn: 'root',

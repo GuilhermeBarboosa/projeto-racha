@@ -4,7 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { NotifierService } from './../../shared/notifier.service';
 import { HttpHeaders, HttpRequest } from '@angular/common/http';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { LoginService } from 'src/app/service/login.service';
+import { LoginService } from 'src/app/routes/login.service';
 import { LoginInput } from 'src/app/interface/input/loginInput';
 
 @Component({

@@ -1,15 +1,15 @@
 import { JogadorInput } from './../../../interface/input/jogadorInput';
-import { PosicaoService } from './../../../service/posicao.service';
+import { PosicaoService } from './../../../routes/posicao.service';
 import { FormatterDateService } from './../../../shared/formatter-date.service';
-import { JogadorService } from './../../../service/jogador.service';
+import { JogadorService } from './../../../routes/jogador.service';
 import { NotifierService } from 'src/app/shared/notifier.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { UserService } from './../../../service/user.service';
+import { UserService } from './../../../routes/user.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { Jogador } from 'src/app/interface/dto/jogador';
 import { User } from 'src/app/interface/dto/user';
-import { RoleService } from 'src/app/service/role.service';
+import { RoleService } from 'src/app/routes/role.service';
 
 import { Posicao } from 'src/app/interface/dto/posicao';
 import { UserInput } from 'src/app/interface/input/userInput';

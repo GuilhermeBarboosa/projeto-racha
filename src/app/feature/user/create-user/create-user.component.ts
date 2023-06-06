@@ -1,13 +1,13 @@
-import { JogadorService } from 'src/app/service/jogador.service';
+import { JogadorService } from 'src/app/routes/jogador.service';
 import { NotifierService } from 'src/app/shared/notifier.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { UserService } from './../../../service/user.service';
+import { UserService } from './../../../routes/user.service';
 import { Component, OnInit, Inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { User } from 'src/app/interface/dto/user';
 import { UserInput } from 'src/app/interface/input/userInput';
-import { RoleService } from 'src/app/service/role.service';
-import { PosicaoService } from 'src/app/service/posicao.service';
+import { RoleService } from 'src/app/routes/role.service';
+import { PosicaoService } from 'src/app/routes/posicao.service';
 import { Role } from 'src/app/interface/dto/role';
 import { Posicao } from 'src/app/interface/dto/posicao';
 

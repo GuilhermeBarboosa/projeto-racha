@@ -29,7 +29,7 @@ import { ButtonGreenComponent } from './components/button-green/button-green.com
 import { ButtonRedComponent } from './components/button-red/button-red.component';
 import { ButtonYellowComponent } from './components/button-yellow/button-yellow.component';
 import { MatPaginatorModule } from '@angular/material/paginator';
-import { LoginService } from './service/login.service';
+import { LoginService } from './routes/login.service';
 
 @NgModule({
   declarations: [

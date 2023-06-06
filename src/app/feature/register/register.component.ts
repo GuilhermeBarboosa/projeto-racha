@@ -1,11 +1,11 @@
 import { UserInput } from './../../interface/input/userInput';
 import { NotifierService } from './../../shared/notifier.service';
-import { UserService } from './../../service/user.service';
+import { UserService } from './../../routes/user.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { User } from 'src/app/interface/dto/user';
-import { PosicaoService } from 'src/app/service/posicao.service';
+import { PosicaoService } from 'src/app/routes/posicao.service';
 import { Posicao } from 'src/app/interface/dto/posicao';
 
 @Component({

@@ -1,5 +1,5 @@
 import { Router } from '@angular/router';
-import { UserService } from './../../../service/user.service';
+import { UserService } from './../../../routes/user.service';
 import { AfterViewInit, Component, Input, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { CreateUserComponent } from '../create-user/create-user.component';
