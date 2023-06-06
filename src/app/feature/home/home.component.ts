@@ -1,4 +1,4 @@
-import { VerifytokenService } from './../../shared/verifytoken.service';
+import { LoginService } from 'src/app/service/login.service';
 import { NotifierService } from './../../shared/notifier.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -11,10 +11,10 @@ export class HomeComponent implements OnInit {
 
   constructor(
     private notifier: NotifierService,
-    private verifytokenService: VerifytokenService) { }
+    private loginService : LoginService) { }
 
   ngOnInit() {
-    this.verifytokenService.verifyJWT();
+    this.loginService.verifyToken();
   }
 
 }

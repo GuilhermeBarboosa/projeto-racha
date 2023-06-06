@@ -23,38 +23,35 @@ export const routes: Routes = [
   {
     path: 'home',
     component: HomeComponent,
-    // canActivate: [LoginGuardService]
+    canActivate: [LoginGuardService],
   },
   {
     path: 'user',
-    component: UserTableComponent,
-    // canActivate: [AuthGuardService, LoginGuardService],
+    children: [
+      {
+        path: '',
+        component: UserTableComponent,
+      },
+      {
+        path: 'register',
+        component: CreateUserComponent,
+      },
+      {
+        path: 'edit/:id',
+        component: EditUserComponent,
+      },
+      {
+        path: 'info/:id',
+        component: InfoUserComponent,
+      },
+    ],
+    canActivate: [LoginGuardService],
   },
   {
-    path: 'user/register',
-    component: CreateUserComponent,
-    // canActivate: [AuthGuardService, LoginGuardService],
+    path: '',
+    redirectTo: 'authentication/login',
+    pathMatch: 'full',
   },
-  {
-    path: 'user/edit/:id',
-    component: EditUserComponent,
-    // canActivate: [AuthGuardService, LoginGuardService],
-  },
-  {
-    path: 'user/info/:id',
-    component: InfoUserComponent,
-    // canActivate: [AuthGuardService, LoginGuardService],
-  },
-  // {
-  //   path: '',
-  //   redirectTo: 'authentication/login',
-  //   pathMatch: 'full',
-  // },
-  {
-      path: '',
-      redirectTo: 'home',
-      pathMatch: 'full',
-  }
 ];
 
 @NgModule({

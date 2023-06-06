@@ -23,13 +23,13 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { CreateUserComponent } from './feature/user/create-user/create-user.component';
 import { NgModule } from '@angular/core';
-import { LoginServiceService } from './service/login-service.service';
 import { DialogComponent } from './components/dialog/dialog.component';
 import { InfoUserComponent } from './feature/user/info-user/info-user.component';
 import { ButtonGreenComponent } from './components/button-green/button-green.component';
 import { ButtonRedComponent } from './components/button-red/button-red.component';
 import { ButtonYellowComponent } from './components/button-yellow/button-yellow.component';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { LoginService } from './service/login.service';
 
 @NgModule({
   declarations: [
@@ -69,7 +69,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     MatTableModule,
     ToastrModule.forRoot(),
   ],
-  providers: [LoginServiceService],
+  providers: [LoginService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

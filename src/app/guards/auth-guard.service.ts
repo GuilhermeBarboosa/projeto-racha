@@ -1,15 +1,15 @@
 import { Observable } from 'rxjs';
-import { LoginServiceService } from './../service/login-service.service';
 import { ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree, Router } from '@angular/router';
 import { Injectable } from '@angular/core';
 import { NotifierService } from '../shared/notifier.service';
+import { LoginService } from '../service/login.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthGuardService  {
   constructor(
-    private loginService: LoginServiceService,
+    private loginService: LoginService,
     private router: Router,
     private notifier: NotifierService
   ) {}

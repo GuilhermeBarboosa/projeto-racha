@@ -19,6 +19,7 @@ export class InfoUserComponent implements OnInit {
   isDisabled = true;
   id = this.activedRouter.snapshot.params['id'];
   Editar = 'Editar';
+  Voltar = 'Voltar';
 
   constructor(
     private activedRouter: ActivatedRoute,
@@ -87,6 +88,10 @@ export class InfoUserComponent implements OnInit {
 
   edit() {
     this.router.navigateByUrl(`user/edit/${this.id}`);
+  }
+
+  return(){
+    this.router.navigateByUrl('/user');
   }
 
   remove() {

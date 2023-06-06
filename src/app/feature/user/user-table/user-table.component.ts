@@ -43,7 +43,7 @@ export class UserTableComponent implements OnInit, AfterViewInit  {
   ) {}
 
   ngOnInit() {
-    this.initTable("true");
+    this.initTable();
   }
 
   ngAfterViewInit() {
@@ -52,8 +52,8 @@ export class UserTableComponent implements OnInit, AfterViewInit  {
 
   applyFilter(event: Event) {
     let filterValue = (event.target as HTMLInputElement).value;
-    filterValue = filterValue.trim();
-    filterValue = filterValue.toLowerCase();
+    filterValue = filterValue.trim(); // Remove whitespace
+    filterValue = filterValue.toLowerCase(); // MatTableDataSource defaults to lowercase matches
     this.usersArray.filter = filterValue;
   }
 
@@ -96,35 +96,31 @@ export class UserTableComponent implements OnInit, AfterViewInit  {
     });
   }
 
-  initTable( ativo: string ){
+  initTable(){
     this.userService.getAll().subscribe((data) => {
       var usersResponse = JSON.parse(JSON.stringify(data));
-      let arrayUsers = [] as User[];
-      usersResponse.map((user: User) => {
-       if(String(user.actived) == ativo){
-         arrayUsers.push(user);
-        }
-      });
 
-      arrayUsers.map((user) => {
+      usersResponse.map((user: User) => {
         if (user.actived) {
           user.actived = 'Ativo';
         } else {
-          user.actived = 'Inativo';
+          user.actived = 'Desativado';
         }
         }
+
       );
-      this.usersArray.data = arrayUsers;
+      this.usersArray.data = usersResponse;
+      this.usersArray.filter = "Ativo";
     });
   }
 
 
   getByInativo(){
-    this.initTable('false');
+    this.usersArray.filter = "Desa";
   }
 
   getByAtivo(){
-    this.initTable('true');
+    this.usersArray.filter = "Ativo";
   }
 
 }

@@ -87,7 +87,7 @@
             <div *ngIf="user.actived == 'Ativo'">
               <app-button-red [value]="mandaFiltroFalse" (click)="openDialog(user)"></app-button-red>
             </div>
-            <div *ngIf="user.actived == 'Inativo'">
+            <div *ngIf="user.actived == 'Desativado'">
               <app-button-green [value]="mandaFiltroTrue" (click)="ativar(user)"></app-button-green>
             </div>
           </mat-cell>

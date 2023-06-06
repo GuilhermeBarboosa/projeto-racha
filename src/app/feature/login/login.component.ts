@@ -1,79 +1,58 @@
+import { TokenJwtService } from './../../shared/token-jwt.service';
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
-import { VerifytokenService } from './../../shared/verifytoken.service';
-import { LoginClass } from './../../shared/login-class';
 import { NotifierService } from './../../shared/notifier.service';
-import { LoginServiceService } from './../../service/login-service.service';
 import { HttpHeaders, HttpRequest } from '@angular/common/http';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-
+import { LoginService } from 'src/app/service/login.service';
+import { LoginInput } from 'src/app/interface/input/loginInput';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.css'],
 })
 export class LoginComponent implements OnInit {
-
-  constructor(private loginService: LoginServiceService,
-              private router: Router,
-              private formBuilder: FormBuilder,
-              private notifier: NotifierService,
-              private verifytokenService: VerifytokenService) { }
+  constructor(
+    private loginService: LoginService,
+    private tokenJwtService: TokenJwtService,
+    private router: Router,
+    private formBuilder: FormBuilder,
+    private notifier: NotifierService
+  ) {}
 
   loginForm!: FormGroup;
 
   ngOnInit() {
     this.loginForm = this.formBuilder.group({
-      email: ['', Validators.required],
-      senha: ['', Validators.required]
-    })
+      email: ['gui@gmail.com', Validators.required],
+      senha: ['123', Validators.required],
+    });
 
-    if(localStorage.getItem('email') != null){
+    if (localStorage.getItem('email') != null) {
       this.loginForm.get('email')?.setValue(localStorage.getItem('email'));
       localStorage.removeItem('email');
     }
-
-    this.verifytokenService.verifyJWT();
   }
 
   login() {
+    if (this.loginForm.valid) {
+      let loginInput = new LoginInput(
+        this.loginForm.get('email')?.value,
+        this.loginForm.get('senha')?.value
+      );
 
-    if(this.loginForm.valid) {
-
-      let loginClass = new LoginClass();
-      loginClass.email = this.loginForm.get('email')?.value;
-      loginClass.senha = this.loginForm.get('senha')?.value;
-
-      this.loginService.login(loginClass).subscribe(
-        (data) => {
-
-          var loginResponse = JSON.parse(JSON.stringify(data));
-
-          localStorage.setItem('token', loginResponse.token);
-
-          this.loginService.verifyToken().subscribe(
-            (data) => {
-              loginResponse = JSON.parse(JSON.stringify(data));
-
-              localStorage.setItem('userId', loginResponse.userId);
-              localStorage.setItem('role', loginResponse.role);
-
-              this.notifier.ShowSuccess('Login realizado com sucesso!');
-              this.router.navigateByUrl('/home');
-            }
-          )
+      this.loginService.login(loginInput).subscribe(
+        (data: any) => {
+          var data = JSON.parse(JSON.stringify(data));
+          this.tokenJwtService.setToken(data);
+          this.notifier.ShowSuccess('Login efetuado com sucesso!');
+          this.router.navigate(['/home']);
         },
-        (error) => {
-            this.notifier.ShowError('Usuário ou senha inválidos!');
+        (error: any) => {
+          this.notifier.ShowError(error.error);
         }
-
-        );
-
-    }else{
-        this.notifier.ShowError('Login inválido!');
+      );
     }
-
   }
-
 }
