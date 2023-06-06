@@ -1,26 +1,20 @@
 import { Router } from '@angular/router';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { NotifierService } from 'src/app/shared/notifier.service';
 
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.css']
+  styleUrls: ['./navbar.component.css'],
 })
 export class NavbarComponent implements OnInit {
+  Logout = 'Logout';
 
-  nomeUsuario = localStorage.getItem('nome');
-  Logout = "Logout";
+  constructor(private router: Router, private notifier: NotifierService) {}
 
-  constructor(private router: Router,
-    private notifier: NotifierService) { }
+  ngOnInit() {}
 
-
-  ngOnInit() {
-
-  }
-
-  logout(){
+  logout() {
     localStorage.clear();
     this.notifier.ShowSuccess('Logout efetuado com sucesso!');
     this.router.navigateByUrl('/authentication/login');

@@ -17,6 +17,10 @@ export class LoginService {
     return this.http.post(`${environment.api}/auth/verifyToken`, {});
   }
 
+  obterClaims(){
+    return this.http.post(`${environment.api}/auth/obterClaims`, localStorage.getItem('token'));
+  }
+
   isLogin() {
     if (localStorage.getItem('token') != null && this.verifyToken()) {
       return true;

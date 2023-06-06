@@ -100,8 +100,6 @@ export class EditUserComponent implements OnInit {
 
   edit() {
     if (this.formulario.valid) {
-      this.jogador!.posicao!.id = this.formulario.get('posicao')?.value;
-
       let userDTO = {
         nome: this.formulario.get('nome')?.value,
         idade: this.formulario.get('idade')?.value,

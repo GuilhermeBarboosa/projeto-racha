@@ -1,17 +1,22 @@
+import { LoginService } from 'src/app/service/login.service';
 import { Injectable } from '@angular/core';
-import { LoginService } from '../service/login.service';
-
 @Injectable({
   providedIn: 'root',
 })
 export class TokenJwtService {
-  constructor() {}
+  constructor(private loginService: LoginService) {}
 
   setToken(token: any) {
     localStorage.setItem('token', token.token);
     localStorage.setItem('email', token.email);
-    localStorage.setItem('id', token.id);
-    localStorage.setItem('nome', token.nome);
+    this.loginService.obterClaims().subscribe(
+      (data: any) => {
+        var data = JSON.parse(JSON.stringify(data));
+        localStorage.setItem('nome', data.nome);
+        localStorage.setItem('id', data.id);
+        localStorage.setItem('role', data.role);
+      }
+    );
   }
 
   getToken() {

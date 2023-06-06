@@ -45,6 +45,7 @@ export class LoginComponent implements OnInit {
       this.loginService.login(loginInput).subscribe(
         (data: any) => {
           var data = JSON.parse(JSON.stringify(data));
+          console.log(data)
           this.tokenJwtService.setToken(data);
           this.notifier.ShowSuccess('Login efetuado com sucesso!');
           this.router.navigate(['/home']);
