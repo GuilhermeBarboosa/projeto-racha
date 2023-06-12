@@ -61,6 +61,11 @@
           <mat-cell mat-cell *matCellDef="let user"> {{user.email}} </mat-cell>
         </ng-container>
 
+        <ng-container matColumnDef="cpf">
+          <mat-header-cell mat-header-cell *matHeaderCellDef> Cpf </mat-header-cell>
+          <mat-cell mat-cell *matCellDef="let user"> {{user.cpf}} </mat-cell>
+        </ng-container>
+
         <ng-container matColumnDef="role">
           <mat-header-cell mat-header-cell *matHeaderCellDef> Role </mat-header-cell>
           <mat-cell mat-cell *matCellDef="let user"> {{user.role.role}} </mat-cell>
@@ -71,7 +76,6 @@
             <mat-header-cell mat-header-cell *matHeaderCellDef> Status </mat-header-cell>
             <mat-cell mat-cell *matCellDef="let user"> {{user.actived}} </mat-cell>
           </div>
-
         </ng-container>
 
         <ng-container matColumnDef="info">

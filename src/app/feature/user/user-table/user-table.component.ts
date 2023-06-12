@@ -24,6 +24,7 @@ export class UserTableComponent implements OnInit, AfterViewInit  {
     'id',
     'nome',
     'email',
+    'cpf',
     'role',
     'status',
     'info',
