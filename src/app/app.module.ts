@@ -30,6 +30,12 @@ import { ButtonRedComponent } from './components/button-red/button-red.component
 import { ButtonYellowComponent } from './components/button-yellow/button-yellow.component';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { LoginService } from './routes/login.service';
+import { IConfig, NgxMaskModule } from 'ngx-mask';
+
+const maskConfig: Partial<IConfig> = {
+  validation: false,
+};
+
 
 @NgModule({
   declarations: [
@@ -50,7 +56,9 @@ import { LoginService } from './routes/login.service';
     BrowserModule,
     BrowserAnimationsModule,
     MatSlideToggleModule,
-    MatFormFieldModule,
+    NgxMaskModule.forRoot({
+      dropSpecialCharacters: false // ao salvar, vai manter a mascara
+    }),
     FormsModule,
     ReactiveFormsModule,
     CommonModule,

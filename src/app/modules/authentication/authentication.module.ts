@@ -16,12 +16,16 @@ import { LoginComponent } from 'src/app/feature/login/login.component';
 import { RegisterComponent } from 'src/app/feature/register/register.component';
 import { AuthenticationRoutes } from './authentication.routing';
 import {MatSelectModule} from '@angular/material/select';
+import { NgxMaskModule } from 'ngx-mask';
 
 @NgModule({
   declarations: [LoginComponent, RegisterComponent],
   imports: [
     CommonModule,
     RouterModule.forChild(AuthenticationRoutes),
+    NgxMaskModule.forRoot({
+      dropSpecialCharacters: false // ao salvar, vai manter a mascara
+    }),
     MatFormFieldModule,
     FormsModule,
     MatInputModule,
