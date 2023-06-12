@@ -79,7 +79,6 @@
             <div class="">
               <label for="nome" class="block text-md font-medium text-white">Nome</label>
               <input formControlName="nome" type="text" name="nome" id="nome" class="bg-white text-black sm:text-sm rounded-lg focus:ring-green-300 focus:border-green-300 block w-full p-2.5" required="">
-              <p *ngIf="formulario.get('nome')?.errors && formulario.get('nome')?.touched" class="text-red-500 my-0">Nome obrigatório</p>
             </div>
 
             <div class="">
@@ -93,15 +92,18 @@
             </div>
 
             <div class="">
+              <label for="cpf" class="block text-md font-medium text-white">Cpf</label>
+              <input formControlName="cpf" type="text" name="cpf" id="cpf" class="bg-white text-black sm:text-sm rounded-lg focus:ring-green-300 focus:border-green-300 block w-full p-2.5"  required="">
+            </div>
+
+            <div class="">
               <label for="email" class="block text-md font-medium text-white">Email</label>
               <input formControlName="email" type="email" name="email" id="email" class="bg-white text-black sm:text-sm rounded-lg focus:ring-green-300 focus:border-green-300 block w-full p-2.5" required="">
-              <p *ngIf="formulario.get('email')?.errors && formulario.get('email')?.touched" class="text-red-500 my-0">Email obrigatório</p>
             </div>
 
             <div class="">
               <label for="senha" class="block text-md font-medium text-white">Senha</label>
               <input formControlName="senha" type="password" name="senha" id="senha" class="bg-white text-black sm:text-sm rounded-lg focus:ring-green-300 focus:border-green-300 block w-full p-2.5" required="">
-              <p *ngIf="formulario.get('senha')?.errors && formulario.get('senha')?.touched" class="text-red-500 my-0">Senha obrigatório</p>
             </div>
 
             <div class="">

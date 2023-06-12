@@ -7,6 +7,8 @@ export class UserInput {
 
   telefone: string | undefined;
 
+  cpf : string | undefined;
+
   email: string | undefined;
 
   senha: string | undefined ;
@@ -18,6 +20,7 @@ export class UserInput {
     this.nome = user.nome;
     this.idade = user.idade;
     this.telefone = user.telefone;
+    this.cpf = user.cpf;
     this.email = user.email;
     this.senha = user.senha;
     this.role = user.role;

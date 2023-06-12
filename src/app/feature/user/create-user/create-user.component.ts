@@ -61,6 +61,7 @@ export class CreateUserComponent implements OnInit {
       role: [2, Validators.required],
       posicao: [''],
       telefone: ['', Validators.required],
+      cpf: ['', [Validators.required, Validators.minLength(3)]],
     });
   }
 
@@ -72,6 +73,7 @@ export class CreateUserComponent implements OnInit {
         senha: this.formulario.get('senha')?.value,
         idade: this.formulario.get('idade')?.value,
         telefone: this.formulario.get('telefone')?.value,
+        cpf: this.formulario.get('cpf')?.value,
         role: this.formulario.get('role')?.value,
       };
 

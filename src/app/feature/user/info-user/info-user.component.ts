@@ -75,6 +75,10 @@ export class InfoUserComponent implements OnInit {
         { value: this.user?.telefone, disabled: this.isDisabled },
         Validators.required,
       ],
+      cpf: [
+        { value: this.user?.cpf, disabled: this.isDisabled },
+        Validators.required,
+      ],
       created: [
         { value: this.user?.created, disabled: this.isDisabled },
         Validators.required,

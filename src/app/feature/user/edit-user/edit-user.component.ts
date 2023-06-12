@@ -87,6 +87,10 @@ export class EditUserComponent implements OnInit {
         { value: this.user?.telefone, disabled: this.isDisabled },
         Validators.required,
       ],
+      cpf : [
+        { value: this.user?.cpf, disabled: this.isDisabled },
+        Validators.required,
+      ],
       created: [
         { value: this.user?.created, disabled: true },
         Validators.required,
@@ -104,6 +108,7 @@ export class EditUserComponent implements OnInit {
         nome: this.formulario.get('nome')?.value,
         idade: this.formulario.get('idade')?.value,
         telefone: this.formulario.get('telefone')?.value,
+        cpf: this.formulario.get('cpf')?.value,
         email: this.formulario.get('email')?.value,
         senha: this.formulario.get('senha')?.value,
         posicao: this.formulario.get('posicao')?.value,

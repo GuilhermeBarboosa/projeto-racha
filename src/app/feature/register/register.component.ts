@@ -48,8 +48,9 @@ export class RegisterComponent implements OnInit {
       senha: ['', [Validators.required, Validators.minLength(3)]],
       senhaSecundaria: ['', [Validators.required, Validators.minLength(3)]],
       telefone: ['', [Validators.required, Validators.minLength(8)]],
+      cpf: ['', [Validators.required, Validators.minLength(11)]],
       posicao: ['', Validators.required],
-      role: [1, Validators.required]
+      role: [2, Validators.required]
     })
   }
 
@@ -63,6 +64,7 @@ export class RegisterComponent implements OnInit {
           nome: this.formulario.get('nome')?.value,
           idade: this.formulario.get('idade')?.value,
           telefone: this.formulario.get('telefone')?.value,
+          cpf: this.formulario.get('cpf')?.value,
           email: this.formulario.get('email')?.value,
           senha: this.formulario.get('senha')?.value,
           posicao: this.formulario.get('posicao')?.value,
@@ -81,12 +83,13 @@ export class RegisterComponent implements OnInit {
             this.router.navigateByUrl('/authentication/login');
           },
           (error) => {
+            console.log(error);
             this.notifier.ShowError(error.error);
           }
         );
 
       } else {
-        this.formulario.markAllAsTouched();
+        console.log(this.formulario);
         this.notifier.ShowError('Formulário inválido!');
       }
     }

@@ -7,6 +7,7 @@ export interface User extends DefaultDto{
     nome: string | undefined;
     idade: number | undefined;
     telefone: string | undefined;
+    cpf: string | undefined;
     jogador?: Jogador | undefined;
     email: string | undefined;
     senha: string | undefined;

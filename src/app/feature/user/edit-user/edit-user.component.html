@@ -15,11 +15,17 @@
         <input formControlName="id" class="bg-gray-50 border w-auto border-gray-300 text-center text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block p-2.5" type="text" id="nome" required>
       </div>
 
-      <div class="">
-        <label class="block text-sm text-white" for="nome">Nome</label>
-        <input formControlName="nome" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" type="text" id="nome"  placeholder="Nome" aria-label="nome" required>
-      </div>
+      <div class="grid grid-cols-3">
+        <div class="col-span-2 mr-4">
+          <label class="block text-sm text-white" for="nome">Nome</label>
+          <input formControlName="nome" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" type="text" id="nome" aria-label="nome" required>
+        </div>
 
+        <div >
+          <label class="block text-sm text-white" for="cpf">Cpf</label>
+          <input formControlName="cpf" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" type="text" id="nome" aria-label="nome" required>
+        </div>
+      </div>
 
       <div class="grid grid-cols-4">
         <div class="mr-4">
