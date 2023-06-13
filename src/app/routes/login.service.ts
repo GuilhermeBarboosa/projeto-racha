@@ -22,9 +22,20 @@ export class LoginService {
   }
 
   isLogin() {
-    if (localStorage.getItem('token') != null && this.verifyToken()) {
+    this.verifyToken().subscribe((res) => {
+      var data = JSON.parse(JSON.stringify(res));
+      if (data.status == 200) {
+        return true;
+      }
+      else{
+        return false;
+      }
+    });
+
+    if (localStorage.getItem('token') != null) {
       return true;
     }
+
     return false;
   }
 }

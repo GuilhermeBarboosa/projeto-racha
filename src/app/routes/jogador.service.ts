@@ -21,7 +21,7 @@ export class JogadorService {
     return this.http.get(`${this.urlJogador}/` + id);
   }
 
-  async getByUser(id: number) {
+  getByUser(id: number) {
     return this.http.get(`${this.urlJogador}/usuario/` + id);
   }
 

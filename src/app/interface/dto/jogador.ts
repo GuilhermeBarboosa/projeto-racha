@@ -7,6 +7,6 @@ export interface Jogador extends DefaultDto{
   id?: number | undefined;
   user : User | undefined;
   posicao : Posicao | undefined;
-  gols?: number | undefined;
-  assistencias?: number | undefined;
+  gols: number | undefined;
+  assistencias: number | undefined;
 }

@@ -31,6 +31,7 @@ import { ButtonYellowComponent } from './components/button-yellow/button-yellow.
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { LoginService } from './routes/login.service';
 import { IConfig, NgxMaskModule } from 'ngx-mask';
+import { ProfileComponent } from './feature/profile/profile.component';
 
 const maskConfig: Partial<IConfig> = {
   validation: false,
@@ -44,6 +45,7 @@ const maskConfig: Partial<IConfig> = {
     NavbarComponent,
     SidebarComponent,
     UserTableComponent,
+    ProfileComponent,
     InfoUserComponent,
     CreateUserComponent,
     DialogComponent,

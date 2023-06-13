@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 @Injectable({
   providedIn: 'root',
 })
-export class FormatterDateService {
+export class UtilsService {
   constructor() {}
 
   formatarData(data: any) {

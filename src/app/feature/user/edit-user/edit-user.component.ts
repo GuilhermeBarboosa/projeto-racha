@@ -1,6 +1,6 @@
 import { JogadorInput } from './../../../interface/input/jogadorInput';
 import { PosicaoService } from './../../../routes/posicao.service';
-import { FormatterDateService } from './../../../shared/formatter-date.service';
+
 import { JogadorService } from './../../../routes/jogador.service';
 import { NotifierService } from 'src/app/shared/notifier.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
@@ -14,6 +14,7 @@ import { RoleService } from 'src/app/routes/role.service';
 import { Posicao } from 'src/app/interface/dto/posicao';
 import { UserInput } from 'src/app/interface/input/userInput';
 import { Role } from 'src/app/interface/dto/role';
+import { UtilsService } from 'src/app/shared/utils.service';
 
 @Component({
   selector: 'app-edit-user',
@@ -36,7 +37,7 @@ export class EditUserComponent implements OnInit {
     private userService: UserService,
     private roleService: RoleService,
     private router: Router,
-    private formatterDateService: FormatterDateService,
+    private utils: UtilsService,
     private formBuilder: FormBuilder,
     private notifier: NotifierService
   ) {}
@@ -50,10 +51,10 @@ export class EditUserComponent implements OnInit {
     this.userService.getById(this.id).subscribe((res) => {
       var userResponse = JSON.parse(JSON.stringify(res));
 
-      userResponse.created = this.formatterDateService.formatarData(
+      userResponse.created = this.utils.formatarData(
         userResponse.created
       );
-      userResponse.updated = this.formatterDateService.formatarData(
+      userResponse.updated = this.utils.formatarData(
         userResponse.updated
       );
 

@@ -11,6 +11,7 @@ import { LoginGuardService } from './guards/login-guard.service';
 import { RouterModule, Routes } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { InfoUserComponent } from './feature/user/info-user/info-user.component';
+import { ProfileComponent } from './feature/profile/profile.component';
 
 export const routes: Routes = [
   {
@@ -43,6 +44,21 @@ export const routes: Routes = [
       {
         path: 'info/:id',
         component: InfoUserComponent,
+      },
+    ],
+    canActivate: [LoginGuardService],
+  },
+  {
+    path: 'profile',
+    children: [
+      {
+        path: '',
+        component: ProfileComponent,
+        // path: '',
+        // loadChildren: () =>
+        //   import('./modules/profile/profile.module').then(
+        //     (m) => m.ProfileModule
+        //   ),
       },
     ],
     canActivate: [LoginGuardService],

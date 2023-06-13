@@ -1,0 +1,124 @@
+import { User } from 'src/app/interface/dto/user';
+import { JogadorRacha } from './../../interface/dto/jogador-racha';
+import { JogadorRachaService } from './../../routes/jogador-racha.service';
+import { RachaService } from './../../routes/racha.service';
+import { JogadorService } from 'src/app/routes/jogador.service';
+import { UserService } from './../../routes/user.service';
+import { Component, OnInit } from '@angular/core';
+import { LoginService } from 'src/app/routes/login.service';
+import { Jogador } from 'src/app/interface/dto/jogador';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { UtilsService } from 'src/app/shared/utils.service';
+
+@Component({
+  selector: 'app-profile',
+  templateUrl: './profile.component.html',
+  styleUrls: ['./profile.component.css'],
+})
+export class ProfileComponent implements OnInit {
+  constructor(
+    private userService: UserService,
+    private loginService: LoginService,
+    private jogadorService: JogadorService,
+    private jogadorRachaService: JogadorRachaService,
+    private formBuilder: FormBuilder,
+    private utils: UtilsService
+  ) {}
+
+  jogadorRacha: JogadorRacha[] = [];
+  user?: User;
+  jogador?: Jogador;
+  userForm!: FormGroup;
+  jogadorForm! : FormGroup;
+  isDisabled = true;
+
+  ngOnInit() {
+    this.loginService.obterClaims().subscribe((res) => {
+      var data = JSON.parse(JSON.stringify(res));
+      this.userService.getById(Number(data.id)).subscribe((res) => {
+        var userResponse = JSON.parse(JSON.stringify(res));
+        this.user = userResponse;
+
+        this.user!.created = this.utils.formatarData(
+          this.user!.created
+        );
+
+        this.user!.updated = this.utils.formatarData(
+          this.user!.updated
+        );
+
+        this.createTable();
+      });
+
+      this.jogadorService.getByUser(Number(data.id)).subscribe((res) => {
+        var jogadorResponse = JSON.parse(JSON.stringify(res));
+        this.jogador = jogadorResponse;
+
+        this.createTableJogador();
+      });
+
+      this.jogadorRachaService.getByUser(Number(data.id)).subscribe((res) => {
+        var jogadorResponse = JSON.parse(JSON.stringify(res));
+        this.jogadorRacha = jogadorResponse;
+        console.log(this.jogadorRacha);
+      });
+    });
+  }
+
+
+  createTable() {
+    this.userForm = this.formBuilder.group({
+      id: [{ value: this.user?.id, disabled: this.isDisabled }],
+      nome: [
+        { value: this.user?.nome, disabled: this.isDisabled },
+        Validators.required,
+      ],
+      email: [
+        { value: this.user?.email, disabled: this.isDisabled },
+        Validators.required,
+      ],
+      idade: [
+        { value: this.user?.idade, disabled: this.isDisabled },
+        Validators.required,
+      ],
+      role: [
+        { value: this.user?.role?.role, disabled: this.isDisabled },
+        Validators.required,
+      ],
+      telefone: [
+        { value: this.user?.telefone, disabled: this.isDisabled },
+        Validators.required,
+      ],
+      cpf: [
+        { value: this.user?.cpf, disabled: this.isDisabled },
+        Validators.required,
+      ],
+      created: [
+        { value: this.user?.created, disabled: this.isDisabled },
+        Validators.required,
+      ],
+      updated: [
+        { value: this.user?.updated, disabled: this.isDisabled },
+        Validators.required,
+      ],
+    });
+  }
+
+  createTableJogador() {
+    this.jogadorForm = this.formBuilder.group({
+
+      posicao: [
+        { value: this.jogador?.posicao?.posicao, disabled: this.isDisabled },
+        Validators.required,
+      ],
+      gols: [
+        { value: this.jogador?.gols, disabled: this.isDisabled },
+        Validators.required,
+      ],
+      assistencias: [
+        { value: this.jogador?.assistencias, disabled: this.isDisabled },
+        Validators.required,
+      ],
+    });
+  }
+}

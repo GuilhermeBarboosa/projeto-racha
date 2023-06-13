@@ -1,4 +1,4 @@
-import { FormatterDateService } from './../../../shared/formatter-date.service';
+
 import { Jogador } from './../../../interface/dto/jogador';
 import { JogadorService } from './../../../routes/jogador.service';
 import { NotifierService } from 'src/app/shared/notifier.service';
@@ -7,6 +7,7 @@ import { UserService } from './../../../routes/user.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { User } from 'src/app/interface/dto/user';
+import { UtilsService } from 'src/app/shared/utils.service';
 
 @Component({
   selector: 'app-info-user',
@@ -26,7 +27,7 @@ export class InfoUserComponent implements OnInit {
     private userService: UserService,
     private jogadorService: JogadorService,
     private router: Router,
-    private formatterDateService: FormatterDateService,
+    private utils: UtilsService,
     private formBuilder: FormBuilder,
     private notifier: NotifierService
   ) {}
@@ -37,10 +38,10 @@ export class InfoUserComponent implements OnInit {
         var userResponse = JSON.parse(JSON.stringify(data));
         this.user = userResponse;
 
-        this.user!.created = this.formatterDateService.formatarData(
+        this.user!.created = this.utils.formatarData(
           this.user!.created
         );
-        this.user!.updated = this.formatterDateService.formatarData(
+        this.user!.updated = this.utils.formatarData(
           this.user!.updated
         );
 
