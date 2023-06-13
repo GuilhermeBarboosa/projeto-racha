@@ -34,8 +34,7 @@ export class LoginGuardService {
     if (this.loginService.isLogin()) {
       return true;
     }
-    this.notifier.ShowInfo('Você não está logado');
-    this.router.navigate(['/authentication/login/']);
+    this.loginService.logout();
     return false;
   }
 }

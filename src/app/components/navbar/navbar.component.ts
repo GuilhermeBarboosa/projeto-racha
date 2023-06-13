@@ -1,6 +1,7 @@
 import { Router } from '@angular/router';
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { NotifierService } from 'src/app/shared/notifier.service';
+import { LoginService } from 'src/app/routes/login.service';
 
 @Component({
   selector: 'app-navbar',
@@ -10,13 +11,11 @@ import { NotifierService } from 'src/app/shared/notifier.service';
 export class NavbarComponent implements OnInit {
   Logout = 'Logout';
 
-  constructor(private router: Router, private notifier: NotifierService) {}
+  constructor(private router: Router, private notifier: NotifierService, private loginService: LoginService) {}
 
   ngOnInit() {}
 
   logout() {
-    localStorage.clear();
-    this.notifier.ShowSuccess('Logout efetuado com sucesso!');
-    this.router.navigateByUrl('/authentication/login');
+    this.loginService.logout();
   }
 }

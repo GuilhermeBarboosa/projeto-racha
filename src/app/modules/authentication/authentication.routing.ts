@@ -14,8 +14,7 @@ export const AuthenticationRoutes: Routes = [
         path: 'register',
         component: RegisterComponent,
       },
-
     ],
-
+    
   },
 ];

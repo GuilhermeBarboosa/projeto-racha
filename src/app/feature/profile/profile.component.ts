@@ -70,6 +70,8 @@ export class ProfileComponent implements OnInit {
 
         this.jogadorRacha = arrayJogadores;
       });
+    }, error => {
+      this.loginService.logout();
     });
   }
 
