@@ -166,11 +166,13 @@
         Rachas:
       </h2>
       <div class="bg-white rounded-lg text-black p-4">
-        <ul
-        *ngFor="let racha of jogadorRacha"
-        class=" list-disc list-inside text-md"
-      >
-        <li>{{ racha.racha!.nome }}</li>
+        <ul *ngFor="let racha of jogadorRacha" class="flex items-center list-disc list-inside text-md flex">
+          <li>
+         {{ racha.racha!.nome }}
+          </li>
+          <a routerLink="/profile" routerLinkActive="active" class="flex items-center p-2 text-black rounded-lg hover:text-black">
+            <mat-icon>info</mat-icon>
+          </a>
       </ul>
       </div>
 

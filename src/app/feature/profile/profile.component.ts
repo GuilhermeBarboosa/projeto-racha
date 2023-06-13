@@ -59,8 +59,16 @@ export class ProfileComponent implements OnInit {
 
       this.jogadorRachaService.getByUser(Number(data.id)).subscribe((res) => {
         var jogadorResponse = JSON.parse(JSON.stringify(res));
-        this.jogadorRacha = jogadorResponse;
-        console.log(this.jogadorRacha);
+        let arrayJogadores: JogadorRacha[] = [];
+
+        jogadorResponse.forEach((element: any) => {
+          element.racha.nome = this.utils.formatterString(
+            element.racha.nome
+          );
+          arrayJogadores.push(element);
+        });
+
+        this.jogadorRacha = arrayJogadores;
       });
     });
   }
