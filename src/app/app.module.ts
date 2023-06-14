@@ -32,6 +32,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { LoginService } from './routes/login.service';
 import { IConfig, NgxMaskModule } from 'ngx-mask';
 import { ProfileComponent } from './feature/profile/profile.component';
+import { UserFormComponent } from './feature/forms/user-form/user-form.component';
 
 const maskConfig: Partial<IConfig> = {
   validation: false,
@@ -48,6 +49,7 @@ const maskConfig: Partial<IConfig> = {
     ProfileComponent,
     InfoUserComponent,
     CreateUserComponent,
+    UserFormComponent,
     DialogComponent,
     EditUserComponent,
     ButtonGreenComponent,
