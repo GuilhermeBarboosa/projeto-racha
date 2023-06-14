@@ -36,8 +36,6 @@ export class RegisterComponent implements OnInit {
           }
         }
       )
-
-      console.log(this.posicaoArray)
     });
 
 
@@ -83,13 +81,11 @@ export class RegisterComponent implements OnInit {
             this.router.navigateByUrl('/authentication/login');
           },
           (error) => {
-            console.log(error);
             this.notifier.ShowError(error.error);
           }
         );
 
       } else {
-        console.log(this.formulario);
         this.notifier.ShowError('Formulário inválido!');
       }
     }

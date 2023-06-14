@@ -33,7 +33,6 @@ export class LoginService {
   isLogin() {
     this.verifyToken().subscribe(
       (res) => {
-        console.log(res);
       },
       (err) => {
         this.logout();
