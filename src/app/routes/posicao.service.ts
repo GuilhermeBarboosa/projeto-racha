@@ -21,6 +21,10 @@ export class PosicaoService {
     return this.http.get(`${this.urlPosicao}/` + id);
   }
 
+  findPosicao(posicao: string) {
+    return this.http.get(`${this.urlPosicao}/desc/` + posicao);
+  }
+
   create(posicao: PosicaoInput) {
     return this.http.post(`${this.urlPosicao}`, posicao);
   }

@@ -37,7 +37,7 @@ export class JogadorService {
     return this.http.put(`${this.urlJogador}/${id}`, jogador);
   }
 
-  ativar(jogador: Jogador, id: number) {
+  ativar(jogador: JogadorInput, id: number) {
     return this.http.put(`${this.urlJogador}/ativar/${id}`, jogador);
   }
 

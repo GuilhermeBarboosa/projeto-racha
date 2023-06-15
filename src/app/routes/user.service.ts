@@ -22,6 +22,12 @@ export class UserService {
     });
   }
 
+  findCpf(cpf: string) {
+    return this.http.get(`${this.urlUser}/cpf/` + cpf, {
+      headers: this.HttpHeaders,
+    });
+  }
+
   create(user: UserInput) {
     return this.http.post(`${this.urlUser}`, user, {
       headers: this.HttpHeaders,
