@@ -34,6 +34,10 @@ import { InfoUserComponent } from './feature/cruds/user/info-user/info-user.comp
 import { CreateUserComponent } from './feature/cruds/user/create-user/create-user.component';
 import { EditUserComponent } from './feature/cruds/user/edit-user/edit-user.component';
 import { PosicaoTableComponent } from './feature/cruds/posicao/posicao-table/posicao-table.component';
+import { PosicaoFormComponent } from './feature/forms/posicao-form/posicao-form.component';
+import { InfoPosicaoComponent } from './feature/cruds/posicao/info-posicao/info-posicao.component';
+import { CreatePosicaoComponent } from './feature/cruds/posicao/create-posicao/create-posicao.component';
+import { EditPosicaoComponent } from './feature/cruds/posicao/edit-posicao/edit-posicao.component';
 
 const maskConfig: Partial<IConfig> = {
   validation: false,
@@ -46,14 +50,22 @@ const maskConfig: Partial<IConfig> = {
     HomeComponent,
     NavbarComponent,
     SidebarComponent,
-    UserTableComponent,
     ProfileComponent,
+    // User
+    UserTableComponent,
     InfoUserComponent,
-    CreateUserComponent,
-    PosicaoTableComponent,
-    UserFormComponent,
-    DialogComponent,
     EditUserComponent,
+    CreateUserComponent,
+    // Posicao
+    PosicaoTableComponent,
+    InfoPosicaoComponent,
+    CreatePosicaoComponent,
+    EditPosicaoComponent,
+    // Form
+    UserFormComponent,
+    PosicaoFormComponent,
+    DialogComponent,
+
     ButtonGreenComponent,
     ButtonRedComponent,
     ButtonYellowComponent

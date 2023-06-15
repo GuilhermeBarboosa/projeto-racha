@@ -10,6 +10,9 @@ import { ProfileComponent } from './feature/page-login/profile/profile.component
 import { UserTableComponent } from './feature/cruds/user/user-table/user-table.component';
 import { CreateUserComponent } from './feature/cruds/user/create-user/create-user.component';
 import { PosicaoTableComponent } from './feature/cruds/posicao/posicao-table/posicao-table.component';
+import { InfoPosicaoComponent } from './feature/cruds/posicao/info-posicao/info-posicao.component';
+import { CreatePosicaoComponent } from './feature/cruds/posicao/create-posicao/create-posicao.component';
+import { EditPosicaoComponent } from './feature/cruds/posicao/edit-posicao/edit-posicao.component';
 
 export const routes: Routes = [
   {
@@ -53,18 +56,18 @@ export const routes: Routes = [
         path: '',
         component: PosicaoTableComponent,
       },
-      // {
-      //   path: 'register',
-      //   component: CreateUserComponent,
-      // },
-      // {
-      //   path: 'edit/:id',
-      //   component: EditUserComponent,
-      // },
-      // {
-      //   path: 'info/:id',
-      //   component: InfoUserComponent,
-      // },
+      {
+        path: 'register',
+        component: CreatePosicaoComponent,
+      },
+      {
+        path: 'edit/:id',
+        component: EditPosicaoComponent,
+      },
+      {
+        path: 'info/:id',
+        component: InfoPosicaoComponent,
+      },
     ],
     canActivate: [LoginGuardService],
   },
