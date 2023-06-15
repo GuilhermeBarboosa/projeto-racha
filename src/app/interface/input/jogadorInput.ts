@@ -1,18 +1,18 @@
 import { Jogador } from "../dto/jogador";
 
 export class JogadorInput {
-  user: number = 0;
+  user!: number ;
 
-  posicao: number = 0;
+  posicao!: number;
 
-  gols: number = 0;
+  gols!: number;
 
-  assistencias: number = 0;
+  assistencias!: number;
 
-  constructor(jogador: any) {
-    this.user = jogador.user!;
-    this.posicao = jogador.posicao;
-    this.gols = jogador.gols;
-    this.assistencias = jogador.assistencias;
+  constructor(jogador: Jogador) {
+    this.user = jogador.user!.id!;
+    this.posicao = jogador.posicao?.id!;
+    this.gols = jogador.gols!;
+    this.assistencias = jogador.assistencias!;
   }
 }

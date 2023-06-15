@@ -16,13 +16,13 @@ export class UserInput {
   role : number | undefined;
 
 
-  constructor(user: any) {
+  constructor(user: User) {
     this.nome = user.nome;
     this.idade = user.idade;
     this.telefone = user.telefone;
     this.cpf = user.cpf;
     this.email = user.email;
     this.senha = user.senha;
-    this.role = user.role;
+    this.role = user.role?.id!;
   }
 }
