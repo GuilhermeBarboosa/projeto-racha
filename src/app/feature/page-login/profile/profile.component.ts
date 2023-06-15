@@ -1,14 +1,13 @@
 import { User } from 'src/app/interface/dto/user';
-import { JogadorRacha } from './../../interface/dto/jogador-racha';
-import { JogadorRachaService } from './../../routes/jogador-racha.service';
-import { RachaService } from './../../routes/racha.service';
 import { JogadorService } from 'src/app/routes/jogador.service';
-import { UserService } from './../../routes/user.service';
 import { Component, OnInit } from '@angular/core';
 import { LoginService } from 'src/app/routes/login.service';
 import { Jogador } from 'src/app/interface/dto/jogador';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { UtilsService } from 'src/app/shared/utils.service';
+import { UserService } from '../../../routes/user.service';
+import { JogadorRachaService } from '../../../routes/jogador-racha.service';
+import { JogadorRacha } from 'src/app/interface/dto/jogador-racha';
 
 @Component({
   selector: 'app-profile',

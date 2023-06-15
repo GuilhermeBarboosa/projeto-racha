@@ -1,5 +1,4 @@
 import { Router } from '@angular/router';
-import { UserService } from './../../../routes/user.service';
 import { AfterViewInit, Component, Input, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { CreateUserComponent } from '../create-user/create-user.component';
@@ -10,6 +9,7 @@ import { NotifierService } from 'src/app/shared/notifier.service';
 import { DialogComponent } from 'src/app/components/dialog/dialog.component';
 import { UserInput } from 'src/app/interface/input/userInput';
 import { MatPaginator } from '@angular/material/paginator';
+import { UserService } from '../../../../routes/user.service';
 
 @Component({
   selector: 'app-user-table',
@@ -117,7 +117,7 @@ export class UserTableComponent implements OnInit, AfterViewInit  {
 
 
   getByInativo(){
-    this.usersArray.filter = "Desa";
+    this.usersArray.filter = "Desativado";
   }
 
   getByAtivo(){

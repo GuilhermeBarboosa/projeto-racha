@@ -12,11 +12,11 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatIconModule } from '@angular/material/icon';
 import { HttpClientModule } from '@angular/common/http';
-import { LoginComponent } from 'src/app/feature/login/login.component';
-import { RegisterComponent } from 'src/app/feature/register/register.component';
 import { AuthenticationRoutes } from './authentication.routing';
 import {MatSelectModule} from '@angular/material/select';
 import { NgxMaskModule } from 'ngx-mask';
+import { LoginComponent } from 'src/app/feature/page-login/login/login.component';
+import { RegisterComponent } from '../../feature/page-login/register/register.component';
 
 @NgModule({
   declarations: [LoginComponent, RegisterComponent],

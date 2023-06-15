@@ -1,10 +1,5 @@
-import { JogadorInput } from './../../../interface/input/jogadorInput';
-import { PosicaoService } from './../../../routes/posicao.service';
-
-import { JogadorService } from './../../../routes/jogador.service';
 import { NotifierService } from 'src/app/shared/notifier.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { UserService } from './../../../routes/user.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { Jogador } from 'src/app/interface/dto/jogador';
@@ -15,6 +10,7 @@ import { Posicao } from 'src/app/interface/dto/posicao';
 import { UserInput } from 'src/app/interface/input/userInput';
 import { Role } from 'src/app/interface/dto/role';
 import { UtilsService } from 'src/app/shared/utils.service';
+import { UserService } from '../../../../routes/user.service';
 
 @Component({
   selector: 'app-edit-user',

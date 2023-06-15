@@ -1,13 +1,12 @@
 
-import { Jogador } from './../../../interface/dto/jogador';
-import { JogadorService } from './../../../routes/jogador.service';
 import { NotifierService } from 'src/app/shared/notifier.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { UserService } from './../../../routes/user.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { User } from 'src/app/interface/dto/user';
 import { UtilsService } from 'src/app/shared/utils.service';
+import { UserService } from '../../../../routes/user.service';
+import { JogadorService } from '../../../../routes/jogador.service';
 
 @Component({
   selector: 'app-info-user',

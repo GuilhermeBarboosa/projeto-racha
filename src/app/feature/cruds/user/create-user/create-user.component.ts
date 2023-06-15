@@ -1,7 +1,6 @@
 import { JogadorService } from 'src/app/routes/jogador.service';
 import { NotifierService } from 'src/app/shared/notifier.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { UserService } from './../../../routes/user.service';
 import { Component, OnInit, Inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { User } from 'src/app/interface/dto/user';
@@ -10,6 +9,7 @@ import { RoleService } from 'src/app/routes/role.service';
 import { PosicaoService } from 'src/app/routes/posicao.service';
 import { Role } from 'src/app/interface/dto/role';
 import { Posicao } from 'src/app/interface/dto/posicao';
+import { UserService } from '../../../../routes/user.service';
 
 @Component({
   selector: 'app-create-user',
