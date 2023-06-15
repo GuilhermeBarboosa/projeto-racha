@@ -3,7 +3,7 @@
 }
 
 .bg{
-  background-image: url('../../../assets/background.png');
+  background-image: url('../../../../assets/background.png');
   opacity : 0.5;
 }
 

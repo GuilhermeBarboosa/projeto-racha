@@ -9,9 +9,9 @@ export class JogadorInput {
 
   assistencias!: number;
 
-  constructor(jogador: Jogador) {
-    this.user = jogador.user!.id!;
-    this.posicao = jogador.posicao?.id!;
+  constructor(jogador: any) {
+    this.user = jogador.user!;
+    this.posicao = jogador.posicao!;
     this.gols = jogador.gols!;
     this.assistencias = jogador.assistencias!;
   }

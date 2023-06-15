@@ -79,6 +79,9 @@ export class CreateJogadorComponent implements OnInit {
 
   save() {
     if (this.formulario.valid) {
+
+      console.log(this.formulario.get('user')?.value)
+
       let jogador = {
         user: this.formulario.get('user')?.value,
         posicao: this.formulario.get('posicao')?.value,

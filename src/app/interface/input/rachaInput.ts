@@ -6,9 +6,9 @@ export class RachaInput {
   quadra: number | undefined;
 
 
-  constructor(racha: Racha) {
+  constructor(racha: any) {
     this.nome = racha.nome;
     this.caixa = racha.caixa;
-    this.quadra = racha.quadra?.id!;
+    this.quadra = racha.quadra!;
   }
 }

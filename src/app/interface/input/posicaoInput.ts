@@ -1,11 +1,9 @@
 import { Posicao } from "../dto/posicao";
 
 export class PosicaoInput {
-  id?: number;
   posicao?: string;
 
-  constructor(posicao: Posicao) {
-    this.id = posicao.id;
+  constructor(posicao: any) {
     this.posicao = posicao.posicao;
   }
 }
