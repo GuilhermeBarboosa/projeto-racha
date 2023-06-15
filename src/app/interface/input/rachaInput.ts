@@ -9,6 +9,6 @@ export class RachaInput {
   constructor(racha: Racha) {
     this.nome = racha.nome;
     this.caixa = racha.caixa;
-    this.quadra = racha.quadra?.id;
+    this.quadra = racha.quadra?.id!;
   }
 }
