@@ -5,6 +5,13 @@
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
+
+.bg-login{
+  background-image: url('./assets/background.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 .bg-default{
   background-color: #22282C;
 }

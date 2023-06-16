@@ -8,10 +8,7 @@
   height: 100vh !important;
 }
 
-.bg{
-  background-image: url('../../../../assets/background.png');
-  opacity : 0.5;
-}
+
 
 input{
   margin-bottom: 5px;

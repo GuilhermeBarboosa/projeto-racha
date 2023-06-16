@@ -5,13 +5,86 @@
 <div class="flex">
   <app-sidebar></app-sidebar>
 
-  <div class="h-full w-full p-5">
+  <div class="h-full w-full p-4">
     <h2 class="mb-2 text-lg font-semibold text-white dark:text-white">
       Meu perfil
     </h2>
 
     <div>
-      <app-user-form [userForm]="userForm"></app-user-form>
+      <form class="h-full w-full" [formGroup]="userForm" *ngIf="userForm">
+        <div>
+          <div class="grid grid-cols-4">
+            <div class="col-span-3 mr-4">
+              <label class="block text-sm text-white" for="nome">Nome</label>
+              <input
+                formControlName="nome"
+                class="default-input w-full p-2.5"
+                type="text"
+                id="nome"
+                aria-label="nome"
+                required
+              />
+            </div>
+
+            <div >
+              <label class="block text-sm text-white" for="idade">Idade</label>
+              <input
+                formControlName="idade"
+                class="default-input w-full p-2.5"
+                type="number"
+                id="idade"
+                placeholder="idade"
+                aria-label="idade"
+                required
+              />
+            </div>
+
+          </div>
+
+          <div class="grid grid-cols-4">
+
+            <div class="col-span-2 mr-4">
+              <label class="block text-sm text-white" for="cpf">Cpf</label>
+              <input
+                formControlName="cpf"
+                class="default-input w-full p-2.5"
+                type="text"
+                id="nome"
+                aria-label="nome"
+                required
+              />
+            </div>
+
+            <div class="col-span-2">
+              <label class="block text-sm text-white" for="role">Telefone</label>
+              <input
+                formControlName="telefone"
+                class="default-input w-full p-2.5"
+                type="text"
+                id="telefone"
+                placeholder="telefone"
+                aria-label="telefone"
+                mask="(00) 00000-0000"
+              />
+            </div>
+          </div>
+
+          <div class="">
+            <label class="block text-sm text-white" for="email">E-mail</label>
+            <input
+              formControlName="email"
+              class="default-input w-full p-2.5"
+              type="email"
+              id="email"
+              placeholder="Email"
+              aria-label="email"
+              required
+            />
+          </div>
+
+        </div>
+      </form>
+
     </div>
 
 
@@ -64,7 +137,7 @@
 
 
 
-    <div class="mt-5 w-full ">
+    <div class="mt-5 w-full " *ngIf="jogadorRacha == null">
       <h2 class="mb-2 text-lg font-semibold text-white dark:text-white">
         Rachas:
       </h2>
