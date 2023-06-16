@@ -45,8 +45,6 @@ export class CreateJogadorComponent implements OnInit {
     this.posicaoSerive.getAll().subscribe((data) => {
       var posicaoResponse = JSON.parse(JSON.stringify(data));
       this.arrayPosicao = posicaoResponse;
-
-      console.log(this.arrayPosicao);
     });
 
     this.createTable();
@@ -59,8 +57,6 @@ export class CreateJogadorComponent implements OnInit {
       this.userService.findCpf(cpf).subscribe((data) => {
         var userResponse = JSON.parse(JSON.stringify(data));
         this.arrayUser = userResponse;
-
-        console.log(this.arrayUser);
       });
 
 
@@ -80,8 +76,6 @@ export class CreateJogadorComponent implements OnInit {
   save() {
     if (this.formulario.valid) {
 
-      console.log(this.formulario.get('user')?.value)
-
       let jogador = {
         user: this.formulario.get('user')?.value,
         posicao: this.formulario.get('posicao')?.value,
@@ -91,15 +85,12 @@ export class CreateJogadorComponent implements OnInit {
 
       let jogadorInput = new JogadorInput(jogador);
 
-      console.log(jogadorInput)
-
       this.jogadorService.create(jogadorInput).subscribe(
         (data) => {
           this.notifier.ShowSuccess('Jogador cadastrado com sucesso!');
           this.router.navigateByUrl('/jogador');
         },
         (error) => {
-          console.log(error)
           this.notifier.ShowError(error.error);
         }
       );

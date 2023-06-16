@@ -1,0 +1,132 @@
+<app-navbar></app-navbar>
+
+<div class="flex">
+  <app-sidebar></app-sidebar>
+
+  <form class="h-full w-full m-5" [formGroup]="formulario" *ngIf="formulario">
+
+      <div class="flex justify-between">
+        <p class="text-white font-medium justify-start text-lg font-bold">EDITAR
+          USUÁRIO</p>
+      </div>
+
+      <div class="">
+        <label class="block text-sm text-white" for="id">Código</label>
+        <input formControlName="id" class="default-input text-center p-2.5" type="text" id="id" required>
+      </div>
+
+      <div class="grid grid-cols-2">
+        <div class="mr-3">
+          <label class="block text-sm text-white" for="jogador">Nome</label>
+          <input formControlName="jogador" class="default-input w-full p-2.5" type="text" id="jogador" aria-label="jogador" required>
+        </div>
+
+        <div class="">
+          <label class="block text-sm text-white" for="posicaoJogador">Posição</label>
+          <input formControlName="posicaoJogador" class="default-input w-full p-2.5" type="text" id="posicaoJogador" aria-label="posicaoJogador" required>
+        </div>
+      </div>
+
+      <div class="items-center flex justify-between">
+        <div>
+          <label class="block text-sm text-white" for="created">Criado:</label>
+          <input formControlName="created" class="default-input text-center p-2.5" type="text" id="created" required>
+        </div>
+
+        <div class="align-end">
+          <label class="block text-sm text-white" for="updated">Modificado:</label>
+          <input formControlName="updated" class="default-input text-center p-2.5" type="text" id="updated" required>
+        </div>
+      </div>
+
+      <hr>
+
+      <div>
+        <div class="grid w-45">
+          <div>
+            <div>
+              <label
+                for="first_name"
+                class="block mb-2 text-sm font-medium text-white"
+                >Cpf do usuário</label
+              >
+              <input
+                type="text"
+                id="first_name"
+                class="default-input w-full  p-2.5"
+                #cpf
+                name="userCpf"
+                mask="000.000.000-00"
+              />
+            </div>
+
+            <app-button-yellow
+              class="flex justify-end mt-4"
+              [value]="Procurar"
+              (click)="find(cpf.value)"
+            ></app-button-yellow>
+          </div>
+
+          <div *ngIf="arrayUser?.length === 0 || arrayUser != null">
+            <div
+              class=""
+
+            >
+              <div class="">
+                <label
+                  for="first_name"
+                  class="block mt-4 text-sm font-medium text-white"
+                  >Usuários</label
+                >
+                <select
+                  id="user"
+                  formControlName="user"
+                  class="default-input w-full p-2.5"
+                >
+                  <option value="" disabled selected>Selecione o usuário</option>
+                  <option *ngFor="let user of arrayUser" [value]="user.id">
+                    {{ user.nome }} - {{ user.cpf }}
+                  </option>
+                </select>
+              </div>
+            </div>
+
+            <div class="" >
+              <div class="">
+                <label
+                  for="first_name"
+                  class="block mt-4 text-sm font-medium text-white"
+                  >Posições</label
+                >
+                <select
+                  id="posicao"
+                  formControlName="posicao"
+                  class="default-input w-full block"
+                >
+                  <option value="" disabled selected>Selecione a posição</option>
+                  <option *ngFor="let posicao of arrayPosicao" [value]="posicao.id">
+                    {{ posicao.posicao }}
+                  </option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="items-center flex justify-between my-2">
+        <div class="align-end">
+          <app-button-red [value] = "Nao" (click)="return()"></app-button-red>
+        </div>
+
+        <div>
+          <app-button-green [value] = "Sim" (click)="edit()"></app-button-green>
+        </div>
+      </div>
+
+
+  </form>
+
+
+
+</div>

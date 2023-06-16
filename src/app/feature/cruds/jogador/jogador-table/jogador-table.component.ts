@@ -99,8 +99,6 @@ export class JogadorTableComponent implements OnInit, AfterViewInit {
     this.jogadorService.getAll().subscribe((data) => {
       var jogadorResponse = JSON.parse(JSON.stringify(data));
 
-
-      console.log(jogadorResponse);
       jogadorResponse.map((jogador: Jogador) => {
         if (jogador.actived) {
           jogador.actived = 'Ativo';

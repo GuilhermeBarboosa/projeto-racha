@@ -16,6 +16,7 @@ import { EditPosicaoComponent } from './feature/cruds/posicao/edit-posicao/edit-
 import { JogadorTableComponent } from './feature/cruds/jogador/jogador-table/jogador-table.component';
 import { CreateJogadorComponent } from './feature/cruds/jogador/create-jogador/create-jogador.component';
 import { InfoJogadorComponent } from './feature/cruds/jogador/info-jogador/info-jogador.component';
+import { EditJogadorComponent } from './feature/cruds/jogador/edit-jogador/edit-jogador.component';
 
 export const routes: Routes = [
   {
@@ -85,10 +86,10 @@ export const routes: Routes = [
         path: 'register',
         component: CreateJogadorComponent,
       },
-      // {
-      //   path: 'edit/:id',
-      //   component: EditPosicaoComponent,
-      // },
+      {
+        path: 'edit/:id',
+        component: EditJogadorComponent,
+      },
       {
         path: 'info/:id',
         component: InfoJogadorComponent,
