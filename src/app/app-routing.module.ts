@@ -17,6 +17,10 @@ import { JogadorTableComponent } from './feature/cruds/jogador/jogador-table/jog
 import { CreateJogadorComponent } from './feature/cruds/jogador/create-jogador/create-jogador.component';
 import { InfoJogadorComponent } from './feature/cruds/jogador/info-jogador/info-jogador.component';
 import { EditJogadorComponent } from './feature/cruds/jogador/edit-jogador/edit-jogador.component';
+import { CreateQuadraComponent } from './feature/cruds/quadra/create-quadra/create-quadra.component';
+import { QuadraTableComponent } from './feature/cruds/quadra/quadra-table/quadra-table.component';
+import { EditQuadraComponent } from './feature/cruds/quadra/edit-quadra/edit-quadra.component';
+import { InfoQuadraComponent } from './feature/cruds/quadra/info-quadra/info-quadra.component';
 
 export const routes: Routes = [
   {
@@ -93,6 +97,28 @@ export const routes: Routes = [
       {
         path: 'info/:id',
         component: InfoJogadorComponent,
+      },
+    ],
+    canActivate: [LoginGuardService],
+  },
+  {
+    path: 'quadra',
+    children: [
+      {
+        path: '',
+        component: QuadraTableComponent,
+      },
+      {
+        path: 'register',
+        component: CreateQuadraComponent,
+      },
+      {
+        path: 'edit/:id',
+        component: EditQuadraComponent,
+      },
+      {
+        path: 'info/:id',
+        component: InfoQuadraComponent,
       },
     ],
     canActivate: [LoginGuardService],

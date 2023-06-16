@@ -43,6 +43,11 @@ import { CreateJogadorComponent } from './feature/cruds/jogador/create-jogador/c
 import { InfoJogadorComponent } from './feature/cruds/jogador/info-jogador/info-jogador.component';
 import { JogadorFormComponent } from './feature/forms/jogador-form/jogador-form.component';
 import { EditJogadorComponent } from './feature/cruds/jogador/edit-jogador/edit-jogador.component';
+import { CreateQuadraComponent } from './feature/cruds/quadra/create-quadra/create-quadra.component';
+import { EditQuadraComponent } from './feature/cruds/quadra/edit-quadra/edit-quadra.component';
+import { QuadraTableComponent } from './feature/cruds/quadra/quadra-table/quadra-table.component';
+import { InfoQuadraComponent } from './feature/cruds/quadra/info-quadra/info-quadra.component';
+import { QuadraFormComponent } from './feature/forms/quadra-form/quadra-form.component';
 
 const maskConfig: Partial<IConfig> = {
   validation: false,
@@ -71,10 +76,16 @@ const maskConfig: Partial<IConfig> = {
     CreateJogadorComponent,
     InfoJogadorComponent,
     EditJogadorComponent,
+    //Quadra
+    QuadraTableComponent,
+    CreateQuadraComponent,
+    EditQuadraComponent,
+    InfoQuadraComponent,
     // Form
     UserFormComponent,
     PosicaoFormComponent,
     JogadorFormComponent,
+    QuadraFormComponent,
     DialogComponent,
 
     ButtonGreenComponent,

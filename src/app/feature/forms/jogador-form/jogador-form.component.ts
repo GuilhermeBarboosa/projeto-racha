@@ -7,6 +7,6 @@ import { FormGroup } from '@angular/forms';
     styleUrls: ['./jogador-form.component.css']
 })
 export class JogadorFormComponent {
-    @Input() formulario!: FormGroup;
+    @Input() jogadorForm!: FormGroup;
     constructor () {}
 }
