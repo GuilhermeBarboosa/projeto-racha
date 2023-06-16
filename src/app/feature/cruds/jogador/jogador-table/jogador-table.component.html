@@ -53,12 +53,12 @@
 
         <ng-container matColumnDef="user">
           <mat-header-cell mat-header-cell *matHeaderCellDef> Nome </mat-header-cell>
-          <mat-cell mat-cell *matCellDef="let jogador"> {{jogador.user!.nome}} </mat-cell>
+          <mat-cell mat-cell *matCellDef="let jogador"> {{jogador.nome}} </mat-cell>
         </ng-container>
 
         <ng-container matColumnDef="posicao">
           <mat-header-cell mat-header-cell *matHeaderCellDef> Posição </mat-header-cell>
-          <mat-cell mat-cell *matCellDef="let jogador"> {{jogador.posicao!.posicao}} </mat-cell>
+          <mat-cell mat-cell *matCellDef="let jogador"> {{jogador.posicao}} </mat-cell>
         </ng-container>
 
         <ng-container matColumnDef="status">

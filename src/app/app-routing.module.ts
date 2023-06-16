@@ -15,6 +15,7 @@ import { CreatePosicaoComponent } from './feature/cruds/posicao/create-posicao/c
 import { EditPosicaoComponent } from './feature/cruds/posicao/edit-posicao/edit-posicao.component';
 import { JogadorTableComponent } from './feature/cruds/jogador/jogador-table/jogador-table.component';
 import { CreateJogadorComponent } from './feature/cruds/jogador/create-jogador/create-jogador.component';
+import { InfoJogadorComponent } from './feature/cruds/jogador/info-jogador/info-jogador.component';
 
 export const routes: Routes = [
   {
@@ -88,10 +89,10 @@ export const routes: Routes = [
       //   path: 'edit/:id',
       //   component: EditPosicaoComponent,
       // },
-      // {
-      //   path: 'info/:id',
-      //   component: InfoPosicaoComponent,
-      // },
+      {
+        path: 'info/:id',
+        component: InfoJogadorComponent,
+      },
     ],
     canActivate: [LoginGuardService],
   },

@@ -91,7 +91,7 @@ export class ProfileComponent implements OnInit {
         Validators.required,
       ],
       role: [
-        { value: this.user?.role?.role, disabled: this.isDisabled },
+        { value: this.user?.idRole, disabled: this.isDisabled },
         Validators.required,
       ],
       telefone: [
@@ -117,7 +117,7 @@ export class ProfileComponent implements OnInit {
     this.jogadorForm = this.formBuilder.group({
 
       posicao: [
-        { value: this.jogador?.posicao?.posicao, disabled: this.isDisabled },
+        { value: this.jogador?.posicao, disabled: this.isDisabled },
         Validators.required,
       ],
       gols: [

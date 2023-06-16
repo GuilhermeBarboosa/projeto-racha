@@ -77,7 +77,7 @@ export class EditUserComponent implements OnInit {
         Validators.required,
       ],
       role: [
-        { value: this.user?.role?.id, disabled: this.isDisabled },
+        { value: this.user?.idRole, disabled: this.isDisabled },
         Validators.required,
       ],
       telefone: [

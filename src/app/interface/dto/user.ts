@@ -10,5 +10,6 @@ export interface User extends DefaultDto{
     jogador?: Jogador | undefined;
     email: string | undefined;
     senha: string | undefined;
-    role: Role | undefined;
+    idRole: number | undefined;
+    role: string | undefined;
 }

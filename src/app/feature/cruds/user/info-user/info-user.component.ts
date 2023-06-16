@@ -68,7 +68,7 @@ export class InfoUserComponent implements OnInit {
         Validators.required,
       ],
       role: [
-        { value: this.user?.role?.role, disabled: this.isDisabled },
+        { value: this.user?.idRole, disabled: this.isDisabled },
         Validators.required,
       ],
       telefone: [

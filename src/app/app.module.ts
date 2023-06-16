@@ -40,6 +40,7 @@ import { CreatePosicaoComponent } from './feature/cruds/posicao/create-posicao/c
 import { EditPosicaoComponent } from './feature/cruds/posicao/edit-posicao/edit-posicao.component';
 import { JogadorTableComponent } from './feature/cruds/jogador/jogador-table/jogador-table.component';
 import { CreateJogadorComponent } from './feature/cruds/jogador/create-jogador/create-jogador.component';
+import { InfoJogadorComponent } from './feature/cruds/jogador/info-jogador/info-jogador.component';
 
 const maskConfig: Partial<IConfig> = {
   validation: false,
@@ -66,6 +67,7 @@ const maskConfig: Partial<IConfig> = {
     // Jogador
     JogadorTableComponent,
     CreateJogadorComponent,
+    InfoJogadorComponent,
     // Form
     UserFormComponent,
     PosicaoFormComponent,
