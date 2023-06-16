@@ -30,3 +30,16 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .sidebar, .navbar{
   background-color: #22282C;
 }
+
+.default-input{
+  background-color: #ffffff;
+  border: 1px solid #575757;
+  color: #202020;
+  font-size: medium;
+  border-radius: 5px;
+  display: block;
+}
+
+.default-input:focus{
+  border: 1px solid #48ff00;
+}

@@ -12,30 +12,30 @@
 
       <div class="">
         <label class="block text-sm text-white" for="nome">Código</label>
-        <input formControlName="id" class="bg-gray-50 border w-auto border-gray-300 text-center text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block p-2.5" type="text" id="nome" required>
+        <input formControlName="id" class="default-input p-2.5 text-center" type="text" id="nome" required>
       </div>
 
       <div class="grid grid-cols-3">
         <div class="col-span-2 mr-4">
           <label class="block text-sm text-white" for="nome">Nome</label>
-          <input formControlName="nome" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" type="text" id="nome" aria-label="nome" required>
+          <input formControlName="nome" class="default-input w-full p-2.5" type="text" id="nome" aria-label="nome" required>
         </div>
 
         <div >
           <label class="block text-sm text-white" for="cpf">Cpf</label>
-          <input formControlName="cpf" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" type="text" id="cpf" aria-label="cpf"  mask="000.000.000-00" >
+          <input formControlName="cpf" class="default-input w-full p-2.5" type="text" id="cpf" aria-label="cpf"  mask="000.000.000-00" >
         </div>
       </div>
 
       <div class="grid grid-cols-4">
         <div class="mr-4">
           <label class="block text-sm text-white" for="idade">Idade</label>
-          <input formControlName="idade" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 w-full focus:border-green-500 block p-2.5" type="text" id="idade"  placeholder="idade" aria-label="idade" mask="00">
+          <input formControlName="idade" class="default-input w-full p-2.5" type="text" id="idade"  placeholder="idade" aria-label="idade" mask="00">
         </div>
 
         <div class="mr-4">
           <label for="role" class="text-left text-white">Selecione o tipo</label>
-          <select id="role" formControlName="role" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+          <select id="role" formControlName="role" class="default-input w-full p-2.5">
             <option *ngFor="let role of roles" [value]="role.id">
               {{role.role}}
             </option>
@@ -44,31 +44,31 @@
 
         <div class="col-span-2">
           <label class="block text-sm text-white" for="role">Telefone</label>
-          <input formControlName="telefone" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 w-full focus:border-green-500 block p-2.5" type="text" id="telefone"  placeholder="telefone" aria-label="telefone"  mask="(00) 00000-0000">
+          <input formControlName="telefone" class="default-input w-full p-2.5" type="text" id="telefone"  placeholder="telefone" aria-label="telefone"  mask="(00) 00000-0000">
         </div>
       </div>
 
       <div class="grid grid-cols-3">
         <div class="col-span-2 mr-4">
           <label class="block text-sm text-white" for="email">E-mail</label>
-          <input formControlName="email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" type="email" id="email"  placeholder="Email" aria-label="email" required>
+          <input formControlName="email" class="default-input w-full p-2.5" type="email" id="email"  placeholder="Email" aria-label="email" required>
         </div>
 
         <div class="">
           <label class="block text-sm text-white" for="senha">Senha</label>
-          <input formControlName="senha" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" type="password" id="senha"  placeholder="Senha" aria-label="senha" required>
+          <input formControlName="senha" class="default-input w-full p-2.5" type="password" id="senha"  placeholder="Senha" aria-label="senha" required>
         </div>
       </div>
 
       <div class="items-center flex justify-between">
         <div>
           <label class="block text-sm text-white" for="created">Criado:</label>
-          <input formControlName="created" class="bg-gray-50 border w-auto border-gray-300 text-center text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block p-2.5" type="text" id="created" required>
+          <input formControlName="created" class="default-input text-center p-2.5" type="text" id="created" required>
         </div>
 
         <div class="align-end">
           <label class="block text-sm text-white" for="updated">Modificado:</label>
-          <input formControlName="updated" class="bg-gray-50 border w-auto border-gray-300 text-center text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block p-2.5" type="text" id="updated" required>
+          <input formControlName="updated" class="default-input text-center p-2.5" type="text" id="updated" required>
         </div>
       </div>
 
