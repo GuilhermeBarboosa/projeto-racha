@@ -20,6 +20,7 @@
 
     <div class="flex justify-between m-4">
 
+
       <div class="flex">
         <div class="flex items-center mr-3">
           <input checked id="ativo" type="radio" value="" name="tipos" (click)=getByAtivo() class="w-4 h-4 text-green-600 bg-gray-100 border-gray-300 focus:ring-green-500">
@@ -30,7 +31,6 @@
           <label for="inativo" class="ml-2 text-sm font-medium text-white" >Inativo</label>
         </div>
       </div>
-
 
       <div class="">
         <div class="relative">
@@ -44,48 +44,45 @@
     </div>
 
     <div class="h-full w-full p-4" >
-      <mat-table mat-table [dataSource]="quadraArray" class="mat-elevation-z2">
+      <mat-table mat-table [dataSource]="rachaArray" class="mat-elevation-z2">
 
         <ng-container matColumnDef="id">
           <mat-header-cell mat-header-cell *matHeaderCellDef> Id </mat-header-cell>
-          <mat-cell mat-cell *matCellDef="let quadra"> {{quadra.id}} </mat-cell>
+          <mat-cell mat-cell *matCellDef="let racha"> {{racha.id}} </mat-cell>
         </ng-container>
 
-        <ng-container matColumnDef="quadra">
+        <ng-container matColumnDef="nome">
           <mat-header-cell mat-header-cell *matHeaderCellDef> Nome </mat-header-cell>
-          <mat-cell mat-cell *matCellDef="let quadra"> {{quadra.nome}} </mat-cell>
+          <mat-cell mat-cell *matCellDef="let racha"> {{racha.nome}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="caixa">
+          <mat-header-cell mat-header-cell *matHeaderCellDef> Caixa </mat-header-cell>
+          <mat-cell mat-cell *matCellDef="let racha"> {{racha.caixa}} reais </mat-cell>
         </ng-container>
 
         <ng-container matColumnDef="status">
           <div>
             <mat-header-cell mat-header-cell *matHeaderCellDef> Status </mat-header-cell>
-            <mat-cell mat-cell *matCellDef="let quadra"> {{quadra.actived}} </mat-cell>
+            <mat-cell mat-cell *matCellDef="let racha"> {{racha.actived}} </mat-cell>
           </div>
         </ng-container>
 
-        <ng-container matColumnDef="rachas">
-          <mat-header-cell mat-header-cell *matHeaderCellDef> </mat-header-cell>
-          <mat-cell mat-cell *matCellDef="let quadra">
-            <app-button-green [value] = "Racha" (click)="racha(quadra)" value="{{quadra.id}}"></app-button-green>
-          </mat-cell>
-        </ng-container>
-
-
         <ng-container matColumnDef="info">
           <mat-header-cell mat-header-cell *matHeaderCellDef> </mat-header-cell>
-          <mat-cell mat-cell *matCellDef="let quadra">
-            <app-button-yellow [value] = "Info" (click)="info(quadra)" value="{{quadra.id}}"></app-button-yellow>
+          <mat-cell mat-cell *matCellDef="let racha">
+            <app-button-yellow [value] = "Info" (click)="info(racha)" value="{{racha.id}}"></app-button-yellow>
           </mat-cell>
         </ng-container>
 
         <ng-container matColumnDef="excluir">
           <mat-header-cell mat-header-cell *matHeaderCellDef> </mat-header-cell>
-          <mat-cell mat-cell *matCellDef="let quadra">
-            <div *ngIf="quadra.actived == 'Ativo'">
-              <app-button-red [value]="mandaFiltroFalse" (click)="openDialog(quadra)"></app-button-red>
+          <mat-cell mat-cell *matCellDef="let racha">
+            <div *ngIf="racha.actived == 'Ativo'">
+              <app-button-red [value]="mandaFiltroFalse" (click)="openDialog(racha)"></app-button-red>
             </div>
-            <div *ngIf="quadra.actived == 'Desativado'">
-              <app-button-green [value]="mandaFiltroTrue" (click)="ativar(quadra)"></app-button-green>
+            <div *ngIf="racha.actived == 'Desativado'">
+              <app-button-green [value]="mandaFiltroTrue" (click)="ativar(racha)"></app-button-green>
             </div>
           </mat-cell>
         </ng-container>

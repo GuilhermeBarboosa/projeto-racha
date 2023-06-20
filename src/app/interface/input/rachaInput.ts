@@ -8,7 +8,8 @@ export class RachaInput {
 
   constructor(racha: any) {
     this.nome = racha.nome;
-    this.caixa = racha.caixa;
+    if(racha.caixa == null) this.caixa = 0;
+    else this.caixa = racha.caixa;
     this.quadra = racha.quadra!;
   }
 }

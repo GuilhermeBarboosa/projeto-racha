@@ -21,6 +21,9 @@ import { CreateQuadraComponent } from './feature/cruds/quadra/create-quadra/crea
 import { QuadraTableComponent } from './feature/cruds/quadra/quadra-table/quadra-table.component';
 import { EditQuadraComponent } from './feature/cruds/quadra/edit-quadra/edit-quadra.component';
 import { InfoQuadraComponent } from './feature/cruds/quadra/info-quadra/info-quadra.component';
+import { TableInfoJogosComponent } from './feature/cruds/jogos/table-info-jogos/table-info-jogos.component';
+import { RachaTableComponent } from './feature/cruds/quadra/rachas/racha-table/racha-table.component';
+import { CreateRachaComponent } from './feature/cruds/quadra/rachas/create-racha/create-racha.component';
 
 export const routes: Routes = [
   {
@@ -120,6 +123,50 @@ export const routes: Routes = [
         path: 'info/:id',
         component: InfoQuadraComponent,
       },
+      {
+        path: 'racha',
+        children: [
+          {
+            path: ':id',
+            component: RachaTableComponent,
+          },
+          {
+            path: ':id/register',
+            component: CreateRachaComponent,
+          },
+          // {
+          //   path: 'edit/:id',
+          //   component: EditQuadraComponent,
+          // },
+          // {
+          //   path: 'info/:id',
+          //   component: InfoQuadraComponent,
+          // },
+        ],
+        canActivate: [LoginGuardService],
+      }
+    ],
+    canActivate: [LoginGuardService],
+  },
+  {
+    path: 'jogos',
+    children: [
+      {
+        path: '',
+        component: TableInfoJogosComponent,
+      },
+      // {
+      //   path: 'register',
+      //   component: CreateQuadraComponent,
+      // },
+      // {
+      //   path: 'edit/:id',
+      //   component: EditQuadraComponent,
+      // },
+      // {
+      //   path: 'info/:id',
+      //   component: InfoQuadraComponent,
+      // },
     ],
     canActivate: [LoginGuardService],
   },

@@ -57,7 +57,6 @@ export class EditJogadorComponent implements OnInit {
       );
 
       this.jogador = jogadorResponse;
-      console.log(this.jogador)
       this.createTable();
     });
   }
@@ -102,8 +101,6 @@ export class EditJogadorComponent implements OnInit {
       };
 
       let jogadorInput = new JogadorInput(jogador);
-
-      console.log(jogadorInput)
 
       this.jogadorService.edit(jogadorInput, this.jogador!.id!).subscribe(
         (data) => {

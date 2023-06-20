@@ -19,9 +19,10 @@ export class QuadraTableComponent implements OnInit, AfterViewInit {
   value?: String;
   mandaFiltroTrue = 'Ativar';
   mandaFiltroFalse = 'Excluir';
-  displayedColumns: string[] = ['id', 'quadra', 'status', 'info', 'excluir'];
+  displayedColumns: string[] = ['id', 'quadra', 'status', 'rachas', 'info', 'excluir'];
   Adicionar = 'Adicionar';
   Info = 'Info';
+  Racha = 'Racha';
 
   quadraArray = new MatTableDataSource<Quadra>();
   @ViewChild(MatPaginator) paginator!: MatPaginator;
@@ -50,6 +51,10 @@ export class QuadraTableComponent implements OnInit, AfterViewInit {
 
   info(quadra: Quadra) {
     this.router.navigateByUrl(`quadra/info/${quadra.id}`);
+  }
+
+  racha(quadra: Quadra) {
+    this.router.navigateByUrl(`quadra/racha/${quadra.id}`);
   }
 
   ativar(quadra: Quadra) {

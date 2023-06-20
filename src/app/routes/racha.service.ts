@@ -22,6 +22,10 @@ export class RachaService {
     return this.http.get(`${this.urlRacha}/` + id);
   }
 
+  getByIdQuadra(id: number) {
+    return this.http.get(`${this.urlRacha}/quadra/` + id);
+  }
+
   getByUser(id: number) {
     return this.http.get(`${this.urlRacha}/usuario/` + id);
   }
@@ -38,7 +42,7 @@ export class RachaService {
     return this.http.put(`${this.urlRacha}/${id}`, racha);
   }
 
-  ativar(racha: Racha, id: number) {
+  ativar(racha: RachaInput, id: number) {
     return this.http.put(`${this.urlRacha}/ativar/${id}`, racha);
   }
 
