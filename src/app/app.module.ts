@@ -51,6 +51,10 @@ import { QuadraFormComponent } from './feature/forms/quadra-form/quadra-form.com
 import { TableInfoJogosComponent } from './feature/cruds/jogos/table-info-jogos/table-info-jogos.component';
 import { RachaTableComponent } from './feature/cruds/quadra/rachas/racha-table/racha-table.component';
 import { CreateRachaComponent } from './feature/cruds/quadra/rachas/create-racha/create-racha.component';
+import { InfoRachaComponent } from './feature/cruds/quadra/rachas/info-racha/info-racha.component';
+import { RachaFormComponent } from './feature/forms/racha-form/racha-form.component';
+import { EditRachaComponent } from './feature/cruds/quadra/rachas/edit-racha/edit-racha.component';
+import { AddRachaComponent } from './feature/cruds/quadra/rachas/add-racha/add-racha.component';
 
 const maskConfig: Partial<IConfig> = {
   validation: false,
@@ -87,6 +91,9 @@ const maskConfig: Partial<IConfig> = {
     // Racha
     RachaTableComponent,
     CreateRachaComponent,
+    InfoRachaComponent,
+    EditRachaComponent,
+    AddRachaComponent,
     //Info
     TableInfoJogosComponent,
     // Form
@@ -94,6 +101,7 @@ const maskConfig: Partial<IConfig> = {
     PosicaoFormComponent,
     JogadorFormComponent,
     QuadraFormComponent,
+    RachaFormComponent,
     DialogComponent,
     ButtonGreenComponent,
     ButtonRedComponent,

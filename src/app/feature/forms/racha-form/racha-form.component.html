@@ -1,0 +1,55 @@
+      <form class="h-full w-full" [formGroup]="formulario" *ngIf="formulario">
+        <div>
+          <div class="grid grid-cols-2">
+            <div class="mr-4">
+              <label class="block text-sm text-white" for="nome">Nome</label>
+              <input
+                formControlName="nome"
+                class="default-input w-full p-2.5"
+                type="text"
+                id="nome"
+                aria-label="nome"
+                required
+              />
+            </div>
+
+            <div >
+              <label class="block text-sm text-white" for="caixa">Caixa</label>
+              <input
+                formControlName="caixa"
+                class="default-input w-full p-2.5"
+                type="text"
+                id="caixa"
+                aria-label="caixa"
+                required
+              />
+            </div>
+          </div>
+          <div class="items-center flex justify-between">
+            <div>
+              <label class="block text-sm text-white" for="created">Criado:</label>
+              <input
+                formControlName="created"
+                class="default-input text-center p-2.5"
+                type="text"
+                id="created"
+                required
+              />
+            </div>
+
+            <div class="align-end">
+              <label class="block text-sm text-white" for="updated"
+                >Modificado:</label
+              >
+              <input
+                formControlName="updated"
+                class="default-input text-center p-2.5"
+                type="text"
+                id="updated"
+                required
+              />
+            </div>
+          </div>
+        </div>
+
+      </form>

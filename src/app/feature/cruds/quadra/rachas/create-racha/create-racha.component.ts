@@ -43,8 +43,7 @@ export class CreateRachaComponent implements OnInit {
       };
 
       let rachaInput = new RachaInput(rachaDto);
-      console.log(rachaInput);
-
+      
       this.rachaService.create(rachaInput).subscribe(
         (data) => {
           this.notifier.ShowSuccess('Racha cadastrada com sucesso!');

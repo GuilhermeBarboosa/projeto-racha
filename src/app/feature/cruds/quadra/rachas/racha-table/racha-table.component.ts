@@ -59,7 +59,7 @@ export class RachaTableComponent implements OnInit, AfterViewInit {
   }
 
   info(racha: Racha) {
-    this.router.navigateByUrl(`racha/info/${racha.id}`);
+    this.router.navigateByUrl(`quadra/racha/info/${racha.id}/${this.id}`);
   }
 
   ativar(racha: Racha) {

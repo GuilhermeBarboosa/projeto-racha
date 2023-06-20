@@ -1,0 +1,33 @@
+<app-navbar></app-navbar>
+
+<div class="flex">
+  <app-sidebar></app-sidebar>
+
+   <form class="h-full w-full m-5" [formGroup]="formulario" *ngIf="formulario">
+
+      <div class="flex justify-between">
+        <p class="text-white font-medium justify-start text-lg font-bold">INFO
+          DA POSIÇÃO</p>
+
+      </div>
+
+      <div class="flex justify-between">
+        <app-button-green [value] = 'Voltar' (click)="return()"></app-button-green>
+        <app-button-yellow [value] = 'Editar' (click)="edit()"></app-button-yellow>
+      </div>
+
+      <div class="items-center flex justify-between">
+        <div class="">
+          <label class="block text-sm text-white" for="id">Código</label>
+          <input formControlName="id" class="default-input text-center p-2.5" type="text" id="id" required>
+        </div>
+
+        <app-button-green [value] = 'Adicionar' (click)="add()"></app-button-green>
+      </div>
+
+
+      <app-racha-form [formulario]="formulario"></app-racha-form>
+
+    </form>
+
+</div>

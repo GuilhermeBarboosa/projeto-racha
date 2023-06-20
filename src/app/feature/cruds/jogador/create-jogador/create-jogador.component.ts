@@ -79,8 +79,6 @@ export class CreateJogadorComponent implements OnInit {
       let jogador = {
         user: this.formulario.get('user')?.value,
         posicao: this.formulario.get('posicao')?.value,
-        gols : 0,
-        assistencias : 0,
       };
 
       let jogadorInput = new JogadorInput(jogador);

@@ -1,0 +1,122 @@
+<app-navbar></app-navbar>
+
+<div class="flex">
+  <app-sidebar></app-sidebar>
+
+  <form class="h-full width-30 m-5" [formGroup]="formulario" *ngIf="formulario">
+    <div class="flex justify-between">
+      <p class="text-white font-medium justify-start text-lg font-bold">
+        ADICIONE O JOGADOR
+      </p>
+    </div>
+
+
+    <div class="grid w-45">
+      <div>
+        <div>
+          <label
+            for="first_name"
+            class="block mb-2 text-sm font-medium text-white"
+            >Cpf do usuário</label
+          >
+          <input
+            type="text"
+            id="first_name"
+            class="default-input w-full  p-2.5"
+            #cpf
+            name="userCpf"
+            mask="000.000.000-00"
+          />
+        </div>
+
+        <app-button-yellow
+          class="flex justify-end mt-4"
+          [value]="Procurar"
+          (click)="find(cpf.value)"
+        ></app-button-yellow>
+      </div>
+
+      <div *ngIf="arrayUser?.length === 0 || arrayUser != null">
+        <div
+          class=""
+
+        >
+          <div class="">
+            <label
+              for="first_name"
+              class="block mt-4 text-sm font-medium text-white"
+              >Usuários</label
+            >
+            <select
+              id="user"
+              formControlName="user"
+              class="default-input w-full p-2.5"
+            >
+              <option value="" disabled selected>Selecione o usuário</option>
+              <option *ngFor="let user of arrayUser" [value]="user.id">
+                {{ user.nome }} - {{ user.cpf }}
+              </option>
+            </select>
+          </div>
+        </div>
+
+
+        <div class="mt-4 flex justify-end">
+          <app-button-green [value]="Adicionar" (click)="add()"></app-button-green>
+        </div>
+      </div>
+
+    </div>
+
+
+    <div class="mt-5" *ngIf="length > 0">
+      <mat-table mat-table [dataSource]="arrayJogador" class="mat-elevation-z2">
+
+        <ng-container matColumnDef="id">
+          <mat-header-cell mat-header-cell *matHeaderCellDef> Id </mat-header-cell>
+          <mat-cell mat-cell *matCellDef="let jogador"> {{jogador.id}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="nome">
+          <mat-header-cell mat-header-cell *matHeaderCellDef> Nome </mat-header-cell>
+          <mat-cell mat-cell *matCellDef="let jogador"> {{jogador.nome}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="cpf">
+          <div>
+            <mat-header-cell mat-header-cell *matHeaderCellDef> Status </mat-header-cell>
+            <mat-cell mat-cell *matCellDef="let jogador"> {{jogador.cpf}} </mat-cell>
+          </div>
+        </ng-container>
+
+        <ng-container matColumnDef="excluir">
+          <mat-header-cell mat-header-cell *matHeaderCellDef> </mat-header-cell>
+          <td mat-cell *matCellDef="let jogador">
+            <mat-icon class="cursor-pointer" (click)="deleteUser(jogador.id)">delete</mat-icon>
+          </td>
+        </ng-container>
+
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+      </mat-table>
+
+      <mat-paginator #paginator
+      [pageSize]="10"
+      [pageSizeOptions]="[5, 10, 20]"
+      [showFirstLastButtons]="true">
+      </mat-paginator>
+    </div>
+
+
+    <div class="items-center flex justify-between my-2">
+      <div>
+        <app-button-red [value]="Nao" (click)="return()"></app-button-red>
+      </div>
+
+
+      <!-- <div class="align-end">
+        <app-button-green [value]="Adicionar" (click)="save()"></app-button-green>
+      </div> -->
+    </div>
+  </form>
+</div>

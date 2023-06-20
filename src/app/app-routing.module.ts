@@ -24,6 +24,9 @@ import { InfoQuadraComponent } from './feature/cruds/quadra/info-quadra/info-qua
 import { TableInfoJogosComponent } from './feature/cruds/jogos/table-info-jogos/table-info-jogos.component';
 import { RachaTableComponent } from './feature/cruds/quadra/rachas/racha-table/racha-table.component';
 import { CreateRachaComponent } from './feature/cruds/quadra/rachas/create-racha/create-racha.component';
+import { InfoRachaComponent } from './feature/cruds/quadra/rachas/info-racha/info-racha.component';
+import { EditRachaComponent } from './feature/cruds/quadra/rachas/edit-racha/edit-racha.component';
+import { AddRachaComponent } from './feature/cruds/quadra/rachas/add-racha/add-racha.component';
 
 export const routes: Routes = [
   {
@@ -134,14 +137,18 @@ export const routes: Routes = [
             path: ':id/register',
             component: CreateRachaComponent,
           },
-          // {
-          //   path: 'edit/:id',
-          //   component: EditQuadraComponent,
-          // },
-          // {
-          //   path: 'info/:id',
-          //   component: InfoQuadraComponent,
-          // },
+          {
+            path: 'edit/:id/:idQuadra',
+            component: EditRachaComponent,
+          },
+          {
+            path: 'info/:id/:idQuadra',
+            component: InfoRachaComponent,
+          },
+          {
+            path: 'add/:id/:idQuadra',
+            component: AddRachaComponent,
+          },
         ],
         canActivate: [LoginGuardService],
       }
