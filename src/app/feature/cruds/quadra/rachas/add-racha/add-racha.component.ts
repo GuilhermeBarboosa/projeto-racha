@@ -7,6 +7,8 @@ import { User } from 'src/app/interface/dto/user';
 import { JogadorRachaService } from 'src/app/routes/jogador-racha.service';
 import { UserService } from 'src/app/routes/user.service';
 import { NotifierService } from 'src/app/shared/notifier.service';
+import { JogadorRacha } from '../../../../../interface/dto/jogador-racha';
+import { JogadorRachaInput } from 'src/app/interface/input/jogador-rachaInput';
 
 @Component({
   selector: 'app-add-racha',
@@ -19,6 +21,7 @@ export class AddRachaComponent implements OnInit, AfterViewInit {
   formulario!: FormGroup;
   Adicionar = 'Adicionar';
   Nao = 'Não';
+  Sim = 'Sim';
   Procurar = 'Procurar';
 
   id = this.activedRouter.snapshot.params['id'];
@@ -99,26 +102,39 @@ export class AddRachaComponent implements OnInit, AfterViewInit {
         this.arrayJogador.data.splice(index, 1);
       }
     });
-
+    this.createTable();
+    this.length = this.arrayJogador.data.length;
     this.arrayJogador.paginator = this.paginator;
   }
 
   save() {
-    if (this.formulario.valid) {
-      // let jogador = {
-      //   user: this.formulario.get('user')?.value,
-      //   posicao: this.formulario.get('posicao')?.value,
-      // };
-      // let jogadorInput = new JogadorInput(jogador);
-      // this.jogadorRachaService.create(jogadorInput).subscribe(
-      //   (data) => {
-      //     this.notifier.ShowSuccess('Jogador cadastrado com sucesso!');
-      //     this.router.navigateByUrl('/jogador');
-      //   },
-      //   (error) => {
-      //     this.notifier.ShowError(error.error);
-      //   }
-      // );
+    if (this.length >= 1) {
+
+      let jogadorRachaRequest: JogadorRachaInput[] = [];
+
+      this.arrayJogador.data.forEach((element) => {
+        let jogadorRacha = {
+          jogador: element.id,
+          racha: this.idQuadra,
+        };
+
+        let jogadorInput = new JogadorRachaInput(jogadorRacha);
+
+        jogadorRachaRequest.push(jogadorInput);
+      })
+
+
+
+      this.jogadorRachaService.create(jogadorRachaRequest).subscribe(
+        (data) => {
+          this.notifier.ShowSuccess('Jogador cadastrado com sucesso!');
+          console.log(data)
+          // this.router.navigateByUrl('/jogador');
+        },
+        (error) => {
+          this.notifier.ShowError(error.error);
+        }
+      );
     } else {
       this.notifier.ShowError('Formulário inválido!');
     }

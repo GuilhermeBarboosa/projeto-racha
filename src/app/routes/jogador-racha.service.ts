@@ -26,7 +26,7 @@ export class JogadorRachaService {
     return this.http.get(`${this.urlJogadorRacha}/usuario/` + id);
   }
 
-  create(jogadorRacha: JogadorRachaInput) {
+  create(jogadorRacha: JogadorRachaInput[]) {
     return this.http.post(`${this.urlJogadorRacha}`, jogadorRacha);
   }
 
