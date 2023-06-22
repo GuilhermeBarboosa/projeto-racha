@@ -22,6 +22,10 @@ export class JogadorRachaService {
     return this.http.get(`${this.urlJogadorRacha}/` + id);
   }
 
+  getByRacha(id: number) {
+    return this.http.get(`${this.urlJogadorRacha}/racha/` + id);
+  }
+
   getByUser(id: number) {
     return this.http.get(`${this.urlJogadorRacha}/usuario/` + id);
   }

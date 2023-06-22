@@ -7,7 +7,7 @@
 
       <div class="flex justify-between">
         <p class="text-white font-medium justify-start text-lg font-bold">INFO
-          DA POSIÇÃO</p>
+          DO RACHA</p>
 
       </div>
 
@@ -28,6 +28,57 @@
 
       <app-racha-form [formulario]="formulario"></app-racha-form>
 
+      <div class="mt-5">
+        <mat-table mat-table [dataSource]="arrayJogadorRacha" class="mat-elevation-z2">
+
+          <ng-container matColumnDef="id">
+            <mat-header-cell mat-header-cell *matHeaderCellDef> Id </mat-header-cell>
+            <mat-cell mat-cell *matCellDef="let jogador"> {{jogador.idJogador}} </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="nome">
+            <mat-header-cell mat-header-cell *matHeaderCellDef> Nome </mat-header-cell>
+            <mat-cell mat-cell *matCellDef="let jogador"> {{jogador.nomeJogador}} </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="gols">
+            <div>
+              <mat-header-cell mat-header-cell *matHeaderCellDef> Gols </mat-header-cell>
+              <mat-cell mat-cell *matCellDef="let jogador"> {{jogador.gols}} </mat-cell>
+            </div>
+          </ng-container>
+
+          <ng-container matColumnDef="assistencias">
+            <div>
+              <mat-header-cell mat-header-cell *matHeaderCellDef> Assistências </mat-header-cell>
+              <mat-cell mat-cell *matCellDef="let jogador"> {{jogador.assistencias}} </mat-cell>
+            </div>
+          </ng-container>
+
+          <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+          <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+        </mat-table>
+
+        <mat-paginator #paginator
+        [pageSize]="10"
+        [pageSizeOptions]="[5, 10, 20]"
+        [showFirstLastButtons]="true">
+        </mat-paginator>
+      </div>
+
+      <!-- <div class="mt-5 w-full " *ngIf="arrayJogadorRacha != null">
+        <h2 class="mb-2 text-lg font-semibold text-white dark:text-white">
+          Rachas:
+        </h2>
+        <div class="bg-white rounded-lg text-black p-4">
+          <ul *ngFor="let jogadorRacha of arrayJogadorRacha" class="flex items-center list-disc list-inside text-md flex">
+            <li>
+              {{ jogadorRacha.nomeJogador }}
+            </li>
+        </ul>
+        </div>
+
+      </div> -->
     </form>
 
 </div>

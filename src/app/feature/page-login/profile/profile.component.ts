@@ -8,6 +8,7 @@ import { UtilsService } from 'src/app/shared/utils.service';
 import { UserService } from '../../../routes/user.service';
 import { JogadorRachaService } from '../../../routes/jogador-racha.service';
 import { JogadorRacha } from 'src/app/interface/dto/jogador-racha';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-profile',
@@ -19,6 +20,7 @@ export class ProfileComponent implements OnInit {
     private userService: UserService,
     private loginService: LoginService,
     private jogadorService: JogadorService,
+    private router: Router,
     private jogadorRachaService: JogadorRachaService,
     private formBuilder: FormBuilder,
     private utils: UtilsService
@@ -60,11 +62,14 @@ export class ProfileComponent implements OnInit {
         var jogadorResponse = JSON.parse(JSON.stringify(res));
         let arrayJogadores: JogadorRacha[] = [];
 
+
         jogadorResponse.forEach((element: any) => {
-          element.racha.nome = this.utils.formatterString(
-            element.racha.nome
+          element.nomeRacha = this.utils.formatterString(
+            element.nomeRacha
           );
           arrayJogadores.push(element);
+
+          console.log(arrayJogadores)
         });
 
         this.jogadorRacha = arrayJogadores;
@@ -129,5 +134,9 @@ export class ProfileComponent implements OnInit {
         Validators.required,
       ],
     });
+  }
+
+  findInfo(idRacha: number, idQuadra:number ) {
+    this.router.navigateByUrl(`quadra/racha/info/${idRacha}/${idQuadra}`);
   }
 }

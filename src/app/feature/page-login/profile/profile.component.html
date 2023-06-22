@@ -137,18 +137,18 @@
 
 
 
-    <div class="mt-5 w-full " *ngIf="jogadorRacha == null">
+    <div class="mt-5 w-full " *ngIf="jogadorRacha != null">
       <h2 class="mb-2 text-lg font-semibold text-white dark:text-white">
         Rachas:
       </h2>
       <div class="bg-white rounded-lg text-black p-4">
         <ul *ngFor="let racha of jogadorRacha" class="flex items-center list-disc list-inside text-md flex">
           <li>
-         {{ racha.racha!.nome }}
+            {{ racha.nomeRacha }}
           </li>
-          <a routerLink="/profile" routerLinkActive="active" class="flex items-center p-2 text-black rounded-lg hover:text-black">
+          <div (click)="findInfo(racha.idRacha, racha.idQuadra)" class="cursor-pointer flex items-center p-2 text-black rounded-lg hover:text-black">
             <mat-icon>info</mat-icon>
-          </a>
+          </div>
       </ul>
       </div>
 
