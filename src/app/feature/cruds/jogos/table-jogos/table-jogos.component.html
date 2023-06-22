@@ -1,4 +1,4 @@
-<!-- <div>
+<div>
   <app-navbar></app-navbar>
 </div>
 
@@ -44,49 +44,32 @@
     </div>
 
     <div class="h-full w-full p-4" >
-      <mat-table mat-table [dataSource]="jogadorArray" class="mat-elevation-z2">
+      <p class="text-white text-lg">Caixa do racha: <span class="text-red-600 font-bold">R${{valorTotal}}</span></p>
+      <mat-table mat-table [dataSource]="arrayJogos" class="mat-elevation-z2">
 
         <ng-container matColumnDef="id">
           <mat-header-cell mat-header-cell *matHeaderCellDef> Id </mat-header-cell>
-          <mat-cell mat-cell *matCellDef="let jogador"> {{jogador.id}} </mat-cell>
+          <mat-cell mat-cell *matCellDef="let jogos"> {{jogos.id}} </mat-cell>
         </ng-container>
 
-        <ng-container matColumnDef="user">
-          <mat-header-cell mat-header-cell *matHeaderCellDef> Nome </mat-header-cell>
-          <mat-cell mat-cell *matCellDef="let jogador"> {{jogador.nome}} </mat-cell>
+
+        <ng-container matColumnDef="data">
+          <mat-header-cell mat-header-cell *matHeaderCellDef> Data </mat-header-cell>
+          <mat-cell mat-cell *matCellDef="let jogos"> {{jogos.data}} </mat-cell>
         </ng-container>
 
-        <ng-container matColumnDef="posicao">
-          <mat-header-cell mat-header-cell *matHeaderCellDef> Posição </mat-header-cell>
-          <mat-cell mat-cell *matCellDef="let jogador"> {{jogador.posicao}} </mat-cell>
+        <ng-container matColumnDef="valor_pago">
+          <mat-header-cell mat-header-cell *matHeaderCellDef> Valor </mat-header-cell>
+          <mat-cell mat-cell *matCellDef="let jogos"> R${{jogos.valorPago}} </mat-cell>
         </ng-container>
 
-        <ng-container matColumnDef="status">
-          <div>
-            <mat-header-cell mat-header-cell *matHeaderCellDef> Status </mat-header-cell>
-            <mat-cell mat-cell *matCellDef="let jogador"> {{jogador.actived}} </mat-cell>
-          </div>
-        </ng-container>
 
         <ng-container matColumnDef="info">
           <mat-header-cell mat-header-cell *matHeaderCellDef> </mat-header-cell>
-          <mat-cell mat-cell *matCellDef="let jogador">
-            <app-button-yellow [value] = "Info" (click)="info(jogador)" value="{{jogador.id}}"></app-button-yellow>
+          <mat-cell mat-cell *matCellDef="let jogos">
+            <app-button-yellow [value] = "Info" (click)="info(jogos)" value="{{jogos.id}}"></app-button-yellow>
           </mat-cell>
         </ng-container>
-
-        <ng-container matColumnDef="excluir">
-          <mat-header-cell mat-header-cell *matHeaderCellDef> </mat-header-cell>
-          <mat-cell mat-cell *matCellDef="let jogador">
-            <div *ngIf="jogador.actived == 'Ativo'">
-              <app-button-red [value]="mandaFiltroFalse" (click)="openDialog(jogador)"></app-button-red>
-            </div>
-            <div *ngIf="jogador.actived == 'Desativado'">
-              <app-button-green [value]="mandaFiltroTrue" (click)="ativar(jogador)"></app-button-green>
-            </div>
-          </mat-cell>
-        </ng-container>
-
 
         <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
         <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
@@ -104,4 +87,4 @@
   </div>
 
 </div>
- -->
+

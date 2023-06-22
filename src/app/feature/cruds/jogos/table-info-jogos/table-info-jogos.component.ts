@@ -3,7 +3,10 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { Quadra } from 'src/app/interface/dto/quadra';
+import { Racha } from 'src/app/interface/dto/racha';
+import { JogadorRachaService } from 'src/app/routes/jogador-racha.service';
 import { QuadraService } from 'src/app/routes/quadra.service';
+import { RachaService } from 'src/app/routes/racha.service';
 
 @Component({
   selector: 'app-table-info-jogos',
@@ -11,44 +14,46 @@ import { QuadraService } from 'src/app/routes/quadra.service';
   styleUrls: ['./table-info-jogos.component.css'],
 })
 export class TableInfoJogosComponent implements OnInit, AfterViewInit {
-  constructor(private quadraService: QuadraService, private router: Router) {}
+  constructor(private rachaService: RachaService, private router: Router) {}
 
   value?: String;
   mandaFiltroTrue = 'Ativar';
   mandaFiltroFalse = 'Excluir';
-  displayedColumns: string[] = ['id', 'nome', 'info'];
+  displayedColumns: string[] = ['id', "racha", "quadra" , 'info'];
   Adicionar = 'Adicionar';
   Info = 'Info';
 
-  arrayQuadras = new MatTableDataSource<Quadra>();
+  arrayRacha = new MatTableDataSource<Racha>();
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
   ngOnInit() {
-    this.quadraService.getAll().subscribe((data) => {
-      this.arrayQuadras = JSON.parse(JSON.stringify(data));
+    this.rachaService.getAll().subscribe((data) => {
+      this.arrayRacha = JSON.parse(JSON.stringify(data));
+
+      console.log(this.arrayRacha)
     });
   }
 
   ngAfterViewInit() {
-    this.arrayQuadras.paginator = this.paginator;
+    this.arrayRacha.paginator = this.paginator;
   }
 
   applyFilter(event: Event) {
     let filterValue = (event.target as HTMLInputElement).value;
     filterValue = filterValue.trim(); // Remove whitespace
     filterValue = filterValue.toLowerCase(); // MatTableDataSource defaults to lowercase matches
-    this.arrayQuadras.filter = filterValue;
+    this.arrayRacha.filter = filterValue;
   }
 
-  info(quadra: Quadra) {
-    this.router.navigateByUrl(`jogos/info/${quadra.id}`);
+  info(racha: Racha) {
+    this.router.navigateByUrl(`jogos/racha/${racha.id}`);
   }
 
   getByInativo() {
-    this.arrayQuadras.filter = 'Desativado';
+    this.arrayRacha.filter = 'Desativado';
   }
 
   getByAtivo() {
-    this.arrayQuadras.filter = 'Ativo';
+    this.arrayRacha.filter = 'Ativo';
   }
 }

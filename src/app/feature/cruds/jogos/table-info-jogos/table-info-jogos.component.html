@@ -44,22 +44,27 @@
     </div>
 
     <div class="h-full w-full p-4" >
-      <mat-table mat-table [dataSource]="arrayQuadras" class="mat-elevation-z2">
+      <mat-table mat-table [dataSource]="arrayRacha" class="mat-elevation-z2">
 
         <ng-container matColumnDef="id">
           <mat-header-cell mat-header-cell *matHeaderCellDef> Id </mat-header-cell>
-          <mat-cell mat-cell *matCellDef="let quadra"> {{quadra.id}} </mat-cell>
+          <mat-cell mat-cell *matCellDef="let racha"> {{racha.id}} </mat-cell>
         </ng-container>
 
-        <ng-container matColumnDef="nome">
-          <mat-header-cell mat-header-cell *matHeaderCellDef> Nome </mat-header-cell>
-          <mat-cell mat-cell *matCellDef="let quadra"> {{quadra.nome}} </mat-cell>
+        <ng-container matColumnDef="racha">
+          <mat-header-cell mat-header-cell *matHeaderCellDef> Racha </mat-header-cell>
+          <mat-cell mat-cell *matCellDef="let racha"> {{racha.nome}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="quadra">
+          <mat-header-cell mat-header-cell *matHeaderCellDef> Quadra </mat-header-cell>
+          <mat-cell mat-cell *matCellDef="let racha"> {{racha.nomeQuadra}} </mat-cell>
         </ng-container>
 
         <ng-container matColumnDef="info">
           <mat-header-cell mat-header-cell *matHeaderCellDef> </mat-header-cell>
-          <mat-cell mat-cell *matCellDef="let quadra">
-            <app-button-yellow [value] = "Info" (click)="info(quadra)" value="{{quadra.id}}"></app-button-yellow>
+          <mat-cell mat-cell *matCellDef="let racha">
+            <app-button-yellow [value] = "Info" (click)="info(racha)" value="{{racha.id}}"></app-button-yellow>
           </mat-cell>
         </ng-container>
 

@@ -15,6 +15,12 @@ export class UtilsService {
     return formatted;
   }
 
+  formatarDataToSQL(data: any) {
+    data = data.split("/").reverse().join("/");
+    data = new Date(data);
+    return data;
+  }
+
   formatterString(string: String) {
     string = string.toLowerCase();
     // string = string.split(' ')[0];
