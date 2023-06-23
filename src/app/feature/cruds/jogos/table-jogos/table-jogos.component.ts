@@ -5,6 +5,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Jogo } from 'src/app/interface/dto/jogo';
 import { JogoService } from 'src/app/routes/jogo.service';
 import { UtilsService } from '../../../../shared/utils.service';
+import { Racha } from 'src/app/interface/dto/racha';
+import { RachaService } from 'src/app/routes/racha.service';
 
 @Component({
   selector: 'app-table-jogos',
@@ -14,6 +16,7 @@ import { UtilsService } from '../../../../shared/utils.service';
 export class TableJogosComponent implements OnInit {
   constructor(
     private jogoService: JogoService,
+    private rachaService: RachaService,
     private utilsService: UtilsService,
     private router: Router,
     private activedRouter: ActivatedRoute
@@ -22,6 +25,7 @@ export class TableJogosComponent implements OnInit {
   value?: String;
   valorTotal = 0;
   idRacha = this.activedRouter.snapshot.params['id'];
+  racha! :Racha;
   mandaFiltroTrue = 'Ativar';
   mandaFiltroFalse = 'Excluir';
   displayedColumns: string[] = ['id', 'data', 'valor_pago', 'info'];
@@ -32,6 +36,11 @@ export class TableJogosComponent implements OnInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
   ngOnInit() {
+    this.rachaService.getById(this.idRacha).subscribe((data) => {
+      this.racha = JSON.parse(JSON.stringify(data));;
+    });
+
+
     this.jogoService.getByIdRacha(this.idRacha).subscribe((data) => {
       let arrayResponse = JSON.parse(JSON.stringify(data));
 
@@ -40,6 +49,8 @@ export class TableJogosComponent implements OnInit {
 
         this.valorTotal += element.valorPago;
       });
+
+
 
       this.arrayJogos.data = arrayResponse;
     });

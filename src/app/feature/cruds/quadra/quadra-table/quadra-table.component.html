@@ -56,6 +56,13 @@
           <mat-cell mat-cell *matCellDef="let quadra"> {{quadra.nome}} </mat-cell>
         </ng-container>
 
+        <ng-container matColumnDef="valorQuadra">
+          <div>
+            <mat-header-cell mat-header-cell *matHeaderCellDef> Valor Quadra </mat-header-cell>
+            <mat-cell mat-cell *matCellDef="let quadra"> {{quadra.valorQuadra}} </mat-cell>
+          </div>
+        </ng-container>
+
         <ng-container matColumnDef="status">
           <div>
             <mat-header-cell mat-header-cell *matHeaderCellDef> Status </mat-header-cell>

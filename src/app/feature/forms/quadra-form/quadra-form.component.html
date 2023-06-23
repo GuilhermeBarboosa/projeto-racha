@@ -1,14 +1,28 @@
 <form class="h-full w-full" [formGroup]="quadraForm" *ngIf="quadraForm">
         <div>
-          <div class="grid">
-            <div >
-              <label class="block text-sm text-white" for="quadra">Nome</label>
+          <div class="grid grid-cols-2">
+            <div class="mr-4">
+              <label class="block text-sm text-white" for="quadra">Quadra</label>
               <input
                 formControlName="quadra"
                 class="default-input w-full p-2.5"
                 type="text"
                 id="quadra"
                 aria-label="quadra"
+                required
+              />
+            </div>
+
+            <div class="">
+              <label class="block text-sm text-white" for="valorQuadra"
+                >Valor da Quadra</label
+              >
+              <input
+                formControlName="valorQuadra"
+                class="default-input w-full p-2.5"
+                type="text"
+                id="valorQuadra"
+                aria-label="valorQuadra"
                 required
               />
             </div>

@@ -57,6 +57,10 @@ export class InfoQuadraComponent implements OnInit {
         { value: this.quadra?.nome, disabled: this.isDisabled },
         Validators.required,
       ],
+      valorQuadra: [
+        { value: this.quadra?.valorQuadra, disabled: this.isDisabled },
+        Validators.required,
+      ],
       created: [
         { value: this.quadra?.created, disabled: this.isDisabled },
         Validators.required,

@@ -53,6 +53,10 @@ export class EditQuadraComponent implements OnInit {
         { value: this.quadra?.nome, disabled: this.isDisabled },
         Validators.required,
       ],
+      valorQuadra: [
+        { value: this.quadra?.valorQuadra, disabled: this.isDisabled },
+        Validators.required,
+      ],
       created: [
         { value: this.quadra?.created, disabled: true },
         Validators.required,
@@ -68,6 +72,7 @@ export class EditQuadraComponent implements OnInit {
     if (this.formulario.valid) {
       let quadraDTO = {
         nome: this.formulario.get('quadra')?.value,
+        valorQuadra: this.formulario.get('valorQuadra')?.value,
       };
 
       let quadraInput = new QuadraInput(quadraDTO);

@@ -10,8 +10,8 @@
       </p>
     </div>
 
-    <div class="grid">
-      <div class="">
+    <div class="grid grid-cols-2">
+      <div class="mr-4">
         <label class="block text-sm text-white" for="nome">Nome</label>
         <input
           formControlName="nome"
@@ -19,6 +19,18 @@
           type="text"
           id="nome"
           aria-label="nome"
+          required
+        />
+      </div>
+
+      <div class="">
+        <label class="block text-sm text-white" for="valorQuadra">Valor da Quadra</label>
+        <input
+          formControlName="valorQuadra"
+          class="default-input w-full p-2.5"
+          type="text"
+          id="valorQuadra"
+          aria-label="valorQuadra"
           required
         />
       </div>

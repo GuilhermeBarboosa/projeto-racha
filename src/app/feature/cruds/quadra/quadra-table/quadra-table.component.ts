@@ -19,7 +19,7 @@ export class QuadraTableComponent implements OnInit, AfterViewInit {
   value?: String;
   mandaFiltroTrue = 'Ativar';
   mandaFiltroFalse = 'Excluir';
-  displayedColumns: string[] = ['id', 'quadra', 'status', 'rachas', 'info', 'excluir'];
+  displayedColumns: string[] = ['id', 'quadra', 'valorQuadra','status', 'rachas', 'info', 'excluir'];
   Adicionar = 'Adicionar';
   Info = 'Info';
   Racha = 'Racha';

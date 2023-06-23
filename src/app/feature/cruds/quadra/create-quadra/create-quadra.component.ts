@@ -31,6 +31,7 @@ export class CreateQuadraComponent implements OnInit {
   async createTable() {
     this.formulario = this.formBuilder.group({
       nome: ['', [Validators.required, Validators.minLength(3)]],
+      valorQuadra: ['', [Validators.required]],
     });
   }
 
@@ -38,6 +39,7 @@ export class CreateQuadraComponent implements OnInit {
     if (this.formulario.valid) {
       let quadraDto = {
         nome: this.formulario.get('nome')?.value,
+        valorQuadra: this.formulario.get('valorQuadra')?.value,
       };
 
       let quadraInput = new QuadraInput(quadraDto);
