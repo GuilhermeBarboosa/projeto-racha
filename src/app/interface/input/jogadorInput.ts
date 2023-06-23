@@ -1,5 +1,3 @@
-import { Jogador } from "../dto/jogador";
-
 export class JogadorInput {
   user!: number ;
 

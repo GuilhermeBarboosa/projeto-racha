@@ -10,31 +10,7 @@
       </p>
     </div>
 
-    <div class="grid grid-cols-2">
-      <div class="mr-4">
-        <label class="block text-sm text-white" for="nome">Nome</label>
-        <input
-          formControlName="nome"
-          class="default-input w-full p-2.5"
-          type="text"
-          id="nome"
-          aria-label="nome"
-          required
-        />
-      </div>
-
-      <div class="">
-        <label class="block text-sm text-white" for="valorQuadra">Valor da Quadra</label>
-        <input
-          formControlName="valorQuadra"
-          class="default-input w-full p-2.5"
-          type="text"
-          id="valorQuadra"
-          aria-label="valorQuadra"
-          required
-        />
-      </div>
-    </div>
+    <app-quadra-form [quadraForm]="formulario"></app-quadra-form>
 
     <div class="items-center flex justify-between my-2">
       <div>

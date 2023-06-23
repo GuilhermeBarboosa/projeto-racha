@@ -68,8 +68,6 @@ export class ProfileComponent implements OnInit {
             element.nomeRacha
           );
           arrayJogadores.push(element);
-
-          console.log(arrayJogadores)
         });
 
         this.jogadorRacha = arrayJogadores;

@@ -9,14 +9,6 @@ export class TokenJwtService {
   setToken(token: any) {
     localStorage.setItem('token', token.token);
     localStorage.setItem('email', token.email);
-    // this.loginService.obterClaims().subscribe(
-    //   (data: any) => {
-    //     var data = JSON.parse(JSON.stringify(data));
-    //     localStorage.setItem('nome', data.nome);
-    //     localStorage.setItem('id', data.id);
-    //     localStorage.setItem('role', data.role);
-    //   }
-    // );
   }
 
   getToken() {

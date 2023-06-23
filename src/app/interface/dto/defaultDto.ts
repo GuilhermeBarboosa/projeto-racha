@@ -1,6 +1,6 @@
 export interface DefaultDto{
-  id?: number | undefined;
-  actived?: string | undefined;
-  updated? : string | undefined;
-  created? : string | undefined;
+  id?: number;
+  actived: string;
+  updated? : string;
+  created? : string;
 }

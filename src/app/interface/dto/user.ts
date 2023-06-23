@@ -3,13 +3,13 @@ import { Jogador } from "./jogador";
 import { Role } from "./role";
 
 export interface User extends DefaultDto{
-    nome: string | undefined;
-    idade: number | undefined;
-    telefone: string | undefined;
-    cpf: string | undefined;
-    jogador?: Jogador | undefined;
-    email: string | undefined;
-    senha: string | undefined;
-    idRole: number | undefined;
-    role: string | undefined;
+    nome: string;
+    idade: number;
+    telefone: string;
+    cpf: string;
+    jogador?: Jogador;
+    email: string;
+    senha: string;
+    idRole: number;
+    role: string;
 }

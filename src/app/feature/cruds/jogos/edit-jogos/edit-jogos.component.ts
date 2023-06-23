@@ -43,7 +43,6 @@ export class EditJogosComponent implements OnInit {
         jogoResponse.updated
       );
       this.jogo = jogoResponse;
-      console.log(this.jogo)
       this.createTable();
     });
   }
@@ -80,9 +79,7 @@ export class EditJogosComponent implements OnInit {
 
       jogoDTO.data = this.utils.formatarDataToSQL(jogoDTO.data);
 
-
       let jogoInput = new JogoInput(jogoDTO);
-      console.log(jogoInput)
 
       this.jogoService.edit(jogoInput, this.jogo!.id!).subscribe(
         (data) => {

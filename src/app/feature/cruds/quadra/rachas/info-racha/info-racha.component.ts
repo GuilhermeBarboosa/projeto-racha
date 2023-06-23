@@ -18,7 +18,6 @@ import { UtilsService } from 'src/app/shared/utils.service';
 export class InfoRachaComponent implements OnInit, AfterViewInit {
   formulario!: FormGroup;
   racha?: Racha;
-  // arrayJogadorRacha?: JogadorRacha[];
   isDisabled = true;
   id = this.activedRouter.snapshot.params['id'];
   idQuadra = this.activedRouter.snapshot.params['idQuadra'];
@@ -58,7 +57,6 @@ export class InfoRachaComponent implements OnInit, AfterViewInit {
     this.jogadorRachaService.getByRacha(this.id).subscribe((data) => {
       var jogadorRachaResponse = JSON.parse(JSON.stringify(data));
       this.arrayJogadorRacha.data = jogadorRachaResponse;
-      console.log(this.arrayJogadorRacha)
     });
   }
 

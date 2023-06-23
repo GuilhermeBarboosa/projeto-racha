@@ -29,8 +29,6 @@ export class TableInfoJogosComponent implements OnInit, AfterViewInit {
   ngOnInit() {
     this.rachaService.getAll().subscribe((data) => {
       this.arrayRacha = JSON.parse(JSON.stringify(data));
-
-      console.log(this.arrayRacha)
     });
   }
 

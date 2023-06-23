@@ -10,19 +10,7 @@
       </p>
     </div>
 
-    <div class="grid">
-      <div class="">
-        <label class="block text-sm text-white" for="posicao">Posição</label>
-        <input
-          formControlName="posicao"
-          class="default-input w-full p-2.5"
-          type="text"
-          id="posicao"
-          aria-label="posicao"
-          required
-        />
-      </div>
-    </div>
+    <app-posicao-form [posicaoForm]="formulario"></app-posicao-form>
 
     <div class="items-center flex justify-between my-2">
       <div>

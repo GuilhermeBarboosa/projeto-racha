@@ -1,5 +1,3 @@
-import { Racha } from "../dto/racha";
-
 export class RachaInput {
   nome: string | undefined;
   caixa: number | undefined;

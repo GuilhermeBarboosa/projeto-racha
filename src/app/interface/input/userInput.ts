@@ -1,5 +1,3 @@
-import { User } from "../dto/user";
-
 export class UserInput {
   nome: string | undefined;
 

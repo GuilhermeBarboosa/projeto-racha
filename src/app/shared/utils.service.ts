@@ -23,7 +23,6 @@ export class UtilsService {
 
   formatterString(string: String) {
     string = string.toLowerCase();
-    // string = string.split(' ')[0];
     string = string.replace(/(^\w{1})|(\s+\w{1})/g, (letra) =>
       letra.toUpperCase()
     );

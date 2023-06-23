@@ -78,7 +78,6 @@ export class AddRachaComponent implements OnInit, AfterViewInit {
           this.adicionarJogador();
         }
       });
-      console.log(this.arrayJogador);
     } else {
       this.adicionarJogador();
     }
@@ -128,8 +127,7 @@ export class AddRachaComponent implements OnInit, AfterViewInit {
       this.jogadorRachaService.create(jogadorRachaRequest).subscribe(
         (data) => {
           this.notifier.ShowSuccess('Jogador cadastrado com sucesso!');
-          console.log(data)
-          // this.router.navigateByUrl('/jogador');
+
         },
         (error) => {
           this.notifier.ShowError(error.error);

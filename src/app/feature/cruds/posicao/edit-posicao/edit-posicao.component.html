@@ -15,24 +15,7 @@
         <input formControlName="id" class="default-input text-center p-2.5" type="text" id="posicao" required>
       </div>
 
-      <div class="grid">
-        <div class="">
-          <label class="block text-sm text-white" for="posicao">Posição</label>
-          <input formControlName="posicao" class="default-input w-full p-2.5" type="text" id="posicao" aria-label="posicao" required>
-        </div>
-      </div>
-
-      <div class="items-center flex justify-between">
-        <div>
-          <label class="block text-sm text-white" for="created">Criado:</label>
-          <input formControlName="created" class="default-input text-center p-2.5" type="text" id="created" required>
-        </div>
-
-        <div class="align-end">
-          <label class="block text-sm text-white" for="updated">Modificado:</label>
-          <input formControlName="updated" class="default-input text-center p-2.5" type="text" id="updated" required>
-        </div>
-      </div>
+      <app-posicao-form [posicaoForm]="formulario"></app-posicao-form>
 
       <div class="items-center flex justify-between my-2">
         <div class="align-end">

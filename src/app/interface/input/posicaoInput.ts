@@ -1,5 +1,3 @@
-import { Posicao } from "../dto/posicao";
-
 export class PosicaoInput {
   posicao?: string;
 

@@ -1,5 +1,3 @@
-import { JogadorRacha } from "../dto/jogador-racha";
-
 export class JogadorRachaInput {
   jogador: number | undefined;
   racha: number | undefined;
