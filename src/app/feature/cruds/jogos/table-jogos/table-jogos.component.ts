@@ -38,17 +38,18 @@ export class TableJogosComponent implements OnInit {
   ngOnInit() {
     this.rachaService.getById(this.idRacha).subscribe((data) => {
       this.racha = JSON.parse(JSON.stringify(data));;
+      this.valorTotal = this.racha.caixa;
     });
 
 
     this.jogoService.getByIdRacha(this.idRacha).subscribe((data) => {
       let arrayResponse = JSON.parse(JSON.stringify(data));
 
-      arrayResponse.forEach((element: any) => {
-        element.data = this.utilsService.formatarData(element.data);
+      // arrayResponse.forEach((element: any) => {
+      //   element.data = this.utilsService.formatarData(element.data);
 
-        this.valorTotal += element.valorPago;
-      });
+      //   this.valorTotal += element.valorPago;
+      // });
 
 
 
