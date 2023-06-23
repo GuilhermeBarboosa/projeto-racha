@@ -21,8 +21,7 @@ export class TableJogosComponent implements OnInit {
 
   value?: String;
   valorTotal = 0;
-  id = this.activedRouter.snapshot.params['id'];
-  // id = this.activedRouter.snapshot.params['id'];
+  idRacha = this.activedRouter.snapshot.params['id'];
   mandaFiltroTrue = 'Ativar';
   mandaFiltroFalse = 'Excluir';
   displayedColumns: string[] = ['id', 'data', 'valor_pago', 'info'];
@@ -33,7 +32,7 @@ export class TableJogosComponent implements OnInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
   ngOnInit() {
-    this.jogoService.getByIdRacha(this.id).subscribe((data) => {
+    this.jogoService.getByIdRacha(this.idRacha).subscribe((data) => {
       let arrayResponse = JSON.parse(JSON.stringify(data));
 
       arrayResponse.forEach((element: any) => {
@@ -52,6 +51,10 @@ export class TableJogosComponent implements OnInit {
 
   info(jogo: Jogo) {
     this.router.navigateByUrl(`jogos/info/${jogo.id}`);
+  }
+
+  add() {
+    this.router.navigateByUrl(`jogos/register/${this.idRacha}`);
   }
 
   applyFilter(event: Event) {

@@ -30,6 +30,7 @@ import { AddRachaComponent } from './feature/cruds/quadra/rachas/add-racha/add-r
 import { TableJogosComponent } from './feature/cruds/jogos/table-jogos/table-jogos.component';
 import { InfoJogosComponent } from './feature/cruds/jogos/info-jogos/info-jogos.component';
 import { EditJogosComponent } from './feature/cruds/jogos/edit-jogos/edit-jogos.component';
+import { CreateJogosComponent } from './feature/cruds/jogos/create-jogos/create-jogos.component';
 
 export const routes: Routes = [
   {
@@ -169,10 +170,10 @@ export const routes: Routes = [
         path: 'racha/:id',
         component: TableJogosComponent,
       },
-      // {
-      //   path: 'register',
-      //   component: CreateQuadraComponent,
-      // },
+      {
+        path: 'register/:id',
+        component: CreateJogosComponent,
+      },
       {
         path: 'edit/:id',
         component: EditJogosComponent,

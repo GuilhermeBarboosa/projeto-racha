@@ -59,6 +59,9 @@ import { TableJogosComponent } from './feature/cruds/jogos/table-jogos/table-jog
 import { InfoJogosComponent } from './feature/cruds/jogos/info-jogos/info-jogos.component';
 import { JogoFormComponent } from './feature/forms/jogo-form/jogo-form.component';
 import { EditJogosComponent } from './feature/cruds/jogos/edit-jogos/edit-jogos.component';
+import { CreateJogosComponent } from './feature/cruds/jogos/create-jogos/create-jogos.component';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatNativeDateModule} from '@angular/material/core';
 
 const maskConfig: Partial<IConfig> = {
   validation: false,
@@ -103,6 +106,7 @@ const maskConfig: Partial<IConfig> = {
     TableJogosComponent,
     InfoJogosComponent,
     EditJogosComponent,
+    CreateJogosComponent,
     // Form
     UserFormComponent,
     PosicaoFormComponent,
@@ -132,6 +136,8 @@ const maskConfig: Partial<IConfig> = {
     MatDialogModule,
     MatAutocompleteModule,
     BrowserAnimationsModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
     HttpClientModule,
     MatPaginatorModule,
     AppRoutingModule,

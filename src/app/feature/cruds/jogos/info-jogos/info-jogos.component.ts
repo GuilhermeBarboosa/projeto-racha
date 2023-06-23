@@ -17,7 +17,7 @@ export class InfoJogosComponent implements OnInit {
   formulario!: FormGroup;
   jogo?: Jogo;
   isDisabled = true;
-  id = this.activedRouter.snapshot.params['id'];
+  idRacha = this.activedRouter.snapshot.params['id'];
   Editar = 'Editar';
   Voltar = 'Voltar';
 
@@ -31,7 +31,7 @@ export class InfoJogosComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.jogosService.getById(this.id).subscribe(
+    this.jogosService.getById(this.idRacha).subscribe(
       (data) => {
         var jogoResponse = JSON.parse(JSON.stringify(data));
         this.jogo = jogoResponse;
@@ -77,15 +77,15 @@ export class InfoJogosComponent implements OnInit {
   }
 
   edit() {
-    this.router.navigateByUrl(`jogos/edit/${this.id}`);
+    this.router.navigateByUrl(`jogos/edit/${this.idRacha}`);
   }
 
   return(){
-    this.router.navigateByUrl('/jogos');
+    this.router.navigateByUrl(`/jogos/racha/${this.jogo?.idRacha}`);
   }
 
   remove() {
-    this.jogosService.delete(this.id).subscribe(
+    this.jogosService.delete(this.jogo?.id!).subscribe(
       (data) => {
         this.notifier.ShowError('Jogo removida com sucesso!');
         this.router.navigateByUrl('/jogos');

@@ -1,0 +1,35 @@
+<app-navbar></app-navbar>
+
+<div class="flex">
+  <app-sidebar></app-sidebar>
+
+  <form class="h-full w-full m-5" [formGroup]="formulario" *ngIf="formulario">
+    <div class="flex justify-between">
+      <p class="text-white font-medium justify-start text-lg font-bold">
+        REGISTRE O JOGO
+      </p>
+    </div>
+
+    <div class="grid grid-cols-2">
+      <div class="mr-4">
+        <label class="block text-sm text-white" for="valorPago">Valor Pago</label>
+        <input formControlName="valorPago" class="default-input w-full p-2.5" type="text" id="valorPago" aria-label="valorPago" mask="000" required>
+      </div>
+
+      <div class="">
+        <label class="block text-sm text-white" for="data">Data</label>
+        <input formControlName="data" class="default-input w-full p-2.5" type="text" id="data" aria-label="data" mask="00/00/0000" required>
+      </div>
+    </div>
+
+    <div class="items-center flex justify-between my-2">
+      <div>
+        <app-button-red [value]="Nao" (click)="return()"></app-button-red>
+      </div>
+
+      <div class="align-end">
+        <app-button-green [value]="Sim" (click)="save()"></app-button-green>
+      </div>
+    </div>
+  </form>
+</div>
