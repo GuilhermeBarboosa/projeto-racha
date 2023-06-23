@@ -45,13 +45,9 @@ export class TableJogosComponent implements OnInit {
     this.jogoService.getByIdRacha(this.idRacha).subscribe((data) => {
       let arrayResponse = JSON.parse(JSON.stringify(data));
 
-      // arrayResponse.forEach((element: any) => {
-      //   element.data = this.utilsService.formatarData(element.data);
-
-      //   this.valorTotal += element.valorPago;
-      // });
-
-
+      arrayResponse.forEach((element: any) => {
+        element.data = this.utilsService.formatarData(element.data);
+      });
 
       this.arrayJogos.data = arrayResponse;
     });
