@@ -42,6 +42,10 @@ export class JogadorRachaService {
     return this.http.put(`${this.urlJogadorRacha}/${id}`, jogadorRacha);
   }
 
+  editList(jogadorRacha: JogadorRachaInput[], id: number) {
+    return this.http.put(`${this.urlJogadorRacha}/list/${id}`, jogadorRacha);
+  }
+
   ativar(jogadorRacha: JogadorRacha, id: number) {
     return this.http.put(`${this.urlJogadorRacha}/ativar/${id}`, jogadorRacha);
   }

@@ -24,6 +24,8 @@ export class InfoRachaComponent implements OnInit, AfterViewInit {
   Editar = 'Editar';
   Voltar = 'Voltar';
   Adicionar = 'Add Jogadores';
+
+  
   constructor(
     private activedRouter: ActivatedRoute,
     private rachaService: RachaService,

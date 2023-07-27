@@ -7,6 +7,8 @@ import { User } from 'src/app/interface/dto/user';
 import { UtilsService } from 'src/app/shared/utils.service';
 import { UserService } from '../../../../routes/user.service';
 import { JogadorService } from '../../../../routes/jogador.service';
+import { RoleService } from 'src/app/routes/role.service';
+import { Role } from 'src/app/interface/dto/role';
 
 @Component({
   selector: 'app-info-user',
@@ -16,6 +18,7 @@ import { JogadorService } from '../../../../routes/jogador.service';
 export class InfoUserComponent implements OnInit {
   formulario!: FormGroup;
   user?: User;
+  roles? : Role[]
   isDisabled = true;
   id = this.activedRouter.snapshot.params['id'];
   Editar = 'Editar';
@@ -24,6 +27,7 @@ export class InfoUserComponent implements OnInit {
   constructor(
     private activedRouter: ActivatedRoute,
     private userService: UserService,
+    private roleService: RoleService,
     private jogadorService: JogadorService,
     private router: Router,
     private utils: UtilsService,
@@ -32,6 +36,7 @@ export class InfoUserComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+
     this.userService.getById(this.id).subscribe(
       (data) => {
         var userResponse = JSON.parse(JSON.stringify(data));

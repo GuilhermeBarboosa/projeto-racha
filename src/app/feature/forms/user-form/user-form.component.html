@@ -37,6 +37,7 @@
                 type="text"
                 id="nome"
                 aria-label="nome"
+                mask="000.000.000-00"
                 required
               />
             </div>
@@ -54,16 +55,49 @@
             </div>
           </div>
 
-          <div class="">
-            <label class="block text-sm text-white" for="email">E-mail</label>
-            <input
-              formControlName="email"
-              class="default-input w-full p-2.5"
-              type="email"
-              id="email"
-              aria-label="email"
-              required
-            />
+          <div class="grid grid-cols-3">
+
+            <div class="col mr-4">
+              <label class="block text-sm text-white " for="email">E-mail</label>
+              <input
+                formControlName="email"
+                class="default-input w-full p-2.5"
+                type="email"
+                id="email"
+                aria-label="email"
+                required
+              />
+            </div>
+
+            <div class="col mr-4">
+              <label class="block text-sm text-white " for="senha">Senha</label>
+              <input
+                formControlName="senha"
+                class="default-input w-full p-2.5"
+                type="password"
+                id="senha"
+                aria-label="senha"
+                required
+              />
+            </div>
+
+            <div class="col">
+                <label
+                class="block text-sm text-white"
+                  for="first_name"
+                  >Permissão</label
+                >
+                <select
+                  id="posicao"
+                  formControlName="role"
+                  class="default-input w-full p-2.5"
+                >
+                  <option value="" disabled selected>Selecione a permissão</option>
+                  <option *ngFor="let role of roleArray" [value]="role.id">
+                    {{ role.role }}
+                  </option>
+                </select>
+              </div>
           </div>
         </div>
       </form>

@@ -58,14 +58,15 @@ export class CreateUserComponent implements OnInit {
         '',
         [Validators.required, Validators.min(14), Validators.max(70)],
       ],
-      role: [2, Validators.required],
-      posicao: [''],
+      role: ['', Validators.required],
       telefone: ['', Validators.required],
       cpf: ['', [Validators.required, Validators.minLength(3)]],
     });
   }
 
   save() {
+    console.log(this.formulario);
+
     if (this.formulario.valid) {
       let userDTO = {
         nome: this.formulario.get('nome')?.value,
@@ -89,6 +90,7 @@ export class CreateUserComponent implements OnInit {
         }
       );
     } else {
+      console.log(this.formulario);
       this.notifier.ShowError('Formulário inválido!');
     }
   }

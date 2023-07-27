@@ -21,7 +21,7 @@ export class NotifierService {
   }
 
   ShowWarning(message: string) {
-    this.toastr.warning('You are being warned.', message, { timeOut: 3000});
+    this.toastr.warning('', message, { timeOut: 3000});
   }
 
   ShowInfo(message: string) {

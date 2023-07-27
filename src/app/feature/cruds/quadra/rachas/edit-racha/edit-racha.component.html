@@ -17,6 +17,111 @@
 
       <app-racha-form [formulario]="formulario"></app-racha-form>
 
+
+      <div [formGroup]="formularioUser" *ngIf="formularioUser">
+        <div class="grid w-45">
+          <div>
+            <div>
+              <label
+                for="first_name"
+                class="block mb-2 text-sm font-medium text-white"
+                >Cpf do usuário</label
+              >
+              <input
+                type="text"
+                id="first_name"
+                class="default-input w-full  p-2.5"
+                #cpf
+                name="userCpf"
+                mask="000.000.000-00"
+              />
+            </div>
+
+            <app-button-yellow
+              class="flex justify-end mt-4"
+              [value]="Procurar"
+              (click)="find(cpf.value)"
+            ></app-button-yellow>
+          </div>
+
+          <div *ngIf="arrayUser?.length === 0 || arrayUser != null">
+            <div
+              class=""
+
+            >
+              <div class="">
+                <label
+                  for="first_name"
+                  class="block mt-4 text-sm font-medium text-white"
+                  >Usuários</label
+                >
+                <select
+                  id="user"
+                  formControlName="user"
+                  class="default-input w-full p-2.5"
+                >
+                  <option value="" disabled selected>Selecione o usuário</option>
+                  <option *ngFor="let user of arrayUser" [value]="user.id">
+                    {{ user.nome }} - {{ user.cpf }}
+                  </option>
+                </select>
+              </div>
+            </div>
+
+
+            <div class="mt-4 flex justify-end">
+              <app-button-green [value]="Adicionar" (click)="add()"></app-button-green>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <div class="mt-5">
+        <mat-table mat-table [dataSource]="arrayJogadorRacha" class="mat-elevation-z2">
+
+          <ng-container matColumnDef="id">
+            <mat-header-cell mat-header-cell *matHeaderCellDef> Id </mat-header-cell>
+            <mat-cell mat-cell *matCellDef="let jogador"> {{jogador.idJogador}} </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="nome">
+            <mat-header-cell mat-header-cell *matHeaderCellDef> Nome </mat-header-cell>
+            <mat-cell mat-cell *matCellDef="let jogador"> {{jogador.nomeJogador}} </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="gols">
+            <div>
+              <mat-header-cell mat-header-cell *matHeaderCellDef> Gols </mat-header-cell>
+              <mat-cell mat-cell *matCellDef="let jogador"> {{jogador.gols}} </mat-cell>
+            </div>
+          </ng-container>
+
+          <ng-container matColumnDef="assistencias">
+            <div>
+              <mat-header-cell mat-header-cell *matHeaderCellDef> Assistências </mat-header-cell>
+              <mat-cell mat-cell *matCellDef="let jogador"> {{jogador.assistencias}} </mat-cell>
+            </div>
+          </ng-container>
+
+          <ng-container matColumnDef="excluir">
+            <mat-header-cell mat-header-cell *matHeaderCellDef>  </mat-header-cell>
+            <mat-icon  mat-cell *matCellDef="let jogador" class="cursor-pointer m-5" (click)="deleteUser(jogador.id)">delete</mat-icon>
+          </ng-container>
+
+          <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+          <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+        </mat-table>
+
+        <mat-paginator #paginator
+        [pageSize]="10"
+        [pageSizeOptions]="[5, 10, 20]"
+        [showFirstLastButtons]="true">
+        </mat-paginator>
+      </div>
+
       <div class="items-center flex justify-between my-2">
         <div class="align-end">
           <app-button-red [value] = "Nao" (click)="return()"></app-button-red>
